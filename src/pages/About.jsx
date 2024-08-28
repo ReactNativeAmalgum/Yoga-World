@@ -504,7 +504,9 @@ export default function About() {
                             </div>
                           </div>
                           <div className="pbmit-ihbox-contents">
-                            <h2 className="pbmit-element-title">Changing rooms</h2>
+                            <h2 className="pbmit-element-title">
+                              Changing rooms
+                            </h2>
                             <div className="pbmit-heading-desc">
                               Neque blandit consectetur viverra placerat ante.
                             </div>
@@ -523,7 +525,9 @@ export default function About() {
                             </div>
                           </div>
                           <div className="pbmit-ihbox-contents">
-                            <h2 className="pbmit-element-title">Training Programs</h2>
+                            <h2 className="pbmit-element-title">
+                              Training Programs
+                            </h2>
                             <div className="pbmit-heading-desc">
                               Neque blandit consectetur viverra placerat ante.
                             </div>
@@ -578,199 +582,152 @@ export default function About() {
       {/* Swiper Section */}
       <section className="about-section2">
         <div className="about-swiper-cont">
-        <Swiper
-            navigation={true}
-            slidesPerView={3}
-            modules={[Navigation, Pagination, Autoplay]} // Include Autoplay here
-            className="mySwiper"
-            pagination={{ clickable: true }}
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
             autoplay={{
-              delay: 1000, // Delay between slides in ms
-              disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+              delay: 2500,
+              disableOnInteraction: false,
             }}
-            breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            480: {
-              slidesPerView: 2,
-              spaceBetween: 15,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 2,
-              spaceBetween: 25,
-            },
-            1200: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-          }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
           >
-            {/* {RoomData.map((img, i) => ( */}
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
+            <SwiperSlide>
+              <div
+                // onClick={() => {
+                //   new Promise((resolve) => {
+                //     navigation(`/room-details/${img.id}`);
+                //     resolve();
+                //   }).then(() => {
+                //     setTimeout(() => {
+                //       window.scrollTo(0, 0);
+                //     }, 50);
+                //   });
+                // }}
+                className="acc-swiper-card-cont"
+              >
+                <div className="acc-wiper-card-cont-img">
+                  <img src="https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060" />
 
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
+                  <div className="acc-swiper-card-text">
+                    <h3 className="acc-swiper-card-text-h">AAA</h3>
+                    <span className="acc-swiper-card-text-s">
+                      1 bed / 1 bathroom
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                // onClick={() => {
+                //   new Promise((resolve) => {
+                //     navigation(`/room-details/${img.id}`);
+                //     resolve();
+                //   }).then(() => {
+                //     setTimeout(() => {
+                //       window.scrollTo(0, 0);
+                //     }, 50);
+                //   });
+                // }}
+                className="acc-swiper-card-cont"
+              >
+                <div className="acc-wiper-card-cont-img">
+                  <img src="https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060" />
 
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
+                  <div className="acc-swiper-card-text">
+                    <h3 className="acc-swiper-card-text-h">AAA</h3>
+                    <span className="acc-swiper-card-text-s">
+                      1 bed / 1 bathroom
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                // onClick={() => {
+                //   new Promise((resolve) => {
+                //     navigation(`/room-details/${img.id}`);
+                //     resolve();
+                //   }).then(() => {
+                //     setTimeout(() => {
+                //       window.scrollTo(0, 0);
+                //     }, 50);
+                //   });
+                // }}
+                className="acc-swiper-card-cont"
+              >
+                <div className="acc-wiper-card-cont-img">
+                  <img src="https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060" />
 
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
+                  <div className="acc-swiper-card-text">
+                    <h3 className="acc-swiper-card-text-h">AAA</h3>
+                    <span className="acc-swiper-card-text-s">
+                      1 bed / 1 bathroom
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                // onClick={() => {
+                //   new Promise((resolve) => {
+                //     navigation(`/room-details/${img.id}`);
+                //     resolve();
+                //   }).then(() => {
+                //     setTimeout(() => {
+                //       window.scrollTo(0, 0);
+                //     }, 50);
+                //   });
+                // }}
+                className="acc-swiper-card-cont"
+              >
+                <div className="acc-wiper-card-cont-img">
+                  <img src="https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060" />
 
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
+                  <div className="acc-swiper-card-text">
+                    <h3 className="acc-swiper-card-text-h">AAA</h3>
+                    <span className="acc-swiper-card-text-s">
+                      1 bed / 1 bathroom
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
+              </div>
+            </SwiperSlide>
 
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
+            <SwiperSlide>
+              <div
+                // onClick={() => {
+                //   new Promise((resolve) => {
+                //     navigation(`/room-details/${img.id}`);
+                //     resolve();
+                //   }).then(() => {
+                //     setTimeout(() => {
+                //       window.scrollTo(0, 0);
+                //     }, 50);
+                //   });
+                // }}
+                className="acc-swiper-card-cont"
+              >
+                <div className="acc-wiper-card-cont-img">
+                  <img src="https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060" />
+
+                  <div className="acc-swiper-card-text">
+                    <h3 className="acc-swiper-card-text-h">AAA</h3>
+                    <span className="acc-swiper-card-text-s">
+                      1 bed / 1 bathroom
+                    </span>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  // onClick={() => {
-                  //   new Promise((resolve) => {
-                  //     navigation(`/room-details/${img.id}`);
-                  //     resolve();
-                  //   }).then(() => {
-                  //     setTimeout(() => {
-                  //       window.scrollTo(0, 0);
-                  //     }, 50);
-                  //   });
-                  // }}
-                  className="acc-swiper-card-cont"
-                >
-                  <div className="acc-wiper-card-cont-img">
-                    <img src='https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=1060' />
-
-                    <div className="acc-swiper-card-text">
-                      <h3 className="acc-swiper-card-text-h">AAA</h3>
-                      <span className="acc-swiper-card-text-s">
-                        1 bed / 1 bathroom
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            {/* ))} */}
+              </div>
+            </SwiperSlide>
           </Swiper>
-
         </div>
       </section>
     </div>
