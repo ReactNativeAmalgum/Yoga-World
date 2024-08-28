@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+/* Ensure the container takes up full height and width of the viewport */
+.section {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text within the h1 */
+    padding: 20px; /* Optional: Add some padding */
+    box-sizing: border-box; /* Ensure padding is included in the total width and height */
+}
+
+/* Default styles for large screens */
+h1 {
+    font-size: 100px !important; /* Adjust as needed */
+    font-family: "Sora", sans-serif !important;
+    font-weight: 700 !important;
+    color: #000; /* Color of the heading text */
+}
+
+h1 .bordered {
+    color: white; /* Text color for "INSTRUCTORS" */
+    text-shadow: 
+        1px 1px 0 black,
+        -1px 1px 0 black,
+        1px -1px 0 black,
+        -1px -1px 0 black,
+        0 1px 0 black,
+        0 -1px 0 black,
+        1px 0 0 black,
+        -1px 0 0 black; /* Black outline effect */
+}
+
+/* Responsive styles for medium screens (tablets) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 60px !important; /* Adjust font size for medium screens */
+    }
+}
+
+/* Responsive styles for small screens (phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px !important; /* Adjust font size for small screens */
+    }
+}

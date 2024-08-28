@@ -1,0 +1,16 @@
+.pbminfotech-post-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.pbmit-team-style-2 .pbminfotech-post-item {
+    padding: 33px 0 33px !important;
+    border-bottom: 1px solid rgba(24, 26, 23, .5);
+}
+.pbmit-team-title a{
+    color: black;
+}
+
+.pbmit-team-title a:hover{
+     --pbmit-global-color: #448c74;
+}

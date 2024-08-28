@@ -1,0 +1,314 @@
+import React, { useEffect, useState } from "react";
+import {
+  Form,
+  Input,
+  Tabs,
+  Rate,
+  Button,
+  Modal,
+  Upload,
+  message,
+  Select,
+} from "antd";
+
+import { FaUserCircle } from "react-icons/fa";
+import { BsFillPatchCheckFill } from "react-icons/bs";
+import { Swiper, SwiperSlide } from "swiper/react";
+// import { getProfile } from "../services/localStorageServices";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import './styles.css';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+// import { get, post } from '../apiService';
+import { Option } from "antd/es/mentions";
+import TextArea from "antd/es/input/TextArea";
+import "./HomeReview.css";
+
+const HomeReview = () => {
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [form] = Form.useForm();
+  // const { profile } = getProfile()
+  // console.log(profile);
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 10,
+    total: 0,
+  });
+  const [rating, setRating] = useState(0);
+  const itemss = Array.from({ length: 10 });
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleOk = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setOpen(false);
+    }, 3000);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+  useEffect(() => {
+    // fetchReviews(pagination.current, pagination.pageSize);
+  }, []);
+
+  // const fetchReviews = async (current, pageSize) => {
+  //     setLoading(true);
+  //     try {
+  //         const action = 'fetch';
+  //         const response = await get(`/review.php?limit=${pageSize}&page=${current}&action=${action}`);
+  //         setReviews(response.list);
+  //         setPagination((prevPagination) => ({
+  //             ...prevPagination,
+  //             current,
+  //             pageSize,
+  //             total: response.total,
+  //         }));
+  //     } catch (error) {
+  //         console.error(error);
+  //     } finally {
+  //         setLoading(false);
+  //     }
+  // };
+
+  const onChange = (key) => {
+    console.log(key);
+  };
+  const showAddModal = () => {
+    form.resetFields(); // Reset fields when opening the modal
+    setIsAddModalVisible(true);
+  };
+
+  const items = [
+    {
+      key: "1",
+      label: "Reviews ()",
+      children: "",
+    },
+    // {
+    //   key: '2',
+    //   label: 'Questions ()',
+    //   children: '',
+    // },
+  ];
+  // const handleAdd = async (values) => {
+  //     try {
+  //         const formData = new FormData();
+  //         formData.append('title', values.title);
+  //         formData.append('description', values.description);
+  //         formData.append('rate', values.rate);
+  //         formData.append('action', 'add');
+  //         formData.append('user_id', profile.user_id);
+  //         const response = await post('/review.php', formData);
+  //         if (response) {
+  //             message.success('Review added successfully');
+  //             setReviews((prev) => {
+  //                 console.log("Previous state:", prev);
+  //                 const newState = [
+  //                     ...prev,
+  //                     {
+  //                         title: values.title,
+  //                         description: values.description,
+  //                         rate: values.rate,
+  //                         name: profile.name,
+  //                         // id: response.id || Date.now()
+  //                     }
+  //                 ];
+  //                 console.log("New state:", newState);
+  //                 return newState;
+  //             });
+  //             // fetchReviews(pagination.current, pagination.pageSize);
+  //             setIsAddModalVisible(false);
+  //         } else {
+  //             message.error('Failed to add review');
+  //         }
+  //     } catch (error) {
+  //         console.error(error);
+  //         message.error('An error occurred while adding the review');
+  //     }
+  // };
+  console.log(reviews);
+  return (
+    <>
+      <section className="section-cr-main">
+        <div className="container">
+          <h5>Customer Reviews</h5>
+          <div className="cr-second-div">
+            <div></div>
+            <div>
+              <div className="cr-stars">
+                <label>
+                  <Rate allowHalf defaultValue={4.5} />
+                </label>
+                {/* <label><CiStar /></label>
+                                <label><CiStar /></label>
+                                <label><CiStar /></label>
+                                <label><CiStar /></label>
+                                <label><CiStar /></label> */}
+              </div>
+            </div>
+            {/* {profile.verify === "1" ? 
+            (
+              <div className="cr-modal-button">
+                <button onClick={showAddModal}>Write a Review</button>
+              </div>
+            ) : (
+              ""
+            )} */}
+            <div className="cr-modal-button">
+                <button onClick={showAddModal}>Write a Review</button>
+              </div>
+          </div>
+          <div>
+            <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+          </div>
+          <div className="mb-1">
+            {/* <div className='be-the-first-star text-muted justify-content-center d-flex mb-1'>
+                            <label><IoMdStar /></label>
+                            <label><IoMdStar /></label>
+                            <label><IoMdStar /></label>
+                            <label><IoMdStar /></label>
+                            <label><IoMdStar /></label>
+                        </div>
+                            <span className='d-block text-center be-the-first'>Be the first to review this item</span> */}
+            <div>
+              <Swiper
+                spaceBetween={30}
+                // centeredSlides={true}
+                // autoplay={{
+                //     delay: 2500,
+                //     disableOnInteraction: false,
+                // }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                  },
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+              >
+                {reviews?.map((v, i) => (
+                  <SwiperSlide>
+                    <div>
+                      <div className=" gap-2 customer-review-card-start">
+                        <div className="customer-review-card pb-2">
+                          <div>
+                            {/* <img src='' /> */}
+                            <FaUserCircle />
+                          </div>
+                          <h6> {v.name} </h6>
+                          <label>
+                            {" "}
+                            <BsFillPatchCheckFill className="customer-verified" />
+                          </label>
+                        </div>
+                        <div>
+                          <Rate disabled defaultValue={v.rate} />
+                        </div>
+                        <p
+                          dangerouslySetInnerHTML={{ __html: v.description }}
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Modal
+        title="Add Review"
+        visible={isAddModalVisible}
+        onCancel={() => setIsAddModalVisible(false)}
+        footer={null}
+      >
+        <Form
+          form={form} // Attach form instance
+          layout="vertical"
+        //   onFinish={handleAdd}
+        >
+          <Form.Item
+            label="Title"
+            name="title"
+            rules={[{ required: true, message: "Please enter the title" }]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Description"
+            name="description"
+            rules={[
+              { required: true, message: "Please enter the description" },
+            ]}
+          >
+            {/* <ReactQuill
+                                theme="snow"
+                                onChange={(content) => form.setFieldsValue({ description: content })}
+                            /> */}
+            <TextArea placeholder="maxLength is 100" maxLength={100} />
+          </Form.Item>
+
+          <Form.Item
+            label="Rate"
+            name="rate"
+            rules={[{ required: true, message: "Please select a rate" }]}
+          >
+            <Select>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <Option key={value} value={value}>
+                  {value}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+
+          <Form.Item name="action" hidden>
+            <Input type="hidden" value="add" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button className="orderFilter-serach-btn" htmlType="submit">
+              Add
+            </Button>
+            <Button
+              type="default"
+              onClick={() => setIsAddModalVisible(false)}
+              style={{ marginLeft: "8px" }}
+            >
+              Cancel
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </>
+  );
+};
+
+export default HomeReview;

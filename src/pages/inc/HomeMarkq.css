@@ -1,0 +1,15 @@
+.marquee-wrapper {
+    overflow: hidden; /* Hide the overflow content */
+    white-space: nowrap; /* Prevent the text from wrapping */
+  }
+  
+  .marquee {
+    display: flex; /* Make the content scroll horizontally */
+    white-space: nowrap; /* Ensure the content stays on one line */
+  }
+  
+  .pbmit-marquee-effect-style-1 {
+    display: inline-block;
+    padding: 0 20px;
+  }
+  

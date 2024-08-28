@@ -1,0 +1,39 @@
+.about-section2{
+    background-color: #fc8c8c;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    /* height: 200px; */
+    /* padding-left: 20px;
+    padding-right: 20px; */
+}
+
+.about-swiper-cont{
+    width:80%;
+    background-color: aqua;
+}
+
+.mySwiper{
+    width: 50%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+

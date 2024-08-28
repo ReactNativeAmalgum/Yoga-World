@@ -1,0 +1,57 @@
+.cr-second-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cr-modal-button{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cr-modal-button button{
+    border: 1pax solid black;
+    padding: 8px 20px;
+    border-radius: 9999px;
+
+}
+.cr-stars svg{
+    font-size: 33px;
+}
+.be-the-first{
+    color: gray;
+}
+.be-the-first-star label svg{
+    font-size: 20px;
+}
+.section-cr-main{
+    padding: 59px 0px;
+    background: rgba(247, 247, 247, var(--tw-bg-opacity));
+    margin-bottom: 7px;
+}
+.how-was-your-overall{
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.customer-review-card{
+    display: flex;
+    justify-content: start;
+    align-items: baseline !important;
+    gap: 5px
+}
+.customer-review-card-start{
+    background-color: #eee;
+    padding: 10px 20px;
+    /* width: max-content; */
+    border-radius: 6px;
+}
+
+.customer-verified{
+    color: rgb(25, 123, 255);
+}
+.swiper-wrapper{
+    padding-bottom: 35px;
+}

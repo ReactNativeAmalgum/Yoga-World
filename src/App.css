@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+body{
+  background-color: white !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pbminfotech-post-item{
+  /* height: 300px ;  */
   display: flex;
   flex-direction: column;
+  justify-content: space-between; 
+}
+.pbminfotech-box-content{
+  /* background-color: aqua; */
+  height: 100% !important;
+}
+.pbmit-box-content-wrap{
+  height: 100%;
+}
+/* .section{
+  padding-top: 50px;
+  padding-bottom: 50px;
+} */
+
+.pbmit-team-title a{
+  text-decoration: none;
+}
+
+.pbmit-team-title a:focus, a:hover{
+  color: var(--pbmit-link-color-hover);
+  text-decoration: none;
+}
+
+
+.pbmit-service-title a{
+  text-decoration: none !important;
+}
+.pbminfotech-post-item-service{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* src/SwiperSlider.css */
+/* src/App.css or src/SwiperSlider.css */
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.clip-path-box {
+  width: 100%;
+  height: 100%;
+  background: #ff6347; /* Example color */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(9.202% 0, 9.202% 100%, 7.711% 99.89%, 6.295% 99.571%, 4.975% 99.061%, 3.769% 98.378%, 2.697% 97.538%, 1.777% 96.558%, 1.028% 95.457%, 0.469% 94.252%, 0.121% 92.959%, 0% 91.597%, 0% 8.403%, 0% 8.403%, 0.121% 7.041%, 0.469% 5.748%, 1.028% 4.543%, 1.777% 3.442%, 2.697% 2.463%, 3.769% 1.622%, 4.975% 0.939%, 6.295% 0.429%, 7.711% 0.11%, 9.202% 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
 }
