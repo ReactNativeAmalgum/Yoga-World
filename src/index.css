@@ -978,20 +978,8 @@ html, body {
 
 /*----------------BASE--------------------*/
 
-/******************************
-INDEX:
-    00 - General
-    01 - Typography
-    02 - Text Color & Background Color
-    03 - Background Position & Size
-    04 - Helper class
-    05 - Social icons
-    06 - Header
-    07 - Bootstrap Overwrite 
-    08 - Swiper 
-    09 - Scroll To Top 
-    10 - Search Box
-******************************/
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet');
@@ -1021,7 +1009,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 00 - General 
+/* 00 - General  */
 /*----------------------------------------*/
  html {
      font-family: sans-serif;
@@ -1175,7 +1163,7 @@ INDEX:
      box-shadow: none;
 }
 /*----------------------------------------*/
-/* 01 - Typography 
+/* 01 - Typography */
 /*----------------------------------------*/
  body {
      font-family:var(--pbmit-body-typography-font-family);
@@ -1358,7 +1346,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 02 - Background Color 
+/* 02 - Background Color */
 /*----------------------------------------*/
  body .pbmit-bg-color-global{
      background-color: var(--pbmit-global-color);
@@ -1377,7 +1365,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 03 - Background Position & Size 
+/* 03 - Background Position & Size */
 /*----------------------------------------*/
  .bg-cover{
     background-size: cover;
@@ -1405,7 +1393,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 04 - Helper Class 
+/* 04 - Helper Class */
 /*----------------------------------------*/
 .section-lg{
 	padding-top: 100px;
@@ -1431,7 +1419,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 05 - Social icons 
+/* 05 - Social icons */
 /*----------------------------------------*/
  .social-icons {
      list-style: none;
@@ -1456,7 +1444,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 06 - Header 
+/* 06 - Header */
 /*----------------------------------------*/
  .navbar-brand .navbar-brand-item {
      height: 60px;
@@ -1578,7 +1566,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 07 - Bootstrap Overwrite 
+/* 07 - Bootstrap Overwrite */
 /*----------------------------------------*/
  .g-lg-4,.gy-lg-4, .g-4, .gy-4 {
      --bs-gutter-y: 2rem;
@@ -1592,7 +1580,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/* 08 - Swiper 
+/* 08 - Swiper */
 /*----------------------------------------*/
  .swiper-slider{
      margin-left: auto;
@@ -1677,7 +1665,7 @@ INDEX:
     transition-timing-function:linear !important; 
 }
 /*----------------------------------------*/
-/* 09 - Scroll To Top 
+/* 09 - Scroll To Top */
 /*----------------------------------------*/
 .pbmit-progress-wrap {
     position: fixed;
@@ -1749,7 +1737,7 @@ INDEX:
 }
 
 /*----------------------------------------*/
-/*  10 - Search Box
+/*  10 - Search Box */
 /*----------------------------------------*/
 .pbmit-search-overlay {
     position: fixed;
@@ -1933,12 +1921,6 @@ INDEX:
 
 /*******************FONTAWESOME.CSS************************/
 
-/*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-/* FONT PATH
- * -------------------------- */
  @font-face {
 	font-family: 'FontAwesome';
 	src: url(./fonts/fontawesome-webfont.eot_v=4.7.0);
@@ -4541,9 +4523,7 @@ img.mfp-img {
   cursor: pointer; }
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
-  /**
-       * Remove all paddings around the image on small screen
-       */
+
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0; }
@@ -4605,16 +4585,7 @@ img.mfp-img {
       font-weight: normal;
       font-style: normal;
     }
-    /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-    /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-    /*
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-      @font-face {
-        font-family: 'pbminfotech-base-icons';
-        src: url('../font/pbminfotech-base-icons.svg?57698833#pbminfotech-base-icons') format('svg');
-      }
-    }
-    */
+
     [class^="pbmit-base-icon-"]:before, [class*=" pbmit-base-icon-"]:before {
       font-family: "pbminfotech-base-icons";
       font-style: normal;
@@ -4834,12 +4805,7 @@ img.mfp-img {
     .pbmit-base-icon-linkedin-squared:before { content: '\f30c'; } /* '' */
     .pbmit-base-icon-comment-1:before { content: '\f4ac'; } /* '' */
 
-  /******************RESPONSIVE.CSS************************
-  /******************************
-
-INDEX:
-
-******************************/
+  /******************RESPONSIVE.CSS************************/
 
 body {
   overflow: visible;
@@ -7278,38 +7244,7 @@ ul.navigation.clearfix{
 }
 
 /*************************SHORTCODE.CSS************************/
-/******************************
 
-    INDEX:
-
-    00 - Section Title
-    01 - Icon Box
-    02 - Team Member
-    03 - Counter
-    04 - Service
-    05 - Blog
-    06 - Testimonial
-    07 - Header
-    08 - Footer
-    09 - Title Bar
-    10 - Overlap Colomn
-    11 - Accordion
-    12 - Circle Progress
-    13 - List Group
-    14 - Revolution
-    15 - Client
-    16 - Spinner-Box
-	17 - Cursor
-    18 - Sortable
-	19 - Img Animation
-    20 - Marquee
-    21 - Event Category
-	22 - Tween Effect
-	23 - Static Box
-	24 - Tab
-	25 - Pricing
-
-******************************/
 
 body {
   counter-reset: pbmitbox1 pbmitbox2 pbmitbox3 pbmitbox4;
@@ -7317,7 +7252,7 @@ body {
 }
 
 /*----------------------------------------*/
-/*  00 - Section Title
+/*  00 - Section Title */
 /*----------------------------------------*/
 .pbmit-heading-subheading {
   margin-bottom: 50px;
@@ -7369,7 +7304,7 @@ border-color: var(--pbmit-white-color);
 }
 
 /*----------------------------------------*/
-/*  01 - Icon Box
+/*  01 - Icon Box */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-ihbox-style-1 .pbmit-ihbox-icon{
@@ -8673,7 +8608,7 @@ transform: scale(0.26) translate(45px, -50px);
 }
 
 /*----------------------------------------*/
-/*  02 - Team Member
+/*  02 - Team Member */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-team-style-1 .pbmit-featured-wrapper img,
@@ -8954,7 +8889,7 @@ font-family: var(--pbmit-btn-typography-font-family);
 }
 
 /*----------------------------------------*/
-/*  03 - Counter
+/*  03 - Counter */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbminfotech-ele-fid-style-1 .pbmit-circle{
@@ -9135,7 +9070,7 @@ color: var(--pbmit-blackish-color);
 }
 
 /*----------------------------------------*/
-/*  04 - Service
+/*  04 - Service */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-service-style-1 .pbmit-link,
@@ -9514,7 +9449,7 @@ position: absolute;
   z-index: 1;
 }
 /*----------------------------------------*/
-/*  05 - Blog
+/*  05 - Blog */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-blog-style-1 .pbmit-featured-wrapper img,
@@ -9846,7 +9781,7 @@ transform: scale(0.26) translate(45px, -50px);
 }
 
 /*----------------------------------------*/
-/*  06 - Testimonial
+/*  06 - Testimonial */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-testimonial-style-1 .pbminfotech-post-item{
@@ -10049,7 +9984,7 @@ letter-spacing: -0.25px;
 }
 
 /*----------------------------------------*/
-/*  07 - Header
+/*  07 - Header */
 /*----------------------------------------*/
 .pbmit-header-overlay {
   position: absolute;
@@ -10200,7 +10135,7 @@ stroke: var(--pbmit-white-color);
 }
 
 /*----------------------------------------*/
-/*  08 - Footer
+/*  08 - Footer */
 /*----------------------------------------*/
 .footer-top-section{
 padding: 36px 0px 36px 0px;
@@ -10378,7 +10313,7 @@ content: "";
 }
 
 /*----------------------------------------*/
-/*  09 - Title Bar
+/*  09 - Title Bar */
 /*----------------------------------------*/
 .pbmit-title-bar-wrapper{
 position: relative;
@@ -10484,7 +10419,7 @@ padding: 0 4px;
 }
 
 /*----------------------------------------*/
-/*  10 - Overlap Colomn
+/*  10 - Overlap Colomn */
 /*----------------------------------------*/
 .overlap-colomn {
    position: relative; 
@@ -10524,7 +10459,7 @@ padding: 0 4px;
 }
 
 /*----------------------------------------*/
-/*  11 - Accordion
+/*  11 - Accordion */
 /*----------------------------------------*/
 .accordion-item{
 border: none ;
@@ -10611,7 +10546,7 @@ box-shadow: none;
 }
 
 /*----------------------------------------*/
-/*  12 - Circle Progress
+/*  12 - Circle Progress */
 /*----------------------------------------*/
 .db-circle-overlay { 
   position: absolute; 
@@ -10705,7 +10640,7 @@ box-shadow: none;
 }
 
 /*----------------------------------------*/
-/*  13 - List Group
+/*  13 - List Group */
 /*----------------------------------------*/
 .list-group-borderless .list-group-item {
 display: flex;
@@ -10743,7 +10678,7 @@ font-family: var(--pbmit-body-typography-font-family);
 }
 
 /*----------------------------------------*/
-/*  14 -  Revolution
+/*  14 -  Revolution */ 
 /*----------------------------------------*/
 /** Slider 01 **/
 #rev_slider_2_1 .pbmit-rev-btn.rev-btn .pbmit-button-icon-wrapper{
@@ -10878,7 +10813,7 @@ color: var(--pbmit-secondary-color);
 }
 
 /*----------------------------------------*/
-/*  15 - Client
+/*  15 - Client */
 /*----------------------------------------*/
 .pbminfotech-hide, .pbmit-hide {
   display: none;
@@ -10928,7 +10863,7 @@ transform: translateY(100%);
 }
 
 /*----------------------------------------*/
-/* 16 - Spinner Box
+/* 16 - Spinner Box */
 /*----------------------------------------*/
 /** Style 1 **/
 .pbmit-spinner-box-style-1 {
@@ -11003,9 +10938,9 @@ font-size: 25px;
 color: var(--pbmit-blackish-color);
 }
 
-/* --------------------------------------
-* 17 - Cursor
-* ---------------------------------------*/
+/* -------------------------------------- */
+
+
 .pbmit-cursor {
   position: fixed;
   top: 0;
@@ -11285,9 +11220,7 @@ color: var(--pbmit-blackish-color);
   transform: scale(10);
 }
 
-/* --------------------------------------
-* 18 - Sortable
-* ---------------------------------------*/
+
 .pbmit-sortable-list-ul {
   list-style: none;
   margin: 0;
@@ -11315,9 +11248,6 @@ margin: 0 10px;
   color: var(--pbmit-white-color);
 }
 
-/* --------------------------------------
-* 19 - Img Animation
-* ---------------------------------------*/
 .pbmit-animation-style4{
 display: inline-block;
   position: relative;
@@ -11329,9 +11259,7 @@ transform-origin: 50% 50%;
 transition: 2s cubic-bezier(0.5, 0.5, 0, 1);
 }
 
-/* --------------------------------------
-* 20 - Marquee
-* ---------------------------------------*/
+
 .pbmit-marquee-effect-style-1 .pbmit-element-title {
 font-size: 90px;
 line-height: 110px!important;
@@ -11379,9 +11307,7 @@ transform: translateY(-50%);
 color: var(--pbmit-global-color);
 }
 
-/* --------------------------------------
-* 21 - Event Category
-* ---------------------------------------*/
+
 .pbmit-ele-event_listing{
 padding-bottom: 30px;
 }
@@ -11572,9 +11498,7 @@ padding-right: 15px;
 padding-bottom: 30px;
 }
 
-/* --------------------------------------
-* 22 - Tween Effect
-* ---------------------------------------*/
+
 /** Style 1 **/
 .pbmit-tween-effect-style-1 .pbmit-element-title{
 font-size: 100px;
@@ -11598,9 +11522,7 @@ color: transparent;
 text-transform: uppercase;
 }
 
-/* --------------------------------------
-* 23 - Static Box
-* ---------------------------------------*/
+
 /** Style 1 **/
 .pbmit-element-static-box-style-1 .pbmit-ele-static-box .pbmit-contentbox-inner .pbmit-btn a{
 transition: all .6s ease-in-out;
@@ -11815,9 +11737,6 @@ z-index: -1;
 font-family: var(--pbmit-heading-typography-font-family);
 }
 
-/* --------------------------------------
-* 24 - Tab
-* ---------------------------------------*/
 .pbmit-tab {
   display: flex;
 }
@@ -11903,9 +11822,7 @@ padding-left: 15px;
 font-weight: 600;
 }
 
-/* --------------------------------------
-* 25 - Pricing
-* ---------------------------------------*/
+
 .pbminfotech-ptable-style-1 .pbmit-ptable-col .pbmit-pricing-table-box,
 .pbminfotech-ptable-style-1 .pbmit-ptable-col:hover .pbmit-head-wrap::before{
 transition: all 0.6s ease-in-out;
@@ -12066,27 +11983,7 @@ font-family: var(--pbmit-heading-typography-font-family);
 }
 
 /**********************STYLE.CSS***********************/
-/******************************
 
-    00 - Home
-    01 - Inner Page
-		01 - Our History
-		02 - Our Team Member
-		02 - Service Detail
-        03 - Event Single Detail
-        04 - Blog Detail
-             Sidebar Right
-             Blog Large
-             Blog Single
-        05 - Team Single
-        06 - Contact Us
-        07 - Comment Form
-    
-******************************/
-
-/*----------------------------------------*/
-/*  00 - Home
-/*----------------------------------------*/
 /** Homepage 01 **/
 .ihbox-section_one{
 	margin: -25px 20px 0px 20px;
@@ -12690,9 +12587,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon{
 	background-color: var(--pbmit-white-color);
 }
 
-/*------------------- ---------------------*/
-/*01 - Inner Page 
-/*----------------------------------------*/
+
 /** Faq **/
 .faq-left_box{
 	padding-right: 20px;
@@ -14739,17 +14634,7 @@ textarea.form-control{
 
 /*************************SWIPER.MIN.CSS****************************/
 
-/**
- * Swiper 7.3.3
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- *
- * Copyright 2014-2021 Vladimir Kharlampidi
- *
- * Released under the MIT License
- *
- * Released on: December 16, 2021
- */
+
  @font-face {
   font-family: swiper-icons;
   src: url('data:application/font-woff;charset=utf-8;base64, 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');
@@ -15379,16 +15264,6 @@ button.swiper-pagination-bullet {
 
 /*****************THEMIFY-CICON***********************/
 
-/* @font-face {
-	font-family: 'themify';
-	src:url('../fonts/themify.eot?-fvbane');
-	src:url('../fonts/themify.eot?#iefix-fvbane') format('embedded-opentype'),
-		url('../fonts/themify.woff?-fvbane') format('woff'),
-		url('../fonts/themify.ttf?-fvbane') format('truetype'),
-		url('../fonts/themify.svg?-fvbane#themify') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} */
 
 [class^="ti-"], [class*=" ti-"] {
 	font-family: 'themify';
