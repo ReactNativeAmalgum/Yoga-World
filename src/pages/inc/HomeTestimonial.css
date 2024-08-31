@@ -1,6 +1,6 @@
-/* Style each SwiperSlide */
+Style each SwiperSlide
 .swiper-slide {
-  /* background: #f0f0f0; */
+  background: transparent;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -10,24 +10,21 @@
   color: #333;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  margin-right: 20px; /* Add space between slides */
+  margin-right: 20px; 
 }
 .img-cont{
   width: 410px;
 }
 
-/* Remove the margin from the last slide in each row */
 .swiper-slide:last-child {
   margin-right: 0;
 }
 
 .swiper-slide:hover {
-  /* transform: scale(1.05); */
 }
 
 .pbminfotech-post-item{
-  /* width: 510px !important; */
-  /* height: 310px; */
+
 }
 .swiper-slide-content img{
   height: 100%;
@@ -35,7 +32,6 @@
 }
 
 .pbmit-testimonial-style-1{
-  /* background-color: blue; */
   width: 410px !important;
 }
 .pbminfotech-post-item{

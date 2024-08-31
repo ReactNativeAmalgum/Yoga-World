@@ -168,8 +168,8 @@ const HomeReview = () => {
               ""
             )} */}
             <div className="cr-modal-button">
-                <button onClick={showAddModal}>Write a Review</button>
-              </div>
+              <button onClick={showAddModal}>Write a Review</button>
+            </div>
           </div>
           <div>
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
@@ -185,6 +185,7 @@ const HomeReview = () => {
                             <span className='d-block text-center be-the-first'>Be the first to review this item</span> */}
             <div>
               <Swiper
+                // slidesPerView={4}
                 spaceBetween={30}
                 // centeredSlides={true}
                 // autoplay={{
@@ -192,17 +193,14 @@ const HomeReview = () => {
                 //     disableOnInteraction: false,
                 // }}
                 breakpoints={{
-                  640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
+                  1024: {
+                    slidesPerView: 3,
+                  },
+                  1440: {
+                    slidesPerView: 3,
                   },
                   768: {
                     slidesPerView: 2,
-                    spaceBetween: 40,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 50,
                   },
                 }}
                 pagination={{
@@ -212,78 +210,140 @@ const HomeReview = () => {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
               >
+                <SwiperSlide>
+                  <div>
+                    <div className=" gap-2 customer-review-card-start">
+                      <div className="customer-review-card pb-2">
+                        <div>
+                          {/* <img src='' /> */}
+                          <FaUserCircle />
+                        </div>
+                        <h6> Rahul</h6>
+                        <label>
+                          {" "}
+                          <BsFillPatchCheckFill className="customer-verified" />
+                        </label>
+                      </div>
+                      <div>
+                        <Rate disabled defaultValue={3} />
+                      </div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            "Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
 
-                  <SwiperSlide>
-                    <div>
-                      <div className=" gap-2 customer-review-card-start">
-                        <div className="customer-review-card pb-2">
-                          <div>
-                            {/* <img src='' /> */}
-                            <FaUserCircle />
-                          </div>
-                          <h6> Rahul</h6>
-                          <label>
-                            {" "}
-                            <BsFillPatchCheckFill className="customer-verified" />
-                          </label>
-                        </div>
+                <SwiperSlide>
+                  <div>
+                    <div className=" gap-2 customer-review-card-start">
+                      <div className="customer-review-card pb-2">
                         <div>
-                          <Rate disabled defaultValue={3} />
+                          {/* <img src='' /> */}
+                          <FaUserCircle />
                         </div>
-                        <p
-                          dangerouslySetInnerHTML={{ __html: 'Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!' }}
-                        />
+                        <h6> Rahul</h6>
+                        <label>
+                          {" "}
+                          <BsFillPatchCheckFill className="customer-verified" />
+                        </label>
                       </div>
+                      <div>
+                        <Rate disabled defaultValue={3} />
+                      </div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            "Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!",
+                        }}
+                      />
                     </div>
-                  </SwiperSlide>
+                  </div>
+                </SwiperSlide>
 
-                  <SwiperSlide>
-                    <div>
-                      <div className=" gap-2 customer-review-card-start">
-                        <div className="customer-review-card pb-2">
-                          <div>
-                            {/* <img src='' /> */}
-                            <FaUserCircle />
-                          </div>
-                          <h6> Rahul</h6>
-                          <label>
-                            {" "}
-                            <BsFillPatchCheckFill className="customer-verified" />
-                          </label>
-                        </div>
+                <SwiperSlide>
+                  <div>
+                    <div className=" gap-2 customer-review-card-start">
+                      <div className="customer-review-card pb-2">
                         <div>
-                          <Rate disabled defaultValue={3} />
+                          {/* <img src='' /> */}
+                          <FaUserCircle />
                         </div>
-                        <p
-                          dangerouslySetInnerHTML={{ __html: 'Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!' }}
-                        />
+                        <h6> Rahul</h6>
+                        <label>
+                          {" "}
+                          <BsFillPatchCheckFill className="customer-verified" />
+                        </label>
                       </div>
+                      <div>
+                        <Rate disabled defaultValue={3} />
+                      </div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            "Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!",
+                        }}
+                      />
                     </div>
-                  </SwiperSlide>
-                  
-                  <SwiperSlide>
-                    <div>
-                      <div className=" gap-2 customer-review-card-start">
-                        <div className="customer-review-card pb-2">
-                          <div>
-                            {/* <img src='' /> */}
-                            <FaUserCircle />
-                          </div>
-                          <h6> Rahul</h6>
-                          <label>
-                            {" "}
-                            <BsFillPatchCheckFill className="customer-verified" />
-                          </label>
-                        </div>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <div>
+                    <div className=" gap-2 customer-review-card-start">
+                      <div className="customer-review-card pb-2">
                         <div>
-                          <Rate disabled defaultValue={3} />
+                          {/* <img src='' /> */}
+                          <FaUserCircle />
                         </div>
-                        <p
-                          dangerouslySetInnerHTML={{ __html: 'Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!' }}
-                        />
+                        <h6> Rahul</h6>
+                        <label>
+                          {" "}
+                          <BsFillPatchCheckFill className="customer-verified" />
+                        </label>
                       </div>
+                      <div>
+                        <Rate disabled defaultValue={3} />
+                      </div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            "Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!",
+                        }}
+                      />
                     </div>
-                  </SwiperSlide>
+                  </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                  <div>
+                    <div className=" gap-2 customer-review-card-start">
+                      <div className="customer-review-card pb-2">
+                        <div>
+                          {/* <img src='' /> */}
+                          <FaUserCircle />
+                        </div>
+                        <h6> Rahul</h6>
+                        <label>
+                          {" "}
+                          <BsFillPatchCheckFill className="customer-verified" />
+                        </label>
+                      </div>
+                      <div>
+                        <Rate disabled defaultValue={3} />
+                      </div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            "Quickly and easily generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
               </Swiper>
             </div>
           </div>
@@ -298,7 +358,7 @@ const HomeReview = () => {
         <Form
           form={form} // Attach form instance
           layout="vertical"
-        //   onFinish={handleAdd}
+          //   onFinish={handleAdd}
         >
           <Form.Item
             label="Title"

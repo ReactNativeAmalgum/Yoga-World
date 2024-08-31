@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./HomeClassWork.css";
 import { FreeMode, Pagination } from "swiper/modules";
+import EnquiryModal from "../../components/EnquiryModal";
 
 export default function HomeClassWork() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // Slide data
   const slideData = [
     {
@@ -17,7 +22,8 @@ export default function HomeClassWork() {
       duration: "70 min / Session",
       registrationDate: "31-10-2023",
       price: "$370 / Month",
-      imgUrl: "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
+      imgUrl:
+        "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
       // link: "event-single-detail.html",
     },
     {
@@ -28,7 +34,8 @@ export default function HomeClassWork() {
       duration: "60 min / Session",
       registrationDate: "27-10-2023",
       price: "$390 / Month",
-      imgUrl: "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
+      imgUrl:
+        "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
       // link: "event-single-detail.html",
     },
     {
@@ -39,7 +46,8 @@ export default function HomeClassWork() {
       duration: "120 min / Session",
       registrationDate: "29-10-2023",
       price: "$499 / Month",
-      imgUrl: "https://img.freepik.com/free-photo/flexible-man-posing-park_23-2147645839.jpg?t=st=1724726202~exp=1724729802~hmac=909e4b7c0eca0ceb0a90e3c343550fa130ea94914a92dc06443ebf62433e2e68&w=996",
+      imgUrl:
+        "https://img.freepik.com/free-photo/flexible-man-posing-park_23-2147645839.jpg?t=st=1724726202~exp=1724729802~hmac=909e4b7c0eca0ceb0a90e3c343550fa130ea94914a92dc06443ebf62433e2e68&w=996",
       // link: "event-single-detail.html",
     },
     {
@@ -50,7 +58,8 @@ export default function HomeClassWork() {
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl: "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl:
+        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
       // link: "event-single-detail.html",
     },
     {
@@ -61,7 +70,8 @@ export default function HomeClassWork() {
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl: "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl:
+        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
       // link: "event-single-detail.html",
     },
     {
@@ -72,7 +82,8 @@ export default function HomeClassWork() {
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl: "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl:
+        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
       // link: "event-single-detail.html",
     },
   ];
@@ -269,7 +280,8 @@ export default function HomeClassWork() {
           freeMode={true}
           pagination={{ clickable: true }}
           modules={[FreeMode, Pagination]}
-          slidesPerView={1}
+          // centeredSlides={true}
+          // slidesPerView={1}
           breakpoints={{
             1440: {
               slidesPerView: 3,
@@ -292,10 +304,14 @@ export default function HomeClassWork() {
                 className="pbmit-ele-event_listing swiper-slide-classwork"
                 role="group"
                 aria-label={`Slide ${slide.id} / ${slideData.length}`}
-                style={{ width: "446.667px" }} // Ensure this is responsive or adjusted in CSS
+                style={{}} // Ensure this is responsive or adjusted in CSS
               >
                 <div className="pbmit-event-layout-wrapper">
-                  <div className={`event_listing event-type-${slide.type.toLowerCase().replace(/ /g, '-')}`}>
+                  <div
+                    className={`event_listing event-type-${slide.type
+                      .toLowerCase()
+                      .replace(/ /g, "-")}`}
+                  >
                     <div className="pbmit-event-action-url event-style-color skin-quality">
                       <div className="pbmit-event-banner">
                         <div
@@ -306,42 +322,42 @@ export default function HomeClassWork() {
                         >
                           <div className="pbmit-event-type">
                             <a href={slide.link}>
-                              <span className={`pbmit-event-type-text event-type-${slide.type.toLowerCase().replace(/ /g, '-')}`}>
+                              <span
+                                className={`pbmit-event-type-text event-type-${slide.type
+                                  .toLowerCase()
+                                  .replace(/ /g, "-")}`}
+                              >
                                 {slide.type}
                               </span>
                             </a>
                           </div>
                         </div>
-                        <a
-                          className="pbmit-button"
-                          href={slide.link}
-                        >
+                        <a className="pbmit-button" href={slide.link}>
                           <span className="pbmit-button-icon-wrapper">
                             <span className="pbmit-button-icon">
                               <i className="pbmit-base-icon-black-arrow-1" />
                             </span>
                           </span>
                         </a>
-                        <a
-                          className="pbmit-link"
-                          href={slide.link}
-                        />
+                        <a className="pbmit-link" href={slide.link} />
                       </div>
                       <div className="pbmit-event-infomation">
                         <div className="pbmit-event-date">
                           <div className="pbmit-event-date-type">
                             <div className="pbmit-from-date">
-                              <div className="pbmit-date">{slide.date.split(' ')[0]}</div>
-                              <div className="pbmit-month">{slide.date.split(' ')[1]}</div>
+                              <div className="pbmit-date">
+                                {slide.date.split(" ")[0]}
+                              </div>
+                              <div className="pbmit-month">
+                                {slide.date.split(" ")[1]}
+                              </div>
                             </div>
                           </div>
                         </div>
                         <div className="pbmit-event-details">
                           <div className="pbmit-event-title">
                             <h3 className="pbmit-heading-text">
-                              <a href={slide.link}>
-                                {slide.title}
-                              </a>
+                              <a href={slide.link}>{slide.title}</a>
                             </h3>
                           </div>
                           <div className="pbmit-event-meta d-flex align-items-center">
@@ -358,9 +374,17 @@ export default function HomeClassWork() {
                               </span>
                             </div>
                           </div>
-                          <div className="pbmit-event-price">
-                            <div className="pbmit-event-meta-price">
-                              {slide.price}
+                          <div
+                          onClick={handleShow}
+                            style={{ borderWidth: 1, borderColor: "white" }}
+                            className="pbmit-event-price"
+                          >
+                            <div
+                              className="pbmit-event-meta-price"
+                            >
+                              <span style={{ color: "white" }}>
+                                Enquiry Now
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -369,7 +393,9 @@ export default function HomeClassWork() {
                     <div className="pbmit-event-arrow-link">
                       <a
                         href={slide.link}
-                        className={`event-style-color event-type-${slide.type.toLowerCase().replace(/ /g, '-')}`}
+                        className={`event-style-color event-type-${slide.type
+                          .toLowerCase()
+                          .replace(/ /g, "-")}`}
                       />
                     </div>
                   </div>
@@ -379,6 +405,8 @@ export default function HomeClassWork() {
           ))}
         </Swiper>
       </div>
+      <EnquiryModal show={show} onHide={handleClose} />
+
     </section>
   );
 }

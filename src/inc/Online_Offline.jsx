@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { imageData } from "../images/img_index";
 import { LuBellRing } from "react-icons/lu";
+import EnquiryModal from "../components/EnquiryModal";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Online_Offline() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+
   const events = [
     {
       id: 1,
@@ -149,6 +157,8 @@ export default function Online_Offline() {
       price: "$245 / Month",
     },
   ];
+
+
   return (
     <>
       <div className="pbmit-title-bar-wrapper">
@@ -458,10 +468,11 @@ export default function Online_Offline() {
                                 </div>
                               </div>
                               <div className="pbmit-event-price">
-                                <div className="pbmit-event-meta-price">
-                                  <span>Enquiry Now</span>
+                                <div onClick={handleShow} className="pbmit-event-meta-price">
+                                  <span onClick={() => navigate('/contact')}> Enquiry Now</span>
                                 </div>
                               </div>
+                              {/* <EnquiryModal show={show} onHide={handleClose} /> */}
                             </div>
                           </div>
                         </div>

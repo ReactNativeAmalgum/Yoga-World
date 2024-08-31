@@ -1,4 +1,4 @@
-html{
+html {
   overflow-x: hidden;
 }
 .details h1,
@@ -14,21 +14,44 @@ h5 {
 h2 {
   font-weight: 400 !important;
 }
-
 .carousel-container {
   position: relative;
-  height: 50%;
-  max-height: 50%;
-  /* max-width: 100%; */
+  /* height: 50%; */
+  /* max-height: 50%; */
   margin: 0 auto;
   overflow-x: hidden !important;
   padding: 10px;
+}
+
+.carousel-item {
+  position: relative;
+  overflow: hidden; /* Ensures gradient does not overflow */
 }
 
 .slider-img {
   height: 100vh !important;
   object-fit: cover;
   border-radius: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5)
+  );
+
+  z-index: 1;
+  pointer-events: none; /* Allows interactions with elements underneath */
 }
 
 .text-box {
@@ -36,7 +59,6 @@ h2 {
   min-height: 300px;
   padding: 50px;
   border-radius: 30px;
-  background-color: rgb(64 50 38 / 96%);
   color: white;
   display: flex;
   align-items: left;
@@ -45,24 +67,19 @@ h2 {
   justify-content: center;
   position: absolute;
   flex-direction: column;
-  top: 50%;
-  left: 60%;
+  top: 60%;
+  left: 5%;
   right: 2%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 3; /* Ensure text is above the gradient */
 }
-
-.text-box h3,
-.text-box .txt-h3 {
-  font-family: "Space Grotesk" !important;
-  font-size: 60px;
-  color: white !important;
-  font-weight: 700;
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 4; /* Ensure carousel controls are above everything */
 }
-
 .text-box h2 {
   color: white !important;
-  font-family: Roboto;
+  font-family: Sora, sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -88,15 +105,15 @@ h2 {
 
 .text-box h3,
 .text-box .txt-h3 {
-  font-family: "Space Grotesk" !important;
-  font-size: 60px;
+  font-family: "Sora", sans-serif !important;
+  /* font-size: 60px; */
   color: white !important;
   font-weight: 700;
 }
 
 .text-box h2 {
   color: white !important;
-  font-family: Roboto;
+  font-family: Sora, sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -115,7 +132,7 @@ h2 {
   border-radius: 50px;
   text-align: center;
   color: white;
-  background-color: rgb(187, 154, 101);
+  background-color: #448c74;
 }
 .banner-book-now2 {
   border: 1px solid #999797;
@@ -136,7 +153,7 @@ h2 {
   position: absolute;
   top: 1px;
   left: 140px;
-  color: rgb(187, 154, 101);
+  color: #448c74;
   background-color: white;
 }
 
@@ -155,43 +172,29 @@ h2 {
   display: none !important;
 }
 /* Responsive Styles */
+
+@media(max-width:2560px) and (min-width:1488px){
+  .text-box h3,
+.text-box .txt-h3 {
+  font-family: "Sora", sans-serif !important;
+  font-size: 60px;
+  color: white !important;
+  font-weight: 700;
+}
+}
+
 @media (max-width: 1440px) {
   .slider-img {
     max-height: 100vh;
   }
   .text-box h3,
   .text-box .txt-h3 {
-    font-size: 50px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .text-box {
-    min-width: 320px;
-    padding: 40px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .text-box h3,
-  .text-box .txt-h3 {
-    font-size: 45px;
-  }
-
-  .text-box h2 {
-    font-size: 16px;
+    /* font-size: 50px; */
   }
 }
 
 @media (max-width: 768px) {
-  .text-box {
-    min-width: 300px;
-    padding: 30px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .text-box h3,
+  */ .text-box h3,
   .text-box .txt-h3 {
     font-size: 35px;
   }
@@ -199,11 +202,11 @@ h2 {
   .text-box h2 {
     font-size: 14px;
   }
-  .moreAbout2 {
+  /* .moreAbout2 {
     background-color: rgb(187, 154, 101);
     display: none;
     border-radius: 30px;
-  }
+  } */
   .slider-img {
     max-height: 70vh;
   }
@@ -212,37 +215,55 @@ h2 {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   .text-box {
-    min-width: 280px;
-    min-height: 210px;
-    padding: 20px;
     left: 50%;
     transform: translate(-50%, -50%);
-    justify-content: center;
-    align-items: center;
+    width: 100%;
   }
 
   .text-box h3,
   .text-box .txt-h3 {
-    font-size: 28px;
-    text-align: center;
+    /* font-size: 45px; */
   }
 
   .text-box h2 {
-    font-size: 12px;
-    display: none;
+    font-size: 16px;
   }
   .slider-img {
-    max-height: 60vh;
+    height: 80vh !important; /* Adjusted height for screens smaller than 1440px */
   }
-  .moreAbout2 {
-    display: block;
+  .carousel-container {
+    padding: 0px !important;
   }
-  .moreAbout {
-    display: none;
+  .carousel-container img {
   }
-  .carousel-indicators {
+  .carousel-container::after {
+    padding: 0px;
+  }
+  .carousel-item::after {
+    border-radius: 0px !important;
+  }
+  .slider-img {
+    border-radius: 0px !important;
+  }
+  .text-box {
+    border-radius: 0px !important;
+  }
+  .ihbox-section_one {
+    margin: 0px !important;
+  }
+}
+@media (max-width: 480px) {
+  .text-box h2 {
     display: none !important;
   }
+  .book-now-circle {
+    display: none !important;
+  }
+  .banner-book-now {
+    background-color: white;
+    color: #448c74;
+  }
+
 }

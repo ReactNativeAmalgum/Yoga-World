@@ -33,7 +33,11 @@
     display: flex;
     flex-direction: column;
   }
-  
+  .swiper-slide .swiper-slide-active{
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
   /* Responsive Adjustments */
   @media (max-width: 575px) { /* Extra small devices (phones) */
     .pbmit-ele-event_listing {

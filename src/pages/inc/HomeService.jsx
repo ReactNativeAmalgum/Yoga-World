@@ -1,12 +1,16 @@
 import React from "react";
 import "../../App.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
 import yogaLotus from "../../images/yoga_lotus.png";
-import { FreeMode, Pagination } from "swiper/modules";
+import "./HomeService.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
 const slidesData = [
   {
     id: 1,
@@ -20,7 +24,6 @@ const slidesData = [
     category: "Mantra Yoga Trainer",
     title: "Online Yoga",
     image: yogaLotus,
-
     link: "service-details.html",
   },
   {
@@ -28,356 +31,215 @@ const slidesData = [
     category: "DJ Yoga Trainer",
     title: "Offline Yoga",
     image: yogaLotus,
-
     link: "service-details.html",
   },
   {
     id: 4,
     category: "Astanga Yoga Trainer",
-    title: "Online Doctor Consultaions",
+    title: "Online Doctor Consultations",
     image: yogaLotus,
-
     link: "service-details.html",
   },
 ];
 
 export default function HomeService() {
   return (
-    <section className="section-lg">
-      <div className="container">
-        <div className="position-relative">
-          <div className="pbmit-heading-subheading animation-style2">
-            <h4 className="pbmit-subtitle">service</h4>
-            <h2 className="pbmit-title" style={{ perspective: 400 }}>
-              <div
-                className="split-line"
-                style={{
-                  display: "block",
-                  textAlign: "start",
-                  position: "relative",
-                }}
-              >
-                <div style={{ position: "relative", display: "inline-block" }}>
+    <>
+      <section className="section-lg">
+        <div className="container">
+          <div className="position-relative">
+            <div className="pbmit-heading-subheading animation-style2">
+              <h4 className="pbmit-subtitle">Service</h4>
+              <h2 className="pbmit-title" style={{ perspective: 400 }}>
+                <div
+                  className="split-line"
+                  style={{
+                    display: "block",
+                    textAlign: "start",
+                    position: "relative",
+                  }}
+                >
                   <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
+                    style={{ position: "relative", display: "inline-block" }}
                   >
-                    O
-                  </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      O
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      u
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      r
+                    </div>
+                  </div>{" "}
                   <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
+                    style={{ position: "relative", display: "inline-block" }}
                   >
-                    u
-                  </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      m
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      a
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      i
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      n
+                    </div>
+                  </div>{" "}
                   <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
+                    style={{ position: "relative", display: "inline-block" }}
                   >
-                    r
-                  </div>
-                </div>{" "}
-                <div style={{ position: "relative", display: "inline-block" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    m
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    a
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    i
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    n
-                  </div>
-                </div>{" "}
-                <div style={{ position: "relative", display: "inline-block" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    e
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    r
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    v
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    i
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    c
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    e
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      s
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      e
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      r
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      v
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      i
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      c
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      e
+                    </div>
+                    <div
+                      style={{ position: "relative", display: "inline-block" }}
+                    >
+                      s
+                    </div>
                   </div>
                 </div>
-              </div>
-            </h2>
+              </h2>
+            </div>
           </div>
         </div>
-        <div className="swiper-container">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            loop={true}
-            freeMode={true}
-            pagination={{ clickable: true }}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper"
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            {slidesData.map((slide) => (
-              <SwiperSlide key={slide.id}>
-                <article className="pbmit-service-style-1">
-                  <div className="pbminfotech-post-item">
-                    <div className="pbminfotech-box-content">
-                      <div className="pbmit-box-content-wrap">
-                        <div className="pbmit-box-content-inner">
-                          <div className="pbmit-contant-box">
-                            <div className="pbmit-serv-cat">
-                              <a
-                                style={{ textDecoration: 'none', color: 'black' }}
-                                href={slide.link}
-                                rel="tag"
-                              >
-                                {slide.category}
-                              </a>
-                            </div>
-                            <h3 className="pbmit-service-title">
-                              <a
-                                style={{ textDecoration: 'none', color: 'black' }}
-                                href={slide.link}
-                              >
-                                {slide.title}
-                              </a>
-                            </h3>
-                          </div>
-                          <div className="pbmit-service-icon">
-                            {slide.image ? (
-                              <img src={slide.image} alt="Yoga Icon" />
-                            ) : (
-                              <i className={`pbmit-yoge-icon ${slide.icon}`} />
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <a
-                        className="pbmit-service-btn"
-                        href={slide.link}
-                        title={slide.title}
-                      >
-                        <span className="pbmit-button-icon-wrapper">
-                          <span className="pbmit-button-icon">
-                            <i className="pbmit-base-icon-black-arrow-1" />
-                          </span>
-                        </span>
-                      </a>
-                    </div>
-                    <a className="pbmit-link" href={slide.link} />
-                  </div>
-                </article>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      </section>
+      <section className="section">
+      <div className="home-service-swiper-cont container">
+      <Swiper
+      // spaceBetween={}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      loop={true}
+      breakpoints={{
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 2,
+        },
+        1440:{
+          slidesPerView:2
+        }
+      }}
+    >
+      <SwiperSlide className="homeservice-swiperslider-cont">
+        <div className="card-wrapper">
+          <div className="card">
+            <div className="circle-p-cont">
+              <div className="small-circle"></div>
+              <p className="card-content">DJ Yoga Trainer</p>
+            </div>
+            <h3 className="card-title">Types of Yoga</h3>
+            <img className="slide-img" src={yogaLotus} alt="y" />
+          </div>
+          <div className="separate-circle">
+            <i className="pbmit-base-icon-black-arrow-1"></i>
+          </div>
         </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="card-wrapper">
+          <div className="card">
+            <div className="circle-p-cont">
+              <div className="small-circle"></div>
+              <p className="card-content">DJ Yoga Trainer</p>
+            </div>
+            <h3 className="card-title">Offline Yoga</h3>
+            <img className="slide-img" src={yogaLotus} alt="y" />
+          </div>
+          <div className="separate-circle">
+            <i className="pbmit-base-icon-black-arrow-1"></i>
+          </div>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="card-wrapper">
+          <div className="card">
+            <div className="circle-p-cont">
+              <div className="small-circle"></div>
+              <p className="card-content">DJ Yoga Trainer</p>
+            </div>
+            <h3 className="card-title">Online Doctor Yoga</h3>
+            <img className="slide-img" src={yogaLotus} alt="y" />
+          </div>
+          <div className="separate-circle">
+            <i className="pbmit-base-icon-black-arrow-1"></i>
+          </div>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="card-wrapper">
+          <div className="card">
+            <div className="circle-p-cont">
+              <div className="small-circle"></div>
+              <p className="card-content">DJ Yoga Trainer</p>
+            </div>
+            <h3 className="card-title">Offline Yoga</h3>
+            <img className="slide-img" src={yogaLotus} alt="y" />
+          </div>
+          <div className="separate-circle">
+            <i className="pbmit-base-icon-black-arrow-1"></i>
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
-
-/*
-
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper"
-          breakpoints={{
-            320:{
-              slidesPerView: 1
-            },
-            375: {
-              slidesPerView: 1,
-              // spaceBetween: 10,
-            },
-            425: {
-              slidesPerView: 1,
-              // spaceBetween: 10,
-            },            
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-          }}
-        >
-          {slidesData.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <article className="pbmit-service-style-1">
-                <div className="pbminfotech-post-item">
-                  <div className="pbminfotech-box-content">
-                    <div className="pbmit-box-content-wrap">
-                      <div className="pbmit-box-content-inner">
-                        <div className="pbmit-contant-box">
-                          <div className="pbmit-serv-cat">
-                            <a style={{textDecoration:'none', color:'black'}} href={slide.link} rel="tag">
-                              {slide.category}
-                            </a>
-                          </div>
-                          <h3 className="pbmit-service-title">
-                            <a style={{textDecoration:'none', color:'black'}} href={slide.link}>{slide.title}</a>
-                          </h3>
-                        </div>
-                        <div className="pbmit-service-icon">
-                          {slide.image ? (
-                            <img src={slide.image} alt="Yoga Icon" />
-                          ) : (
-                            <i className={`pbmit-yoge-icon ${slide.icon}`} />
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    <a
-                      className="pbmit-service-btn"
-                      href={slide.link}
-                      title={slide.title}
-                    >
-                      <span className="pbmit-button-icon-wrapper">
-                        <span className="pbmit-button-icon">
-                          <i className="pbmit-base-icon-black-arrow-1" />
-                        </span>
-                      </span>
-                    </a>
-                  </div>
-                  <a className="pbmit-link" href={slide.link} />
-                </div>
-              </article>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-*/

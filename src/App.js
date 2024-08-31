@@ -12,6 +12,7 @@ import Footer from "./inc/Footer";
 import Online_Offline from "./inc/Online_Offline";
 import Doctor from "./inc/Doctor";
 import ServiceDetail from "./pages/ServiceDetail";
+import HomeReview from "./pages/inc/HomeReview";
 export default function App() {
   return (
     <Router>
@@ -28,6 +29,8 @@ export default function App() {
 
           <Route path="/traine" element={<Teachers />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/review" element={<HomeReview />} />
+
         </Routes>
         <Footer />
       </div>

@@ -1,0 +1,246 @@
+.swiper-container {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* background-color: yellow; */
+  padding: 0px 100px 0px 100px;
+}
+
+.swiper-slide {
+  /* width: 327.5px; */
+  /* height: 350px; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #ddd;  */
+}
+
+.slide-text {
+  font-size: 18px;
+  color: #333;
+}
+.card-wrapper {
+  background-color: rgb(217, 217, 220);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+.card {
+  display: flex !important;
+  width: 100% !important;
+  padding: 20px;
+  height: 100% !important;
+  clip-path: polygon(
+    9.202% 0%,
+    90.798% 0%,
+    90.798% 0%,
+    92.289% 0.11%,
+    93.705% 0.429%,
+    95.025% 0.939%,
+    96.231% 1.622%,
+    97.303% 2.463%,
+    98.223% 3.442%,
+    98.972% 4.543%,
+    99.531% 5.748%,
+    99.879% 7.041%,
+    100% 8.403%,
+    100% 69.468%,
+    100% 69.468%,
+    99.633% 73.178%,
+    98.616% 75.937%,
+    97.076% 77.918%,
+    95.14% 79.293%,
+    92.934% 80.235%,
+    90.585% 80.917%,
+    88.221% 81.511%,
+    85.967% 82.19%,
+    83.95% 83.128%,
+    82.298% 84.496%,
+    82.298% 84.496%,
+    81.047% 86.306%,
+    80.14% 88.282%,
+    79.405% 90.341%,
+    78.671% 92.399%,
+    77.767% 94.371%,
+    76.523% 96.173%,
+    74.767% 97.721%,
+    72.33% 98.931%,
+    69.039% 99.719%,
+    64.724% 100%,
+    9.202% 100%,
+    9.202% 100%,
+    7.711% 99.89%,
+    6.295% 99.571%,
+    4.975% 99.061%,
+    3.769% 98.378%,
+    2.697% 97.538%,
+    1.777% 96.558%,
+    1.028% 95.457%,
+    0.469% 94.252%,
+    0.121% 92.959%,
+    0% 91.597%,
+    0% 8.403%,
+    0% 8.403%,
+    0.121% 7.041%,
+    0.469% 5.748%,
+    1.028% 4.543%,
+    1.777% 3.442%,
+    2.697% 2.463%,
+    3.769% 1.622%,
+    4.975% 0.939%,
+    6.295% 0.429%,
+    7.711% 0.11%,
+    9.202% 0%
+  );
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+.circle-p-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.small-circle {
+  width: 8px; /* Adjust size as needed */
+  height: 8px; /* Adjust size as needed */
+  border-radius: 50px;
+  background-color: #448c74;
+  margin-bottom: 10px; /* Space between the circle and the text */
+}
+
+.card-content {
+  padding-left: 30px;
+  text-align: center;
+}
+.slide-img {
+  width: 100px;
+  margin-top: 80px;
+  font-weight: 200;
+}
+
+.separate-circle {
+  position: absolute;
+  bottom: 1%;
+  left: 82%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 255, 255); /* Circle color */
+  border-radius: 50%; /* Makes the shape a circle */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* Ensure it's on top of other elements */
+}
+
+.card:hover .separate-circle {
+  content: "";
+  background-color: #448c74 !important;
+}
+
+.custom-row{
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+}
+
+.home-service-swiper-cont{
+  /* padding-left: 10% !important;
+  padding-right: 10% !important; */
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+.homeservice-swiperslider-cont{
+  width: 100%;
+  height:100%;
+}
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  .swiper-container {
+    padding: 0px 20px; /* Less padding for smaller screens */
+  }
+
+  .swiper-slide {
+    width: auto; /* Full width */
+    height: auto; /* Adjust height */
+  }
+
+  .card {
+    padding: 10px; /* Less padding */
+  }
+
+  .card-content {
+    padding-left: 5px; /* Less padding */
+  }
+.card-wrapper{
+  flex-direction: column;
+}
+  .separate-circle {
+    width: 40px; /* Smaller circle */
+    height: 40px; /* Smaller circle */
+    bottom: 5%; /* Adjusted position */
+  }
+}
+
+/* For mobile phones */
+
+@media (max-width:1024px){
+  .card-wrapper{
+    flex-direction: column !important;
+  }
+  .separate-circle {
+    position: absolute;
+    bottom: 1%;
+    left: 80%;
+    width: 48px; /* Diameter of the circle */
+    height: 48px; /* Diameter of the circle */
+    background-color: rgb(255, 255, 255); /* Circle color */
+    border-radius: 50%; /* Makes the shape a circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    z-index: 10; /* Ensure it's on top of other elements */
+  }
+}
+@media (max-width: 991px){
+  .separate-circle{
+    width: 40px !important;
+    height: 40px !important;
+    left:83%;
+  }
+}
+@media (max-width:990px) and (min-width:768) {
+
+    .separate-circle {
+width: 30px;
+height: 30px;
+border-radius: 50px;
+    }
+
+}
+
+@media (max-width:374px){
+  .card-wrapper{
+    height:290px !important;
+  }
+  .section{
+    padding: 0px !important;
+  }
+  .pbmit-event-price {
+    width: 100% !important;
+  }
+}

@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../index.css";
+
 export default function NavBar() {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null); // To handle which submenu is open
+  const menuRef = useRef(null);
+
+  // Function to toggle the menu state
+  const toggleMenu = () => {
+    setOpenMenu(prevState => !prevState);
+  };
+
+  // Function to toggle a specific submenu
+  const toggleSubMenu = (index) => {
+    setOpenSubMenu(prevState => (prevState === index ? null : index));
+  };
+
+  // Function to handle clicks outside the menu
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setOpenMenu(false); // Close the menu if the click is outside
+      setOpenSubMenu(null); // Optionally close the submenu
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener for clicks outside the menu
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <header className="site-header header-style-1">
@@ -18,21 +51,17 @@ export default function NavBar() {
                   </a>
                 </h1>
               </div>
-              <div className="site-navigation">
+              <div className="site-navigation" ref={menuRef}>
                 <nav className="main-menu navbar-expand-xl navbar-light">
                   <div className="navbar-header">
                     {/* Toggle Button */}
-                    <button className="navbar-toggler" type="button">
+                    <button onClick={toggleMenu} className="navbar-toggler" type="button">
                       <i className="pbmit-base-icon-menu-1" />
                     </button>
                   </div>
-                  <div className="pbmit-mobile-menu-bg" />
-                  <div
-                    className="collapse navbar-collapse clearfix show"
-                    id="pbmit-menu"
-                  >
+                  <div className={`collapse navbar-collapse ${openMenu ? "show" : ""}`} id="pbmit-menu">
                     <div className="pbmit-menu-wrap">
-                      <span className="closepanel">
+                      <span className="closepanel" onClick={toggleMenu}>
                         <svg
                           className="qodef-svg--close qodef-m"
                           xmlns="http://www.w3.org/2000/svg"
@@ -59,48 +88,32 @@ export default function NavBar() {
                             <i className="pbmit-base-icon-angle-right" />
                           </span>
                         </li>
-                        <li className="dropdown">
-                          <a href="#">Pages</a>
-                          <ul>
-                            <li>
-                              <a href="/service/offline_online">
-                                Classes
-                              </a>
-                            </li>
-                            <li>
-                              <a href="/service/doctor">
-                                Doctor Consultaions
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="/about">About Us</a>
-                        </li>
-                        <li className="dropdown">
-                          <a href="#">Services</a>
-                          <ul>
-                            <li>
-                              <a href="/serviceDetail">Service Details</a>
-                            </li>
-                          </ul>
 
+                        <li className="dropdown">
+                          <a href="#" onClick={(e) => { e.preventDefault(); toggleSubMenu(0); }}>Pages</a>
+                          <ul className={`sub-menu ${openSubMenu === 0 ? "show" : ""}`}>
+                            <li>
+                              <a href="/service/offline_online">Classes</a>
+                            </li>
+                            <li>
+                              <a href="/service/doctor">Doctor Consultations</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="dropdown">
+                          <a href="/about">About Us</a>
                           <span className="righticon">
                             <i className="pbmit-base-icon-angle-right" />
                           </span>
                         </li>
                         <li className="dropdown">
-                          <a href="#">Events</a>
-                          <ul>
-                            <li>
-                              <a href="event-style-1.html">Event Style 1</a>
-                            </li>
-                            <li>
-                              <a href="event-single-detail.html">
-                                Event Single Detail
-                              </a>
-                            </li>
-                          </ul>
+                          <a href="/servicedetail">Classes Detail</a>
+                          <span className="righticon">
+                            <i className="pbmit-base-icon-angle-right" />
+                          </span>
+                        </li>
+                        <li className="dropdown">
+                          <a href="/traine">Trainers</a>
                           <span className="righticon">
                             <i className="pbmit-base-icon-angle-right" />
                           </span>

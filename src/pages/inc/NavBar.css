@@ -4777,3 +4777,30 @@ body {
 	font-weight: 500;
 	font-family: var(--pbmit-heading-typography-font-family);
 }
+
+.navbar-collapse {
+	display: none;
+  }
+  
+  .navbar-collapse.show {
+	display: block;
+  }
+  
+  .show .pbmit-menu-wrap {
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	width: 300px;
+	height: 100%;
+	padding: 0;
+	display: block;
+	transition: all 900ms ease;
+	-moz-transition: all 900ms ease;
+	-webkit-transition: all 900ms ease;
+	-ms-transition: all 900ms ease;
+	-o-transition: all 900ms ease;
+	transform: translateX();
+	opacity: 1;
+  }

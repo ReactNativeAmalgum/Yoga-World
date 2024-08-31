@@ -1,8 +1,10 @@
 import React from "react";
 import { imageData } from "../images/img_index";
 import { LuBellRing } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 export default function Doctor() {
+  const navigate = useNavigate();
   const events = [
     {
       id: 1,
@@ -392,8 +394,8 @@ export default function Doctor() {
                                 </div>
                               </div>
                               <div className="pbmit-event-price">
-                                <div className="pbmit-event-meta-price">
-                                  {event.price}
+                              <div  className="pbmit-event-meta-price">
+                                  <span onClick={() => navigate('/contact')}> Enquiry Now</span>
                                 </div>
                               </div>
                             </div>

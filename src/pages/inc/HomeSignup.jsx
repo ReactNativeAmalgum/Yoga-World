@@ -5,8 +5,8 @@ export default function HomeSignup() {
   return (
     <section>
       <div className="container">
-        <div className="row g-0">
-          <div className="col-md-6">
+        <div className="row g-0 homesign-cutom-row">
+          <div className="col-md-6 homesign-custom-col">
             <div className="ihbox-style-4_bg">
               <div className="pbmit-ihbox-style-4">
                 <div className="pbmit-ihbox-headingicon">
@@ -29,7 +29,7 @@ export default function HomeSignup() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 homesign-custom-col">
             <div className="ihbox-style-5_bg">
               <div className="pbmit-ihbox-style-5">
                 <div className="pbmit-ihbox-box d-flex align-items-center">
@@ -72,7 +72,7 @@ export default function HomeSignup() {
                   </div>
                 </div>
               </div>
-              <form>
+              <form className="form-homesignup">
                 <div className="pbmit-footer-newsletter">
                   <input
                     type="email"

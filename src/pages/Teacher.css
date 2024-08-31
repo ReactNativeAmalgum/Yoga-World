@@ -1,0 +1,364 @@
+html,
+body {
+  height: 100%;
+  overflow-x: hidden !important;
+  background-color: #e9f0ec !important;
+}
+
+.teacher-container {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.teacher-custom-cont {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.teacher-right-column-container {
+  padding: 20px !important;
+}
+.teacher-card-content {
+  padding-left: 10px;
+}
+.underline {
+  height: 0px;
+  width: 4rem;
+  background-color: #f76c2f;
+  margin: top 10px;
+  margin-bottom: 10px;
+}
+
+.teacher-personal-info-cont {
+  padding-left: 20px;
+}
+
+.teacher-right-column-inner-container {
+  padding: 20px;
+}
+.pdf-icon {
+  margin-left: 8px; /* Adjust the value as needed */
+}
+
+
+.download-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 75%;
+  transform: translateY(2px);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.download-text:hover::after {
+  width: 75%;
+  background-color: white;
+}
+
+.teacher-custom-col {
+  border-radius: 30px;
+  background-color: #448c74 !important;
+  background-image: url(https://yoge-demo.pbminfotech.com/html-demo/images/bg/yoga-pattern-01.png) !important;
+  color: white;
+  background-position: bottom center;
+  background-repeat: repeat;
+  padding: 0px !important;
+}
+.trainer-cont {
+  /* background-color: #448c74 !important; */
+}
+.pbmit-featured-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.teacher-right-cont {
+  padding: 20px;
+}
+
+.teacher-contact-cont {
+  padding-top: 30px;
+}
+
+.teacher-contact-cont h6 {
+  color: yellow;
+}
+
+.teacher-circle-p-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.teacher-small-circle {
+  width: 6px; /* Adjust size as needed */
+  height: 6px; /* Adjust size as needed */
+  border-radius: 50px;
+  background-color: yellow;
+  margin-bottom: 15px; /* Space between the circle and the text */
+}
+
+.special-word {
+  font-size: 52px;
+  font-weight: 600;
+  color: #448c74;
+}
+p {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #666666;
+}
+h6 {
+  font-size: 16px;
+  font-family: "Sora", sans-serif;
+}
+.teacher-p-info {
+  font-size: 16px;
+  color: #666666;
+  font-family: "Roboto", sans-serif;
+}
+
+.certificate-cont {
+  padding-top: 20px;
+  /* background-color: aqua; */
+}
+.custom-col-right-innner h6 {
+  font-weight: 700;
+}
+
+.no-gap {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.no-gap > div {
+  padding: 0;
+  margin: 0;
+}
+.no-gap > div:first-child {
+  margin-right: 0; /* Remove right margin for the first column */
+}
+.no-gap > div:last-child {
+  margin-left: 0; /* Remove left margin for the last column */
+}
+
+.custom-col-left-inner {
+  /* background-color: blue; */
+}
+
+
+/* Base styles for all devices */
+
+/* Styles for screens wider than 600px */
+@media (min-width: 601px) {
+  .teacher-container {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .teacher-custom-cont {
+    padding-top: 5%;
+  }
+
+  .teacher-right-column-container {
+    padding: 20px !important;
+  }
+
+  .teacher-card-content {
+    padding-left: 10px;
+  }
+
+  .underline {
+    height: 0px;
+    width: 4rem;
+    background-color: #f76c2f;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .teacher-personal-info-cont {
+    padding-left: 20px;
+  }
+
+  .teacher-right-column-inner-container {
+    padding: 20px;
+  }
+
+  .pdf-icon {
+    margin-left: 8px; /* Adjust the value as needed */
+  }
+
+  .download-text {
+    position: relative;
+    text-decoration-style: solid;
+  }
+
+
+
+  .teacher-custom-col {
+    border-radius: 30px;
+    background-color: #448c74 !important;
+    background-image: url(https://yoge-demo.pbminfotech.com/html-demo/images/bg/yoga-pattern-01.png) !important;
+    color: white;
+    background-position: bottom center;
+    background-repeat: repeat;
+    padding: 0px !important;
+  }
+
+  .pbmit-featured-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .teacher-right-cont {
+    padding: 20px;
+  }
+
+  .teacher-contact-cont {
+    padding-top: 30px;
+  }
+
+  .teacher-contact-cont h6 {
+    color: yellow;
+  }
+
+  .teacher-circle-p-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .teacher-small-circle {
+    width: 6px; /* Adjust size as needed */
+    height: 6px; /* Adjust size as needed */
+    border-radius: 50px;
+    background-color: yellow;
+    margin-bottom: 15px; /* Space between the circle and the text */
+  }
+
+  .special-word {
+    font-size: 52px;
+    font-weight: 600;
+    color: #448c74;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    color: #666666;
+  }
+
+  h6 {
+    font-size: 16px;
+    font-family: "Sora", sans-serif;
+  }
+
+  .teacher-p-info {
+    font-size: 16px;
+    color: #666666;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .certificate-cont {
+    padding-top: 20px;
+    /* background-color: aqua; */
+  }
+
+  .custom-col-right-innner h6 {
+    font-weight: 700;
+  }
+
+  .no-gap {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-gap > div {
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-gap > div:first-child {
+    margin-right: 0; /* Remove right margin for the first column */
+  }
+
+  .no-gap > div:last-child {
+    margin-left: 0; /* Remove left margin for the last column */
+  }
+
+  .custom-col-left-inner {
+    /* background-color: blue; */
+  }
+}
+
+/* Styles for screens narrower than 600px */
+@media (max-width: 600px) {
+  .teacher-container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .teacher-custom-cont {
+    padding-top: 3%;
+  }
+
+  .teacher-right-column-container {
+    padding: 15px !important;
+  }
+
+  .teacher-card-content {
+    padding-left: 5px;
+  }
+
+  .underline {
+    width: 3rem; /* Adjust width for smaller screens */
+  }
+
+  .teacher-personal-info-cont {
+    padding-left: 10px;
+  }
+
+  .teacher-right-column-inner-container {
+    padding: 15px;
+  }
+
+  .pdf-icon {
+    margin-left: 5px; /* Reduce margin for smaller screens */
+  }
+
+  .download-text {
+    font-size: 14px; /* Adjust font size if needed */
+  }
+
+  .download-text::after {
+    height: 1px;
+    transform: translateY(1px); /* Adjust vertical spacing */
+  }
+
+  .special-word {
+    font-size: 40px; /* Adjust font size for smaller screens */
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  .teacher-p-info {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 769px){
+  .exp-cer-spe-column{
+    flex-direction: column;
+  }
+}
