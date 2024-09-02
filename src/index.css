@@ -11,16 +11,16 @@ html, body {
   background-color: #e9f0ec !important;
 }
 
-/*-----------------Navbar ****************/
 
 
-/******************Index*********************/
+
+
 @media (max-width:1025px) and (min-width:768px){
   .pbmit-team-single .pbmit-entry-content {
-    /* margin-top: 60% !important; */
+
   }
 }
-/*-------------------AOS.CSS------------------*/
+
 
 [data-aos][data-aos][data-aos-duration="50"],body[data-aos-duration="50"] [data-aos] {
   transition-duration: 50ms
@@ -976,7 +976,7 @@ html, body {
 }
 
 
-/*----------------BASE--------------------*/
+
 
 
 
@@ -1008,9 +1008,7 @@ html, body {
      --pbmit-btn-typography-line-height: 23px;
 }
 
-/*----------------------------------------*/
-/* 00 - General  */
-/*----------------------------------------*/
+
  html {
      font-family: sans-serif;
      -webkit-text-size-adjust: 100%;
@@ -1162,9 +1160,7 @@ html, body {
      outline: 0;
      box-shadow: none;
 }
-/*----------------------------------------*/
-/* 01 - Typography */
-/*----------------------------------------*/
+
  body {
      font-family:var(--pbmit-body-typography-font-family);
      font-weight: var(--pbmit-body-typography-variant);
@@ -1335,7 +1331,7 @@ html, body {
 .pbmit-btn:focus{
 	color: var(--pbmit-white-color);
 }
-/** Divider **/
+
  .sep-line{
      height: 1px;
      border-top: 1px solid #ebebeb;
@@ -1345,9 +1341,7 @@ html, body {
      width: 100%;
 }
 
-/*----------------------------------------*/
-/* 02 - Background Color */
-/*----------------------------------------*/
+
  body .pbmit-bg-color-global{
      background-color: var(--pbmit-global-color);
 }
@@ -1364,9 +1358,7 @@ html, body {
      color: var(--pbmit-global-color);
 }
 
-/*----------------------------------------*/
-/* 03 - Background Position & Size */
-/*----------------------------------------*/
+
  .bg-cover{
     background-size: cover;
 }
@@ -1392,12 +1384,10 @@ html, body {
     background-position: left bottom;
 }
 
-/*----------------------------------------*/
-/* 04 - Helper Class */
-/*----------------------------------------*/
+
 .section-lg{
 	padding-top: 100px;
-	/* padding-bottom: 90px; */
+
 }
 .section-xl{
 	padding-top: 100px;
@@ -1418,9 +1408,6 @@ html, body {
      padding-bottom:100px;
 }
 
-/*----------------------------------------*/
-/* 05 - Social icons */
-/*----------------------------------------*/
  .social-icons {
      list-style: none;
      margin: 0px;
@@ -1443,9 +1430,7 @@ html, body {
      font-size: 16px;
 }
 
-/*----------------------------------------*/
-/* 06 - Header */
-/*----------------------------------------*/
+
  .navbar-brand .navbar-brand-item {
      height: 60px;
      display: block;
@@ -1539,7 +1524,7 @@ html, body {
 .closepanel, .pbmit-mobile-menu-bg, .site-header .righticon {
     display: none;
 }
-/** sticky-header **/
+
  .sticky-header{
      position: fixed !important;
      top: 0px;
@@ -1555,7 +1540,7 @@ html, body {
  .site-header-menu.sticky-header .logo-img.stickylogo{
      display: inline-block;
 }
-/* Pre Header */
+
  .pbmit-pre-header-wrapper{
     height: 50px;
     line-height: 50px;
@@ -1565,9 +1550,7 @@ html, body {
     color: #666;
 }
 
-/*----------------------------------------*/
-/* 07 - Bootstrap Overwrite */
-/*----------------------------------------*/
+
  .g-lg-4,.gy-lg-4, .g-4, .gy-4 {
      --bs-gutter-y: 2rem;
 }
@@ -1579,9 +1562,7 @@ html, body {
      padding-left: calc(var(--bs-gutter-x) * .5);
 }
 
-/*----------------------------------------*/
-/* 08 - Swiper */
-/*----------------------------------------*/
+
  .swiper-slider{
      margin-left: auto;
      margin-right: auto;
@@ -1664,9 +1645,7 @@ html, body {
     -o-transition-timing-function:linear !important; 
     transition-timing-function:linear !important; 
 }
-/*----------------------------------------*/
-/* 09 - Scroll To Top */
-/*----------------------------------------*/
+
 .pbmit-progress-wrap {
     position: fixed;
     right: 50px;
@@ -1736,9 +1715,7 @@ html, body {
     transition: all .2s linear;
 }
 
-/*----------------------------------------*/
-/*  10 - Search Box */
-/*----------------------------------------*/
+
 .pbmit-search-overlay {
     position: fixed;
     top: -500px;
@@ -1919,7 +1896,7 @@ html, body {
     color: var(--pbmit-white-color);
 }
 
-/*******************FONTAWESOME.CSS************************/
+
 
  @font-face {
 	font-family: 'FontAwesome';
@@ -1936,7 +1913,7 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-/* makes the font 33% larger relative to the icon container */
+
 .fa-lg {
 	font-size: 1.33333333em;
 	line-height: 0.75em;
@@ -1993,7 +1970,7 @@ html, body {
 .fa.fa-pull-right {
 	margin-left: .3em;
 }
-/* Deprecated as of 4.4.0 */
+
 .pull-right {
 	float: right;
 }
@@ -2095,8 +2072,7 @@ html, body {
 .fa-inverse {
 	color: #ffffff;
 }
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
+
 .fa-glass:before {
 	content: "\f000";
 }
@@ -4254,9 +4230,7 @@ html, body {
 }
 
 
-/***************************MAGNIFIC-POPUP.CSS***************/
 
-/* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
   left: 0;
@@ -4471,7 +4445,7 @@ button::-moz-focus-inner {
     height: 100%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     background: #000; }
-/* Main image in popup */
+
 img.mfp-img {
   width: auto;
   max-width: 100%;
@@ -4481,7 +4455,6 @@ img.mfp-img {
   box-sizing: border-box;
   padding: 40px 0 40px;
   margin: 0 auto; }
-/* The shadow behind the image */
 .mfp-figure {
   line-height: 0; }
   .mfp-figure:after {
@@ -4573,7 +4546,6 @@ img.mfp-img {
     padding-right: 6px; } }
 
 
-    /************************PBMINFOTEXH-BASE-ICON*************************/
     @font-face {
       font-family: 'pbminfotech-base-icons';
       src: url('https://yoge-demo.pbminfotech.com/html-demo/fonts/pbminfotech-base-icons.woff2?57698833');
@@ -4597,21 +4569,16 @@ img.mfp-img {
       width: 1em;
       margin-right: .2em;
       text-align: center;
-      /* opacity: .8; */
+
     
-      /* For safety - reset parent styles, that can break glyph codes*/
       font-variant: normal;
       text-transform: none;
     
-      /* fix buttons height, for twitter bootstrap */
       line-height: 1em;
-    
-      /* Animation center compensation - margins should be symmetric */
-      /* remove if not needed */
+
       margin-left: .2em;
     
-      /* you can be more comfortable with increased icons size */
-      /* font-size: 120%; */
+
     
       /* Font smoothing. That was taken from TWBS */
       -webkit-font-smoothing: antialiased;
