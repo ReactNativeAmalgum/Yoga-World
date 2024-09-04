@@ -10,6 +10,9 @@
     gap: 10px;
 
 }
+:where(.css-dev-only-do-not-override-11lehqq).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color:black !important
+}
 .cr-modal-button button{
     /* border: 1pax solid black; */
     padding: 8px 20px;

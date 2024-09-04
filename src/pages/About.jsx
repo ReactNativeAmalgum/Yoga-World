@@ -1,40 +1,44 @@
 import React from "react";
 import { GrYoga } from "react-icons/gr";
 import { TbYoga } from "react-icons/tb";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "./About.css";
+import { Reveal, Rotate, Slide } from "react-awesome-reveal";
+import CountUp from 'react-countup';
 
 export default function About() {
   return (
-    <div style={{ padding: 10 }}>
+    <div className="page-content">
       <div className="pbmit-title-bar-wrapper">
-        <div className="container">
+        <div className=" container">
           <div className="pbmit-title-bar-content">
             <div className="pbmit-title-bar-content-inner">
               <div className="pbmit-tbar">
                 <div className="pbmit-tbar-inner container">
-                  <h1 className="pbmit-tbar-title">About Us</h1>
+                  <Slide direction="left" duration={2000} delay={500}>
+                    <h1 className="pbmit-tbar-title">About Us</h1>
+                  </Slide>
                 </div>
               </div>
               <div className="pbmit-breadcrumb">
-                <div className="pbmit-breadcrumb-inner">
-                  <span>
-                    <a title="" href="/" className="home">
-                      <span>Home</span>
-                    </a>
-                  </span>
-                  <span className="sep">
-                    <i className="pbmit-base-icon-angle-double-right" />
-                  </span>
-                  <span>
-                    <span className="post-root post post-post current-item">
-                      About Us
+                <Slide direction="left" duration={2000} delay={1000}>
+                  <div className="pbmit-breadcrumb-inner">
+                    <span>
+                      <a title="" href="/" className="home">
+                        <span>Home</span>
+                      </a>
                     </span>
-                  </span>
-                </div>
+                    <span className="sep">
+                      <i className="pbmit-base-icon-angle-double-right" />
+                    </span>
+                    <span>
+                      <span className="post-root post post-post current-item">
+                        About Us
+                      </span>
+                    </span>
+                  </div>
+                </Slide>
               </div>
             </div>
           </div>
@@ -43,8 +47,8 @@ export default function About() {
 
       {/* About Section 2 */}
       <section className="section-md">
-        <div className="container">
-          <div className="row g-0">
+        <div className="aboutus-custom-cont container">
+          <div className="about-custom-row row g-0">
             <div className="col-md-12 col-xl-6">
               <div className="about-us-two_img">
                 <div className="fid-style-2_box">
@@ -55,20 +59,12 @@ export default function About() {
                           <span className="pbmit-fid-before" />
                           <span
                             className="pbmit-number-rotate numinate completed"
-                            data-appear-animation="animateDigits"
-                            data-from={0}
-                            data-to={235}
-                            data-interval={5}
-                            data-before=""
-                            data-before-style=""
-                            data-after=""
-                            data-after-style=""
+                           
                           >
-                            235
+                           <CountUp end={235}
+                           duration={10}/>
                           </span>
-                          <span className="pbmit-fid">
-                            <sup>+</sup>
-                          </span>
+
                         </h4>
                         <div className="pbmit-fid-sub">
                           <div className="pbmit-heading-desc">
@@ -106,383 +102,14 @@ export default function About() {
                 <div className="pbmit-heading-subheading animation-style2">
                   <h4 className="pbmit-subtitle">About Us</h4>
                   <h2 className="pbmit-title" style={{ perspective: 400 }}>
-                    <div
-                      className="split-line"
-                      style={{
-                        display: "block",
-                        textAlign: "start",
-                        position: "relative",
-                      }}
+                    <Slide
+                      direction="right"
+                      duration={2000}
+                      delay={1000}
                     >
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          S
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          t
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          a
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          r
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          t
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          y
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          o
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          u
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          r
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          h
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          e
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          a
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          l
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          t
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          h
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          y
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          l
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          i
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          f
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          e
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="split-line"
-                      style={{
-                        display: "block",
-                        textAlign: "start",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          t
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          o
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          d
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          a
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          y
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          w
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          i
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          t
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          h
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          u
-                        </div>
-                        <div
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            transform: "translate(0px, 0px)",
-                            opacity: 1,
-                          }}
-                        >
-                          s
-                        </div>
-                      </div>
-                    </div>
+                      Start you healthy life today with us
+                    </Slide>
+
                   </h2>
                   <div className="pbmit-heading-desc">
                     There are many variations of passages of Lorem Ipsum
@@ -578,8 +205,6 @@ export default function About() {
           </div>
         </div>
       </section>
-                      
-
     </div>
   );
 }

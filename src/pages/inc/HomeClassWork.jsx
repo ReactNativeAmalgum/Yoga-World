@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -6,13 +6,27 @@ import "swiper/css/pagination";
 import "./HomeClassWork.css";
 import { FreeMode, Pagination } from "swiper/modules";
 import EnquiryModal from "../../components/EnquiryModal";
+import beg from "../../images/begineer.jpg";
+import yogaWorkshop from "../../images/yoga_workshop_slider.jpg";
+import international from "../../images/international.jpg";
+import groupYoga from "../../images/group_yoga_slider.jpg";
+import corporate_yoga from "../../images/Corporate_Yoga.jpeg";
+import women from "../../images/Women_yoga.jpeg";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeClassWork() {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const navigate = useNavigate();
 
-  // Slide data
+  const handleClick = () => {
+    navigate("/contact");
+    window.scrollTo(0,0);
+  };
+
+  const [isInView, setIsInView] = useState(false);
+  const headingRef = useRef(null);
+
   const slideData = [
     {
       id: 1,
@@ -22,8 +36,7 @@ export default function HomeClassWork() {
       duration: "70 min / Session",
       registrationDate: "31-10-2023",
       price: "$370 / Month",
-      imgUrl:
-        "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
+      imgUrl: beg,
       // link: "event-single-detail.html",
     },
     {
@@ -34,8 +47,7 @@ export default function HomeClassWork() {
       duration: "60 min / Session",
       registrationDate: "27-10-2023",
       price: "$390 / Month",
-      imgUrl:
-        "https://yoge-demo.pbminfotech.com/html-demo/images/event-box/event-single-01.jpg",
+      imgUrl: yogaWorkshop,
       // link: "event-single-detail.html",
     },
     {
@@ -46,8 +58,7 @@ export default function HomeClassWork() {
       duration: "120 min / Session",
       registrationDate: "29-10-2023",
       price: "$499 / Month",
-      imgUrl:
-        "https://img.freepik.com/free-photo/flexible-man-posing-park_23-2147645839.jpg?t=st=1724726202~exp=1724729802~hmac=909e4b7c0eca0ceb0a90e3c343550fa130ea94914a92dc06443ebf62433e2e68&w=996",
+      imgUrl: international,
       // link: "event-single-detail.html",
     },
     {
@@ -58,20 +69,18 @@ export default function HomeClassWork() {
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl:
-        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl: groupYoga,
       // link: "event-single-detail.html",
     },
     {
       id: 5,
       type: "Yoga For Stress / Weakness / Obesity",
-      title: "Group Yoga",
+      title: "Corporate Yoga",
       date: "14 Feb",
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl:
-        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl: corporate_yoga,
       // link: "event-single-detail.html",
     },
     {
@@ -82,11 +91,29 @@ export default function HomeClassWork() {
       duration: "50 min / Session",
       registrationDate: "08-11-2023",
       price: "$240 / Month",
-      imgUrl:
-        "https://img.freepik.com/free-photo/fit-woman-yoga-nature_23-2147645743.jpg?t=st=1724726237~exp=1724729837~hmac=812143ae2b1333164fce15e3ba3cadb9c996efcd4157b3de0d5c720008d52706&w=996",
+      imgUrl: women,
       // link: "event-single-detail.html",
     },
   ];
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
+
+  const heading = "Classes & Workshops".split(" ");
 
   return (
     <section
@@ -97,182 +124,17 @@ export default function HomeClassWork() {
         <div className="position-relative">
           <div className="pbmit-heading-subheading text-white animation-style2">
             <h4 className="pbmit-subtitle">Our Upcoming</h4>
-            <h2 className="pbmit-title" style={{ perspective: 400 }}>
-              <div
-                className="split-line"
-                style={{
-                  display: "block",
-                  textAlign: "start",
-                  position: "relative",
-                }}
-              >
-                <div style={{ position: "relative", display: "inline-block" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    C
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    l
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    a
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    e
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
-                  </div>
-                </div>{" "}
-                <div style={{ position: "relative", display: "inline-block" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    &amp;
-                  </div>
-                </div>{" "}
-                <div style={{ position: "relative", display: "inline-block" }}>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    W
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    o
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    r
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    k
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    s
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    h
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    o
-                  </div>
-                  <div
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                      transform: "translate(0px, 0px)",
-                      opacity: 1,
-                    }}
-                  >
-                    p
-                  </div>
-                </div>
-              </div>
+            <h2 className="pbmit-title" ref={headingRef}>
+              {heading.map((el, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.3 }}
+                >
+                  {el}{" "}
+                </motion.span>
+              ))}
             </h2>
           </div>
         </div>
@@ -280,20 +142,18 @@ export default function HomeClassWork() {
           freeMode={true}
           pagination={{ clickable: true }}
           modules={[FreeMode, Pagination]}
-          // centeredSlides={true}
-          // slidesPerView={1}
           breakpoints={{
             1440: {
               slidesPerView: 3,
             },
             1024: {
-              slidesPerView: 2, // Show 2 slides per view on screens 1024px and wider
+              slidesPerView: 2,
             },
             768: {
-              slidesPerView: 1, // Show 1 slide per view on screens 768px and wider but less than 1024px
+              slidesPerView: 1,
             },
             480: {
-              slidesPerView: 1, // Show 1 slide per view on screens 480px and wider but less than 768px
+              slidesPerView: 1,
             },
           }}
           className="swiper-slider pbmit-element-viewtype-carousel-3"
@@ -304,7 +164,7 @@ export default function HomeClassWork() {
                 className="pbmit-ele-event_listing swiper-slide-classwork"
                 role="group"
                 aria-label={`Slide ${slide.id} / ${slideData.length}`}
-                style={{}} // Ensure this is responsive or adjusted in CSS
+                style={{}}
               >
                 <div className="pbmit-event-layout-wrapper">
                   <div
@@ -375,13 +235,11 @@ export default function HomeClassWork() {
                             </div>
                           </div>
                           <div
-                          onClick={handleShow}
+                            onClick={handleClick}
                             style={{ borderWidth: 1, borderColor: "white" }}
                             className="pbmit-event-price"
                           >
-                            <div
-                              className="pbmit-event-meta-price"
-                            >
+                            <div className="pbmit-event-meta-price">
                               <span style={{ color: "white" }}>
                                 Enquiry Now
                               </span>
@@ -405,8 +263,6 @@ export default function HomeClassWork() {
           ))}
         </Swiper>
       </div>
-      <EnquiryModal show={show} onHide={handleClose} />
-
     </section>
   );
 }

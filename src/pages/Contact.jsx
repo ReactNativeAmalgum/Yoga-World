@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Reveal, Rotate, Slide } from "react-awesome-reveal";
+import { motion } from "framer-motion";
+import yoga from '../images/home_yoga.jpeg'
 
 export default function Contact() {
+  const [isInView, setIsInView] = useState(false);
+  const headingRef = useRef(null);
+
+  useLayoutEffect(()=>{
+    window.scrollTo(0,0)
+  })
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
+  const heading = "Contact & hire us for your fitness!".split(" ");
+
   return (
     <>
       <div class="pbmit-title-bar-wrapper">
@@ -9,26 +37,33 @@ export default function Contact() {
             <div class="pbmit-title-bar-content-inner">
               <div class="pbmit-tbar">
                 <div class="pbmit-tbar-inner container">
-                  <h1 class="pbmit-tbar-title"> Contact Us</h1>
+                  <Slide direction="left" duration={2000} delay={500}>
+                    <h1 style={{ color: "white" }} class="pbmit-tbar-title">
+                      {" "}
+                      Contact Us
+                    </h1>
+                  </Slide>
                 </div>
               </div>
               <div class="pbmit-breadcrumb">
-                <div class="pbmit-breadcrumb-inner">
-                  <span>
-                    <a title="" href="#" class="home">
-                      <span>Yoge</span>
-                    </a>
-                  </span>
-                  <span class="sep">
-                    <i class="pbmit-base-icon-angle-double-right"></i>
-                  </span>
-                  <span>
-                    <span class="post-root post post-post current-item">
-                      {" "}
-                      Contact Us
+                <Slide direction="left" duration={2000} delay={1000}>
+                  <div class="pbmit-breadcrumb-inner">
+                    <span>
+                      <a title="" href="#" class="home">
+                        <span>Yoge</span>
+                      </a>
                     </span>
-                  </span>
-                </div>
+                    <span class="sep">
+                      <i class="pbmit-base-icon-angle-double-right"></i>
+                    </span>
+                    <span>
+                      <span class="post-root post post-post current-item">
+                        {" "}
+                        Contact Us
+                      </span>
+                    </span>
+                  </div>
+                </Slide>
               </div>
             </div>
           </div>
@@ -108,334 +143,17 @@ export default function Contact() {
           <div className="container">
             <div className="pbmit-heading-subheading animation-style2">
               <h4 className="pbmit-subtitle">Contact us</h4>
-              <h2 className="pbmit-title" style={{ perspective: 400 }}>
-                <div
-                  className="split-line"
-                  style={{
-                    display: "block",
-                    textAlign: "start",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
+              <h2 className="pbmit-title" ref={headingRef} style={{ perspective: 400 }}>
+                {heading.map((el, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: i * 0.3 }}
                   >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      C
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      n
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      t
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      a
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      c
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      t
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      &amp;
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      h
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      i
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      r
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      e
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      u
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      f
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      r
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      y
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      u
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      r
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      f
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      i
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      t
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      n
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      e
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      !
-                    </div>
-                  </div>
-                </div>
+                    {el}{" "}
+                  </motion.span>
+                ))}
               </h2>
               <div className="mt-4">
                 There are many variations of passages of Lorem Ipsum available,
@@ -560,7 +278,7 @@ export default function Contact() {
                 <div className="contact-us-right-box">
                   <div className="contact-us-right_img">
                     <div className="pbmit-animation-style4 active">
-                      <img src="images/contact-us-img.png" alt="" />
+                      <img src={yoga} alt="" />
                     </div>
                   </div>
                   <div className="ihbox-style_11">

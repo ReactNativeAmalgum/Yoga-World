@@ -76,8 +76,8 @@ export default function Footer() {
       <section>
         <div className="copywright">
           <p>
-            2024 ©️ Yrogya Yoghome | All rights reserved | with ❤️ and a lof of
-            ☕ #SKDM
+            2024 ©️ Yrogya Yoghome | All rights reserved |
+           #SKDM
           </p>
         </div>
       </section>

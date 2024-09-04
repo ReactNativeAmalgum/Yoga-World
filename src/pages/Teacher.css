@@ -38,7 +38,6 @@ body {
   margin-left: 8px; /* Adjust the value as needed */
 }
 
-
 .download-text::after {
   content: "";
   position: absolute;
@@ -147,7 +146,6 @@ h6 {
   /* background-color: blue; */
 }
 
-
 /* Base styles for all devices */
 
 /* Styles for screens wider than 600px */
@@ -193,8 +191,6 @@ h6 {
     position: relative;
     text-decoration-style: solid;
   }
-
-
 
   .teacher-custom-col {
     border-radius: 30px;
@@ -308,10 +304,16 @@ h6 {
 
   .teacher-right-column-container {
     padding: 15px !important;
+    display: contents;
   }
-
+  .custom-column-9 {
+    padding: 0px !important;
+  }
   .teacher-card-content {
     padding-left: 5px;
+  }
+  .p-3{
+    padding:0px !important;
   }
 
   .underline {
@@ -356,9 +358,8 @@ h6 {
   }
 }
 
-
-@media (max-width: 769px){
-  .exp-cer-spe-column{
+@media (max-width: 769px) {
+  .exp-cer-spe-column {
     flex-direction: column;
   }
 }

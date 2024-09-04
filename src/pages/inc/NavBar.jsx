@@ -1,19 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../index.css";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavBar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null); // To handle which submenu is open
+  const [rightArrow , setRightArrow]  = useState(false)
   const menuRef = useRef(null);
 
   // Function to toggle the menu state
   const toggleMenu = () => {
-    setOpenMenu(prevState => !prevState);
+    setOpenMenu((prevState) => !prevState);
   };
 
   // Function to toggle a specific submenu
   const toggleSubMenu = (index) => {
-    setOpenSubMenu(prevState => (prevState === index ? null : index));
+    setOpenSubMenu((prevState) => (prevState === index ? null : index));
   };
 
   // Function to handle clicks outside the menu
@@ -27,12 +31,17 @@ export default function NavBar() {
   useEffect(() => {
     // Add event listener for clicks outside the menu
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     // Clean up the event listener on component unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const handleArrow = ()=> {
+    alert()
+    console.log(rightArrow)
+    setRightArrow(true)
+  }
 
   return (
     <>
@@ -55,11 +64,20 @@ export default function NavBar() {
                 <nav className="main-menu navbar-expand-xl navbar-light">
                   <div className="navbar-header">
                     {/* Toggle Button */}
-                    <button onClick={toggleMenu} className="navbar-toggler" type="button">
+                    <button
+                      onClick={toggleMenu}
+                      className="navbar-toggler"
+                      type="button"
+                    >
                       <i className="pbmit-base-icon-menu-1" />
                     </button>
                   </div>
-                  <div className={`collapse navbar-collapse ${openMenu ? "show" : ""}`} id="pbmit-menu">
+                  <div
+                    className={`collapse navbar-collapse ${
+                      openMenu ? "show" : ""
+                    }`}
+                    id="pbmit-menu"
+                  >
                     <div className="pbmit-menu-wrap">
                       <span className="closepanel" onClick={toggleMenu}>
                         <svg
@@ -84,14 +102,23 @@ export default function NavBar() {
                       <ul className="navigation clearfix">
                         <li className="dropdown active">
                           <a href="/">Home</a>
-                          <span className="righticon">
-                            <i className="pbmit-base-icon-angle-right" />
-                          </span>
                         </li>
 
-                        <li className="dropdown">
-                          <a href="#" onClick={(e) => { e.preventDefault(); toggleSubMenu(0); }}>Pages</a>
-                          <ul className={`sub-menu ${openSubMenu === 0 ? "show" : ""}`}>
+                        <li className="dropdown ">
+                          <a
+                            href="#"
+                            onClick={()=>handleArrow}
+                          >
+                            Services
+                          </a>
+                          <span className="righticon" onClick={()=>handleArrow}>
+                            <i className={`pbmit-base-icon-angle-right `} />
+                          </span>
+                          <ul
+                            className={`sub-menu ${
+                              rightArrow ? "show-sub-menu" : ""
+                            }`}
+                          >
                             <li>
                               <a href="/service/offline_online">Classes</a>
                             </li>
@@ -100,23 +127,16 @@ export default function NavBar() {
                             </li>
                           </ul>
                         </li>
+
                         <li className="dropdown">
                           <a href="/about">About Us</a>
-                          <span className="righticon">
-                            <i className="pbmit-base-icon-angle-right" />
-                          </span>
                         </li>
+
                         <li className="dropdown">
                           <a href="/servicedetail">Classes Detail</a>
-                          <span className="righticon">
-                            <i className="pbmit-base-icon-angle-right" />
-                          </span>
                         </li>
                         <li className="dropdown">
                           <a href="/traine">Trainers</a>
-                          <span className="righticon">
-                            <i className="pbmit-base-icon-angle-right" />
-                          </span>
                         </li>
                         <li>
                           <a href="/contact">Contact Us</a>
@@ -144,7 +164,7 @@ export default function NavBar() {
                     <i className="pbmit-base-icon-search-1" />
                   </a>
                 </div>
-                <div className="pbmit-button-box-second">
+                {/* <div className="pbmit-button-box-second">
                   <a
                     className="pbmit-btn pbmit-btn-global"
                     href="contact-us.html"
@@ -180,7 +200,7 @@ export default function NavBar() {
                       <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red" />
                     </svg>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

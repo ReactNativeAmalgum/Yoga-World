@@ -2,13 +2,10 @@
   width: 100%;
   max-width: 100%;
   height: 100%;
-  /* background-color: yellow; */
   padding: 0px 100px 0px 100px;
 }
 
 .swiper-slide {
-  /* width: 327.5px; */
-  /* height: 350px; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -22,13 +19,14 @@
   color: #333;
 }
 .card-wrapper {
-  background-color: rgb(217, 217, 220);
+  /* background-color: rgb(217, 217, 220); */
   width: 100%;
   height: 100%;
   border-radius: 10px;
   position: relative;
 }
 .card {
+  position: relative;
   display: flex !important;
   width: 100% !important;
   padding: 20px;
@@ -97,6 +95,10 @@
   );
 }
 
+.card-wrapper:hover .separate-circle {
+  background-color: #448c74; /* New color on hover */
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   display: none !important;
@@ -142,29 +144,79 @@
   z-index: 10; /* Ensure it's on top of other elements */
 }
 
-.card:hover .separate-circle {
-  content: "";
-  background-color: #448c74 !important;
+
+.separate-circle:hover {
+  background-color: #448c74;
+
 }
 
-.custom-row{
-  /* background-color: orange; */
+.custom-row {
   display: flex;
   justify-content: center;
 }
 
-.home-service-swiper-cont{
-  /* padding-left: 10% !important;
-  padding-right: 10% !important; */
-  /* background-color: blue; */
+.home-service-swiper-cont {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px;
 }
-.homeservice-swiperslider-cont{
-  width: 100%;
-  height:100%;
+.homeservice-swiperslider-cont {
+  /* width: 100%;
+  height:100%; */
+}
+
+.is-animated {
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  padding: 0;
+  position: relative;
+}
+.is-animated span {
+  display: block;
+  padding: 0 10px;
+  width: 200px;
+}
+.property {
+  font-size: 150%;
+  text-align: right;
+  border-right: 2px solid #000;
+  width: 0;
+  overflow: hidden;
+  float: left;
+  -webkit-animation-name: expandProperty;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in;
+}
+.value {
+  font-size: 300%;
+  float: left;
+  overflow: hidden;
+}
+.value span {
+  margin-left: -100%;
+  -webkit-animation-name: expandValue;
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in;
+}
+@-webkit-keyframes expandProperty {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 200px;
+  }
+}
+@-webkit-keyframes expandValue {
+  from {
+    margin-left: -200px;
+  }
+  to {
+    margin-left: 0;
+  }
 }
 /* For tablets and smaller devices */
 @media (max-width: 768px) {
@@ -184,20 +236,42 @@
   .card-content {
     padding-left: 5px; /* Less padding */
   }
-.card-wrapper{
-  flex-direction: column;
-}
-  .separate-circle {
-    width: 40px; /* Smaller circle */
-    height: 40px; /* Smaller circle */
-    bottom: 5%; /* Adjusted position */
+  .card-wrapper {
+    
+    flex-direction: column;
   }
+  .separate-circle {
+    width: 40px; 
+    height: 40px;
+    bottom: 5%; 
+  }
+  .separate-circle:hover {
+    background-color: #448c74;
+    width: 40px; 
+    height: 40px;
+    bottom: 5%; 
+  }
+}
+
+body {
+  background: #ff0066;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 100px 0 40px;
+  color: #000000;
 }
 
 /* For mobile phones */
 
-@media (max-width:1024px){
-  .card-wrapper{
+@media (max-width: 1024px) {
+  .card-wrapper {
     flex-direction: column !important;
   }
   .separate-circle {
@@ -216,28 +290,26 @@
     z-index: 10; /* Ensure it's on top of other elements */
   }
 }
-@media (max-width: 991px){
-  .separate-circle{
+@media (max-width: 991px) {
+  .separate-circle {
     width: 40px !important;
     height: 40px !important;
-    left:83%;
+    left: 83%;
   }
 }
-@media (max-width:990px) and (min-width:768) {
-
-    .separate-circle {
-width: 30px;
-height: 30px;
-border-radius: 50px;
-    }
-
+@media (max-width: 990px) and (min-width: 768) {
+  .separate-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+  }
 }
 
-@media (max-width:374px){
-  .card-wrapper{
-    height:290px !important;
+@media (max-width: 374px) {
+  .card-wrapper {
+    height: 290px !important;
   }
-  .section{
+  .section {
     padding: 0px !important;
   }
   .pbmit-event-price {

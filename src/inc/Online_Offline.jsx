@@ -1,15 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { imageData } from "../images/img_index";
 import { LuBellRing } from "react-icons/lu";
-import EnquiryModal from "../components/EnquiryModal";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { Reveal, Rotate, Slide } from "react-awesome-reveal";
+import "../App.css";
 export default function Online_Offline() {
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+  const [isInView, setIsInView] = useState(false);
+  const headingRef1 = useRef(null);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log("Is in view:", entry.isIntersecting);
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (headingRef1.current) {
+      observer.observe(headingRef1.current);
+      // observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef1.current) {
+        observer.unobserve(headingRef1.current);
+        // observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
+
+  const heading = "Classes & Workshops".split(" ");
+  const heading2 = "Choose a subscription".split(" ");
 
   const events = [
     {
@@ -158,6 +185,10 @@ export default function Online_Offline() {
     },
   ];
 
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+        navigate("/contact");
+  };
 
   return (
     <>
@@ -167,26 +198,30 @@ export default function Online_Offline() {
             <div className="pbmit-title-bar-content-inner">
               <div className="pbmit-tbar">
                 <div className="pbmit-tbar-inner container">
-                  <h1 className="pbmit-tbar-title"> Classes</h1>
+                  <Slide direction="left" duration={2000} delay={500}>
+                    <h1 className="pbmit-tbar-title"> Classes</h1>
+                  </Slide>
                 </div>
               </div>
               <div className="pbmit-breadcrumb">
-                <div className="pbmit-breadcrumb-inner">
-                  <span>
-                    <a title="" href="#" className="home">
-                      <span>Yoge</span>
-                    </a>
-                  </span>
-                  <span className="sep">
-                    <i className="pbmit-base-icon-angle-double-right" />
-                  </span>
-                  <span>
-                    <span className="post-root post post-post current-item">
-                      {" "}
-                      Classes
+                <Slide direction="left" duration={2000} delay={1000}>
+                  <div className="pbmit-breadcrumb-inner">
+                    <span>
+                      <a title="" href="#" className="home">
+                        <span>Yoge</span>
+                      </a>
                     </span>
-                  </span>
-                </div>
+                    <span className="sep">
+                      <i className="pbmit-base-icon-angle-double-right" />
+                    </span>
+                    <span>
+                      <span className="post-root post post-post current-item">
+                        {" "}
+                        Classes
+                      </span>
+                    </span>
+                  </div>
+                </Slide>
               </div>
             </div>
           </div>
@@ -196,201 +231,25 @@ export default function Online_Offline() {
       <div className="page-content">
         {/* Even Style 1 */}
         <section className="section-md event_boxes">
-          <div className="container">
+          <div className="online-offine-cutom-cont container">
             <div className="pbmit-heading-subheading animation-style2">
               <h4 className="pbmit-subtitle">Our Upcoming</h4>
-              <h2 className="pbmit-title" style={{ perspective: 400 }}>
-                <div
-                  className="split-line"
-                  style={{
-                    display: "block",
-                    textAlign: "start",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
+              <h2
+                className="pbmit-title"
+                ref={headingRef1}
+                style={{ perspective: 400, color: "black" }}
+              >
+                {heading.map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.3 }}
+                    aria-label={word} // Added for accessibility
                   >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      C
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      l
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      a
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      e
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      &amp;
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      w
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      r
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      k
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      h
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      p
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(0px, 0px)",
-                        opacity: 1,
-                      }}
-                    >
-                      s
-                    </div>
-                  </div>
-                </div>
+                    {word}{" "}
+                  </motion.span>
+                ))}
               </h2>
             </div>
             <div className="row">
@@ -468,8 +327,14 @@ export default function Online_Offline() {
                                 </div>
                               </div>
                               <div className="pbmit-event-price">
-                                <div onClick={handleShow} className="pbmit-event-meta-price">
-                                  <span onClick={() => navigate('/contact')}> Enquiry Now</span>
+                                <div
+                                  onClick={handleShow}
+                                  className="pbmit-event-meta-price"
+                                >
+                                  <span onClick={handleClick}>
+                                    {" "}
+                                    Enquiry Now
+                                  </span>
                                 </div>
                               </div>
                               {/* <EnquiryModal show={show} onHide={handleClose} /> */}
@@ -493,7 +358,7 @@ export default function Online_Offline() {
           </div>
         </section>
 
-        <section className="appoinment_two">
+        <section style={{ paddingBottom: "5%" }} className="appoinment_two">
           <div className="container">
             <div className="appoinment-two_bg">
               <div className="appoinment-bg-overlay" />
@@ -503,9 +368,22 @@ export default function Online_Offline() {
                     <div className="pbmit-ihbox-style-5">
                       <div className="pbmit-ihbox-box d-flex align-items-center">
                         <div className="pbmit-ihbox-icon">
-                          <div style={{display:'flex', alignItems:'center', justifyContent:'center'}} className="pbmit-ihbox-icon-wrapper">
-                            <div style={{display:'contents'}} className="pbmit-icon-wrapper pbmit-icon-type-icon">
-                            <LuBellRing style={{fontSize:52, rotate:'320deg'}} />                            </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                            className="pbmit-ihbox-icon-wrapper"
+                          >
+                            <div
+                              style={{ display: "contents" }}
+                              className="pbmit-icon-wrapper pbmit-icon-type-icon"
+                            >
+                              <LuBellRing
+                                style={{ fontSize: 52, rotate: "320deg" }}
+                              />{" "}
+                            </div>
                           </div>
                         </div>
                         <div className="pbmit-ihbox-contents">
@@ -543,484 +421,7 @@ export default function Online_Offline() {
             </div>
           </div>
         </section>
-        {/* Appoinment End */}
-        {/* Pricing Start */}
-        <section className="section-xl">
-          <div className="container">
-            <div className="pbmit-heading-subheading animation-style2">
-              <h4 className="pbmit-subtitle">my price</h4>
-              <h2 className="pbmit-title" style={{ perspective: 400 }}>
-                <div
-                  className="split-line"
-                  style={{
-                    display: "block",
-                    textAlign: "start",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      C
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      h
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      e
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      a
-                    </div>
-                  </div>{" "}
-                  <div
-                    style={{ position: "relative", display: "inline-block" }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      u
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      b
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      s
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      c
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      r
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      i
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      p
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      t
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      i
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      o
-                    </div>
-                    <div
-                      style={{
-                        position: "relative",
-                        display: "inline-block",
-                        transform: "translate(50px, 0px)",
-                        opacity: 0,
-                      }}
-                    >
-                      n
-                    </div>
-                  </div>
-                </div>
-              </h2>
-            </div>
-            <div className="pbminfotech-ptable-style-1">
-              <div className="pbmit-ptable-cols row">
-                <div className="pbmit-ptable-col col-lg-4 col-md-6">
-                  <div className="pbmit-pricing-table-box">
-                    <div className="pbmit-head-wrap">
-                      <div className="pbminfotech-ptable-desc">Individual</div>
-                      <h3 className="pbminfotech-ptable-heading">Light Yoga</h3>
-                      <div className="pbminfotech-sep" />
-                      <div className="pbmit-price-wrapper">
-                        <div className="pbmit-head-icon-wrap">
-                          <div className="pbmit-ptable-icon">
-                            <div className="pbmit-ptable-icon-wrapper" />
-                          </div>
-                        </div>
-                        <div className="pbmit-ptable-price-w">
-                          <div className="pbminfotech-ptable-symbol">$</div>
-                          <div className="pbminfotech-ptable-price">12</div>
-                        </div>
-                        <div className="pbminfotech-ptable-frequency">
-                          / Month
-                        </div>
-                      </div>
-                    </div>
-                    <div className="pbmit-ptable-inner">
-                      <div className="pbmit-ptable-lines-w">
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 2 hours personal training
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="" /> Video &amp; audio content
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 1 month support
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="" /> Lifetime access
-                        </div>
-                      </div>
-                      <div className="pbminfotech-ptable-btn">
-                        <a href="#" className="pbmit-btn pbmit-btn-outline">
-                          <span className="pbmit-button-text">
-                            Purchase now
-                          </span>
-                          <span className="pbmit-button-icon-wrapper">
-                            <span className="pbmit-button-icon">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22.76"
-                                height="22.76"
-                                viewBox="0 0 22.76 22.76"
-                              >
-                                <title>black-arrow</title>
-                                <path
-                                  d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1,1,22.34"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="pbmit-feature-wrap" />
-                  </div>
-                </div>
-                <div className="pbmit-pricing-table-featured-col pbmit-ptable-col col-lg-4 col-md-6">
-                  <div className="pbmit-pricing-table-box">
-                    <div className="pbmit-head-wrap">
-                      <div className="pbminfotech-ptable-desc">
-                        Premium plan
-                      </div>
-                      <h3 className="pbminfotech-ptable-heading">
-                        Deep Meditaion
-                      </h3>
-                      <div className="pbminfotech-sep" />
-                      <div className="pbmit-price-wrapper">
-                        <div className="pbmit-head-icon-wrap">
-                          <div className="pbmit-ptable-icon">
-                            <div className="pbmit-ptable-icon-wrapper" />
-                          </div>
-                        </div>
-                        <div className="pbmit-ptable-price-w">
-                          <div className="pbminfotech-ptable-symbol">$</div>
-                          <div className="pbminfotech-ptable-price">45</div>
-                        </div>
-                        <div className="pbminfotech-ptable-frequency">
-                          / Month
-                        </div>
-                      </div>
-                    </div>
-                    <div className="pbmit-ptable-inner">
-                      <div className="pbmit-ptable-lines-w">
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 2 hours personal training
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> Video &amp; audio content
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 1 month support
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="" /> Lifetime access
-                        </div>
-                      </div>
-                      <div className="pbminfotech-ptable-btn">
-                        <a href="#" className="pbmit-btn pbmit-btn-outline">
-                          <span className="pbmit-button-text">
-                            Purchase now
-                          </span>
-                          <span className="pbmit-button-icon-wrapper">
-                            <span className="pbmit-button-icon">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22.76"
-                                height="22.76"
-                                viewBox="0 0 22.76 22.76"
-                              >
-                                <title>black-arrow</title>
-                                <path
-                                  d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1,1,22.34"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="pbmit-feature-wrap">
-                      <div className="pbmit-ptablebox-featured-w" />
-                    </div>
-                  </div>
-                </div>
-                <div className="pbmit-ptable-col col-lg-4 col-md-6">
-                  <div className="pbmit-pricing-table-box">
-                    <div className="pbmit-head-wrap">
-                      <div className="pbminfotech-ptable-desc">
-                        Advanced plan
-                      </div>
-                      <h3 className="pbminfotech-ptable-heading">
-                        Full Complex
-                      </h3>
-                      <div className="pbminfotech-sep" />
-                      <div className="pbmit-price-wrapper">
-                        <div className="pbmit-head-icon-wrap">
-                          <div className="pbmit-ptable-icon">
-                            <div className="pbmit-ptable-icon-wrapper" />
-                          </div>
-                        </div>
-                        <div className="pbmit-ptable-price-w">
-                          <div className="pbminfotech-ptable-symbol">$</div>
-                          <div className="pbminfotech-ptable-price">99</div>
-                        </div>
-                        <div className="pbminfotech-ptable-frequency">
-                          / Month
-                        </div>
-                      </div>
-                    </div>
-                    <div className="pbmit-ptable-inner">
-                      <div className="pbmit-ptable-lines-w">
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 2 hours personal training
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> Video &amp; audio content
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> 1 month support
-                        </div>
-                        <div className="pbmit-ptable-line">
-                          <i className="ti-check" /> Lifetime access
-                        </div>
-                      </div>
-                      <div className="pbminfotech-ptable-btn">
-                        <a href="#" className="pbmit-btn pbmit-btn-outline">
-                          <span className="pbmit-button-text">
-                            Purchase now
-                          </span>
-                          <span className="pbmit-button-icon-wrapper">
-                            <span className="pbmit-button-icon">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="22.76"
-                                height="22.76"
-                                viewBox="0 0 22.76 22.76"
-                              >
-                                <title>black-arrow</title>
-                                <path
-                                  d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1a14.67,14.67,0,0,0,0,20.75"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                                <path
-                                  d="M22.34,1,1,22.34"
-                                  transform="translate(-0.29 -0.29)"
-                                  fill="none"
-                                  stroke="#000"
-                                  strokeWidth={2}
-                                />
-                              </svg>
-                            </span>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="pbmit-feature-wrap" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
-      
     </>
   );
 }

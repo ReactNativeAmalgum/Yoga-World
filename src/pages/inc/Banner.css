@@ -71,7 +71,7 @@ h2 {
   left: 5%;
   right: 2%;
   transform: translateY(-50%);
-  z-index: 3; /* Ensure text is above the gradient */
+  z-index: 1; /* Ensure text is above the gradient */
 }
 .carousel-control-prev,
 .carousel-control-next {
@@ -170,6 +170,9 @@ h2 {
 }
 .carousel-control-next {
   display: none !important;
+}
+.pbmit-featured-wrapper img{
+  height:310px !important;
 }
 /* Responsive Styles */
 

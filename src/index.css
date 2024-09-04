@@ -1398,7 +1398,7 @@ html, body {
 }
 .section-md{
 	padding-top: 100px;
-	padding-bottom: 70px;
+	/* padding-bottom: 70px; */
 }
 .section-lgx{
 	padding-top: 36px;
@@ -1498,6 +1498,7 @@ html, body {
  .main-menu .navigation > li.dropdown:hover > ul , .main-menu .navigation > li > ul > li.dropdown:hover > ul {
      visibility: visible;
      opacity: 1;
+     
      transform: translate(0,-5px);
      z-index: 999;
 }
@@ -6083,6 +6084,9 @@ ul.navigation.clearfix{
 .counter-three_bg .pbmit-col_2{
   width: 71.871%;
 }
+.pbmit-button{
+  display: block !important;
+}
 .appoinment-two_right{
   padding:  30px !important;}
 
@@ -8071,12 +8075,17 @@ transition: all 0.4s ease-in;
 }
 .pbmit-ihbox-style-10{
 position: relative;
+clip-path: polygon( 9.202% 0%,90.798% 0%,90.798% 0%,92.289% 0.11%,93.705% 0.429%,95.025% 0.939%,96.231% 1.622%,97.303% 2.463%,98.223% 3.442%,98.972% 4.543%,99.531% 5.748%,99.879% 7.041%,100% 8.403%,100% 69.468%,100% 69.468%,99.633% 73.178%,98.616% 75.937%,97.076% 77.918%,95.14% 79.293%,92.934% 80.235%,90.585% 80.917%,88.221% 81.511%,85.967% 82.19%,83.95% 83.128%,82.298% 84.496%,82.298% 84.496%,81.047% 86.306%,80.14% 88.282%,79.405% 90.341%,78.671% 92.399%,77.767% 94.371%,76.523% 96.173%,74.767% 97.721%,72.33% 98.931%,69.039% 99.719%,64.724% 100%,9.202% 100%,9.202% 100%,7.711% 99.89%,6.295% 99.571%,4.975% 99.061%,3.769% 98.378%,2.697% 97.538%,1.777% 96.558%,1.028% 95.457%,0.469% 94.252%,0.121% 92.959%,0% 91.597%,0% 8.403%,0% 8.403%,0.121% 7.041%,0.469% 5.748%,1.028% 4.543%,1.777% 3.442%,2.697% 2.463%,3.769% 1.622%,4.975% 0.939%,6.295% 0.429%,7.711% 0.11%,9.202% 0% );
+
+color: black;
+background-color: white;
 }
 .pbmit-ihbox-style-10 .pbmit-ihbox-box{
 padding: 36px 42px 28px;
 border-radius: 30px 30px 0 30px;
 position: relative;
-z-index: -1;
+z-index: 1000;
+color: black;
 transition: all 0.4s ease-in;
 background-color: #e0f7e3;;
 clip-path: polygon( 9.202% 0%,90.798% 0%,90.798% 0%,92.289% 0.11%,93.705% 0.429%,95.025% 0.939%,96.231% 1.622%,97.303% 2.463%,98.223% 3.442%,98.972% 4.543%,99.531% 5.748%,99.879% 7.041%,100% 8.403%,100% 69.468%,100% 69.468%,99.633% 73.178%,98.616% 75.937%,97.076% 77.918%,95.14% 79.293%,92.934% 80.235%,90.585% 80.917%,88.221% 81.511%,85.967% 82.19%,83.95% 83.128%,82.298% 84.496%,82.298% 84.496%,81.047% 86.306%,80.14% 88.282%,79.405% 90.341%,78.671% 92.399%,77.767% 94.371%,76.523% 96.173%,74.767% 97.721%,72.33% 98.931%,69.039% 99.719%,64.724% 100%,9.202% 100%,9.202% 100%,7.711% 99.89%,6.295% 99.571%,4.975% 99.061%,3.769% 98.378%,2.697% 97.538%,1.777% 96.558%,1.028% 95.457%,0.469% 94.252%,0.121% 92.959%,0% 91.597%,0% 8.403%,0% 8.403%,0.121% 7.041%,0.469% 5.748%,1.028% 4.543%,1.777% 3.442%,2.697% 2.463%,3.769% 1.622%,4.975% 0.939%,6.295% 0.429%,7.711% 0.11%,9.202% 0% );
@@ -8800,6 +8809,7 @@ transition: all .3s ease-in;
 .pbmit-team-style-2:last-child .pbmit-featured-wrapper img {
 top: -220px;
 }
+
 .pbmit-team-style-2:hover .pbmit-featured-wrapper img {
 opacity: 1;
 visibility: visible;
@@ -12195,7 +12205,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon{
 	fill: var(--pbmit-light-color);
 }
 .about-us-two_rightbox{
-	padding-left: 90px;
+	/* padding-left: 20px; */
 }
 .about-us-two_rightbox .pbmit-heading-subheading .pbmit-heading-desc{
 	color: var(--pbmit-body-typography-color);
@@ -12734,11 +12744,11 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon{
 
 /** 02 - Service Detail **/
 .service_details > .container > .row{
-	-ms-flex-direction: row-reverse !important;
-    flex-direction: row-reverse !important;
+	/* -ms-flex-direction: row-reverse !important; */
+    /* flex-direction: row-reverse !important; */
 }
 .service-left-col .service-sidebar .post-list{
-	background-color: #e0f7e3;
+	/* background-color: #e0f7e3; */
     padding-top: 40px;
     border-radius: 30px;
 }
@@ -12819,7 +12829,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon{
 	border-bottom: none;
 }
 .service-sidebar .widget:last-child{
-	background-color: #e0f7e3;
+	/* background-color: #e0f7e3; */
 	margin-bottom: 0px;
 	padding: 20px;
 }
@@ -13378,7 +13388,7 @@ form .pbmit-footer-newsletter button:hover .pbmit-button-icon{
 /** Sidebar Right**/
 .sidebar .widget{ 
     border: none;
-    padding: 30px;
+    padding: 10px;
     margin-bottom: 55px;
 	border-radius: 30px;
     background-color: var(--pbmit-white-color);
