@@ -212,7 +212,7 @@ export default function About() {
                       <h2 className="pbmit-element-title">
                         <Link
                           style={{ color: "#448c74" }}
-                          to={`/about/traine/${el.id}`}
+                          to={ `/about/traine/${el.id}` }
                         >
                           {el.name}
                         </Link>

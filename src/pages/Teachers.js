@@ -45,7 +45,7 @@ export default function Teachers() {
                   <Slide direction="left" duration={2000} delay={500}>
                     <h1 style={{ color: "white" }} class="pbmit-tbar-title">
                       {" "}
-                      Trainers
+                      Trainer
                     </h1>
                   </Slide>
                 </div>

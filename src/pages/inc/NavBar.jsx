@@ -104,7 +104,7 @@ export default function NavBar() {
                         <li className="dropdown">
                           <Dropdown
                             overlay={menuItems}
-                            trigger={['click']} // Opens on click
+                            trigger={['click']} 
                           >
                             <a onClick={(e) => e.preventDefault()}>
                               <Space>

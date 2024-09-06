@@ -17,28 +17,28 @@ const slidesData = [
     category: "DJ Yoga Trainer",
     title: "Types of Yoga",
     image: yogaLotus,
-    link: "/service/offline_online",
+    link: "/service/1",
   },
   {
     id: 2,
     category: "Mantra Yoga Trainer",
     title: "Online Yoga",
     image: yogaLotus,
-    link: "/service/offline_online",
+    link: "/service/1",
   },
   {
     id: 3,
     category: "DJ Yoga Trainer",
     title: "Offline Yoga",
     image: yogaLotus,
-    link: "/service/offline_online",
+    link: "/service/1",
   },
   {
     id: 4,
     category: "Astanga Yoga Trainer",
     title: "Doctor Consultation",
     image: yogaLotus,
-    link: "/service/doctor",
+    link: "/service/2",
   },
 ];
 

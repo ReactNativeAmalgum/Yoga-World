@@ -17,7 +17,7 @@ export default function HomeSignup() {
                     <br /> 
                   </h2>
                   <div className="pbmit-ihbox-btn">
-                    <a href="contact">
+                    <a href="/contact">
                       <span className="pbmit-button-text">
                         Sign up now
                       </span>
