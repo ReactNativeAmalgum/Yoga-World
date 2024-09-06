@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Slide data
 const slidesData = [
@@ -17,35 +17,35 @@ const slidesData = [
     category: "DJ Yoga Trainer",
     title: "Types of Yoga",
     image: yogaLotus,
-    link: "service-details.html",
+    link: "/service/offline_online",
   },
   {
     id: 2,
     category: "Mantra Yoga Trainer",
     title: "Online Yoga",
     image: yogaLotus,
-    link: "service-details.html",
+    link: "/service/offline_online",
   },
   {
     id: 3,
     category: "DJ Yoga Trainer",
     title: "Offline Yoga",
     image: yogaLotus,
-    link: "service-details.html",
+    link: "/service/offline_online",
   },
   {
     id: 4,
     category: "Astanga Yoga Trainer",
     title: "Doctor Consultation",
     image: yogaLotus,
-    link: "service-details.html",
+    link: "/service/doctor",
   },
 ];
 
 export default function HomeService() {
   const [isInView, setIsInView] = useState(false);
   const headingRef = useRef(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsInView(entry.isIntersecting),
@@ -96,10 +96,10 @@ export default function HomeService() {
             pagination={{ clickable: true }}
             loop={true}
             breakpoints={{
-              640: { slidesPerView: 1, spaceBetween:30 },
-              768: { slidesPerView: 2, spaceBetween:30 },
-              1024: { slidesPerView: 2, spaceBetween:30 },
-              1440: { slidesPerView: 3, spaceBetween:30 },
+              640: { slidesPerView: 1, spaceBetween: 30 },
+              768: { slidesPerView: 2, spaceBetween: 30 },
+              1024: { slidesPerView: 2, spaceBetween: 30 },
+              1440: { slidesPerView: 3, spaceBetween: 30 },
             }}
           >
             {slidesData.map((slide) => (
@@ -107,7 +107,7 @@ export default function HomeService() {
                 key={slide.id}
                 className="homeservice-swiperslider-cont"
               >
-                <div  className="card-wrapper">
+                <div className="card-wrapper">
                   <div className="card">
                     <div className="circle-p-cont">
                       <div className="small-circle"></div>
@@ -121,7 +121,9 @@ export default function HomeService() {
                     />
                   </div>
                   <div className="separate-circle">
-                    <i className="pbmit-base-icon-black-arrow-1"></i>
+                    <Link style={{color:'black'}} to={slide.link}>
+                      <i className="pbmit-base-icon-black-arrow-1" />
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>

@@ -1,5 +1,6 @@
 import React from "react";
 import { PiBellRingingThin } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 export default function HomeSignup() {
   return (
@@ -10,14 +11,16 @@ export default function HomeSignup() {
             <div className="ihbox-style-4_bg">
               <div className="pbmit-ihbox-style-4">
                 <div className="pbmit-ihbox-headingicon">
-                  <h4 className="pbmit-element-heading">Join our School</h4>
+                  <h4 className="pbmit-element-heading">Join our Classes</h4>
                   <h2 className="pbmit-element-title">
                     Ready to start learn?
-                    <br /> Sign up now!
+                    <br /> 
                   </h2>
                   <div className="pbmit-ihbox-btn">
-                    <a href="contact-us.html">
-                      <span className="pbmit-button-text">sign up now</span>
+                    <a href="contact">
+                      <span className="pbmit-button-text">
+                        Sign up now
+                      </span>
                       <span className="pbmit-button-icon-wrapper">
                         <span className="pbmit-button-icon">
                           <i className="pbmit-base-icon-black-arrow-1" />

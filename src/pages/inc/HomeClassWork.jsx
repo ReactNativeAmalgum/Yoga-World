@@ -37,7 +37,6 @@ export default function HomeClassWork() {
       registrationDate: "31-10-2023",
       price: "$370 / Month",
       imgUrl: beg,
-      // link: "event-single-detail.html",
     },
     {
       id: 2,
@@ -48,7 +47,6 @@ export default function HomeClassWork() {
       registrationDate: "27-10-2023",
       price: "$390 / Month",
       imgUrl: yogaWorkshop,
-      // link: "event-single-detail.html",
     },
     {
       id: 3,
@@ -59,7 +57,6 @@ export default function HomeClassWork() {
       registrationDate: "29-10-2023",
       price: "$499 / Month",
       imgUrl: international,
-      // link: "event-single-detail.html",
     },
     {
       id: 4,

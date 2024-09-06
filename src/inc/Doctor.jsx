@@ -1,22 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
-import { imageData } from "../images/img_index";
 import { LuBellRing } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Reveal, Rotate, Slide } from "react-awesome-reveal";
-import '../App.css'
+import { Slide } from "react-awesome-reveal";
+import "../App.css";
+import { eevent } from "../components/Trainer";
+
 export default function Doctor() {
   const navigate = useNavigate();
-
   const [isInView, setIsInView] = useState(false);
   const headingRef = useRef(null);
+  const search = useLocation();
+  const pathSegments = search.pathname.split("/");
+  const [id, slug] = pathSegments[2] ? [pathSegments[2].match(/\d+/)[0], pathSegments[2].replace(/\d+/, '')] : [null, null];
+
+  // Find the event with the correct ID
+  const eventsToDisplay = eevent.find((event) => event.id === id) || { eventData: [] };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        console.log("Is in view:", entry.isIntersecting);
-        setIsInView(entry.isIntersecting);
-      },
+      ([entry]) => setIsInView(entry.isIntersecting),
       { threshold: 0.1 }
     );
 
@@ -32,88 +35,7 @@ export default function Doctor() {
   }, []);
 
   const heading = "Classes & Consultations".split(" ");
-  const heading2 = "Classes & Consultations".split(" ");
 
-  const events = [
-    {
-      id: 1,
-      image:
-        "https://img.freepik.com/free-photo/patient-nurse-with-face-masks-looking-spine-bones_482257-27000.jpg?t=st=1724840602~exp=1724844202~hmac=a1deec2183c3c5ee3bd8e4229f57be4d7daef1f59092a3d466f923e99bd29956&w=900",
-      type: "Mobility",
-      link: "#",
-      detailLink: "#",
-      date: "14 Feb",
-      title: "Orthopedic Consultation",
-      duration: "50 min / Session",
-      registrationDate: "08-11-2023",
-      price: "$240 / Month",
-    },
-    {
-      id: 2,
-      image:
-        "https://img.freepik.com/free-photo/happy-doctor-holding-clipboard-with-patients_1098-2176.jpg?t=st=1724840646~exp=1724844246~hmac=170fea2728daa31010a6f445b3cc4f297bfeb9f73832806f3e2b1f6f566fce88&w=900",
-      type: "Physical",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Physician Consultation",
-      duration: "55 min / Session",
-      registrationDate: "22-11-2023",
-      price: "$300 / Month",
-    },
-    {
-      id: 3,
-      image:
-        "https://img.freepik.com/free-photo/mid-shot-woman-therapist-with-clipboard_23-2148759113.jpg?t=st=1724840778~exp=1724844378~hmac=75237c075bc65ebce65419b3efac7a1372cce597e21e626db145f724d18a9cbe&w=740",
-      type: "Mental Well-Being",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Psychologist Consultation",
-      duration: "60 min / Session",
-      registrationDate: "20-11-2023",
-      price: "$330 / Month",
-    },
-    {
-      id: 4,
-      image:
-        "https://img.freepik.com/free-photo/smiling-athletic-woman-is-doing-yoga_8353-10209.jpg?t=st=1724840826~exp=1724844426~hmac=e9169d28058b4f45f300adb27202412d376acc9204e88835d4f17df05b0e248c&w=360",
-      type: "Holistic Wellness",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Yoga Expert Consultation",
-      duration: "45 min / Session",
-      registrationDate: "14-11-2023",
-      price: "$200 / Month",
-    },
-    {
-      id: 5,
-      image:
-        "https://img.freepik.com/free-photo/medium-shot-smiley-doctor-talking-woman_23-2149047476.jpg?t=st=1724840919~exp=1724844519~hmac=48133a220115020a6681fa8764a22c01cc40ec7e9d610dc7142ed1c11c29ffce&w=900",
-      type: "Inner Fire",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Motivational Consultation",
-      duration: "55 min / Session",
-      registrationDate: "11-11-2023",
-      price: "$370 / Month",
-    },
-    {
-      id: 6,
-      image:
-        "https://img.freepik.com/free-photo/family-therapy-psychologist-office_23-2149175189.jpg?t=st=1724841231~exp=1724844831~hmac=13c11f84dc82e32abb5c73ccb4084e41f778427d504f607e4ccd3acd2ec605be&w=900",
-      type: "Support",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Counsellor Consultation",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-  ];
   return (
     <>
       <div className="pbmit-title-bar-wrapper">
@@ -140,8 +62,7 @@ export default function Doctor() {
                     </span>
                     <span>
                       <span className="post-root post post-post current-item">
-                        {" "}
-                        Doctor Consultaions
+                        Doctor Consultations
                       </span>
                     </span>
                   </div>
@@ -152,10 +73,10 @@ export default function Doctor() {
         </div>
       </div>
 
-      <div  className="page-content">
-        {/* Even Style 1 */}
+      <div className="page-content">
+        {/* Event Section */}
         <section className="section-md event_boxes">
-          <div className="online-offine-cutom-cont  container">
+          <div className="online-offine-cutom-cont container">
             <div className="pbmit-heading-subheading animation-style2">
               <h4 className="pbmit-subtitle">Our Upcoming</h4>
               <h2
@@ -177,103 +98,81 @@ export default function Doctor() {
               </h2>
             </div>
             <div className="row">
-              {events.map((event) => (
-                <div className="col-md-4" key={event.id}>
-                  <div className="pbmit-ele-event_listing">
-                    <div className="pbmit-event-layout-wrapper">
-                      <div
-                        className={`event_listing event-type-${event.type
-                          .toLowerCase()
-                          .replace(" ", "-")}`}
-                      >
-                        <div
-                          className={`pbmit-event-action-url event-style-color ${event.type
-                            .toLowerCase()
-                            .replace(" ", "-")}`}
-                        >
-                          <div className="pbmit-event-banner">
-                            <div
-                              className="pbmit-event-banner-img"
-                              style={{ backgroundImage: `url(${event.image})` }}
-                            >
-                              <div className="pbmit-event-type">
-                                <a href={event.link}>
-                                  <span
-                                    className={`pbmit-event-type-text event-type ${event.type
-                                      .toLowerCase()
-                                      .replace(" ", "-")}`}
-                                  >
-                                    {event.type}
-                                  </span>
-                                </a>
+              {eventsToDisplay.eventData.length > 0 ? (
+                eventsToDisplay.eventData.map((event) => (
+                  <div className="col-md-4" key={event.id}>
+                    <div className="pbmit-ele-event_listing">
+                      <div className="pbmit-event-layout-wrapper">
+                        <div className={`event_listing event-type-${event.type.toLowerCase().replace(" ", "-")}`}>
+                          <div className={`pbmit-event-action-url event-style-color ${event.type.toLowerCase().replace(" ", "-")}`}>
+                            <div className="pbmit-event-banner">
+                              <div
+                                className="pbmit-event-banner-img"
+                                style={{ backgroundImage: `url(${event.image})` }}
+                              >
+                                <div className="pbmit-event-type">
+                                  <a href={event.link}>
+                                    <span className={`pbmit-event-type-text event-type ${event.type.toLowerCase().replace(" ", "-")}`}>
+                                      {event.type}
+                                    </span>
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <a className="pbmit-button" href={event.detailLink}>
-                              <span className="pbmit-button-icon-wrapper">
-                                <span className="pbmit-button-icon">
-                                  <i className="pbmit-base-icon-black-arrow-1" />
+                              <a className="pbmit-button" href={`/service/${id}${event.slug}`}>
+                                <span className="pbmit-button-icon-wrapper">
+                                  <span className="pbmit-button-icon">
+                                    <i className="pbmit-base-icon-black-arrow-1" />
+                                  </span>
                                 </span>
-                              </span>
-                            </a>
-                            <a className="pbmit-link" href={event.detailLink} />
-                          </div>
-                          <div className="pbmit-event-infomation">
-                            <div className="pbmit-event-date">
-                              <div className="pbmit-event-date-type">
-                                <div className="pbmit-from-date">
-                                  <div className="pbmit-date">
-                                    {event.date.split(" ")[0]}
+                              </a>
+                              <a className="pbmit-link" href={`/service/${id}${event.slug}`} />
+                            </div>
+                            <div className="pbmit-event-infomation">
+                              <div className="pbmit-event-date">
+                                <div className="pbmit-event-date-type">
+                                  <div className="pbmit-from-date">
+                                    <div className="pbmit-date">{event.date.split(" ")[0]}</div>
+                                    <div className="pbmit-month">{event.date.split(" ")[1]}</div>
                                   </div>
-                                  <div className="pbmit-month">
-                                    {event.date.split(" ")[1]}
+                                </div>
+                              </div>
+                              <div className="pbmit-event-details">
+                                <div className="pbmit-event-title">
+                                  <h3 className="pbmit-heading-text">
+                                    <a href={`/service/${id}${event.slug}`}>
+                                      {event.title}
+                                    </a>
+                                  </h3>
+                                </div>
+                                <div className="pbmit-event-meta d-flex align-items-center">
+                                  <div className="pbmit-event-meta-line pbmit-event-time d-flex">
+                                    <i className="pbmit-base-icon-time" />
+                                    <div className="pbmit-event-meta-time">{event.duration}</div>
+                                  </div>
+                                  <div className="pbmit-event-meta-line pbmit-event-registration-date d-flex">
+                                    <i className="pbmit-base-icon-calendar-3" />
+                                    <span className="pbmit-event-date-text">{event.registrationDate}</span>
+                                  </div>
+                                </div>
+                                <div className="pbmit-event-price">
+                                  <div className="pbmit-event-meta-price">
+                                    <span onClick={() => navigate("/contact")}>Enquiry Now</span>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="pbmit-event-details">
-                              <div className="pbmit-event-title">
-                                <h3 className="pbmit-heading-text">
-                                  <a href={event.detailLink}>{event.title}</a>
-                                </h3>
-                              </div>
-                              <div className="pbmit-event-meta d-flex align-items-center">
-                                <div className="pbmit-event-meta-line pbmit-event-time d-flex">
-                                  <i className="pbmit-base-icon-time" />
-                                  <div className="pbmit-event-meta-time">
-                                    {event.duration}
-                                  </div>
-                                </div>
-                                <div className="pbmit-event-meta-line pbmit-event-registration-date d-flex">
-                                  <i className="pbmit-base-icon-calendar-3" />
-                                  <span className="pbmit-event-date-text">
-                                    {event.registrationDate}
-                                  </span>
-                                </div>
-                              </div>
-                              <div className="pbmit-event-price">
-                                <div className="pbmit-event-meta-price">
-                                  <span onClick={() => navigate("/contact")}>
-                                    {" "}
-                                    Enquiry Now
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
                           </div>
-                        </div>
-                        <div className="pbmit-event-arrow-link">
-                          <a
-                            href={event.detailLink}
-                            className={`event-style-color ${event.type
-                              .toLowerCase()
-                              .replace(" ", "-")}`}
-                          />
+                          <div className="pbmit-event-arrow-link">
+                            <a href={`/service/${id}${event.slug}`} className={`event-style-color ${event.type.toLowerCase().replace(" ", "-")}`} />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p>No events available.</p>
+              )}
             </div>
           </div>
         </section>
@@ -282,68 +181,45 @@ export default function Doctor() {
           <div className="container">
             <div className="appoinment-two_bg">
               <div className="appoinment-bg-overlay" />
-              <div className="row align-items-center g-0">
-                <div className="col-md-4">
-                  <div className="appoinment-two_left">
-                    <div className="pbmit-ihbox-style-5">
-                      <div className="pbmit-ihbox-box d-flex align-items-center">
-                        <div className="pbmit-ihbox-icon">
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                            className="pbmit-ihbox-icon-wrapper"
-                          >
-                            <div
-                              style={{ display: "contents" }}
-                              className="pbmit-icon-wrapper pbmit-icon-type-icon"
-                            >
-                              <LuBellRing
-                                style={{ fontSize: 52, rotate: "320deg" }}
-                              />{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="pbmit-ihbox-contents">
-                          <h2 className="pbmit-element-title">
-                            Subscribe <br /> to our newsletter
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="appoinment-two-left">
+                <div className="pbmit-heading-subheading animation-style2">
+                  <h2 className="pbmit-title text-white">
+                    Join Free Trial Classes and Yoga To Relief Your Stress
+                  </h2>
+                  <p className="text-white">
+                    Mauris ut lacus interdum, placerat arcu nec, feugiat
+                    lectus. Suspendisse nec tincidunt nibh. Suspendisse potenti.
+                  </p>
                 </div>
-                <div className="col-md-8">
-                  <div className="appoinment-two_right">
-                    <form>
-                      <div className="pbmit-footer-newsletter">
-                        <input
-                          type="email"
-                          name="EMAIL"
-                          placeholder="Your email address"
-                          required=""
-                        />
-                        <button className="pbmit-button">
-                          <span className="pbmit-button-text">Subscribe</span>
-                          <span className="pbmit-btn-content-wrapper">
-                            <span className="pbmit-button-icon">
-                              <i className="pbmit-base-icon-black-arrow-1" />
-                            </span>
-                          </span>
-                        </button>
-                      </div>
-                    </form>
+              </div>
+              <div className="appoinment-two-right">
+                <div className="newsletter_form_input">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                    name="email"
+                  />
+                  <div className="pbmit-btn-wraper">
+                    <a
+                      className="elementor-animation-push elementor-button-link elementor-button elementor-size-md"
+                      href="#"
+                    >
+                      <span className="elementor-button-content-wrapper">
+                        <span className="elementor-button-icon elementor-align-icon-right">
+                          <LuBellRing />
+                        </span>
+                        <span className="elementor-button-text">
+                          Subscribe Now
+                        </span>
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* Appoinment End */}
-        {/* Pricing Start */}
-
       </div>
     </>
   );

@@ -1,18 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import { imageData } from "../images/img_index";
 import { LuBellRing } from "react-icons/lu";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Reveal, Rotate, Slide } from "react-awesome-reveal";
 import "../App.css";
+import { eevent } from "../components/Trainer";
+
 export default function Online_Offline() {
+  const serach = useLocation();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
   const [isInView, setIsInView] = useState(false);
   const headingRef1 = useRef(null);
-  const headingRef = useRef(null);
-
+  const ss = serach.pathname.split("/");
+  console.log(ss);
+  console.log(ss[2]);
+  // const
+  const ff = ss[2];
+  const eventsToDisplay = eevent.find((event) => event.id === ff);
+  console.log(eventsToDisplay);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,170 +33,20 @@ export default function Online_Offline() {
 
     if (headingRef1.current) {
       observer.observe(headingRef1.current);
-      // observer.observe(headingRef.current);
     }
 
     return () => {
       if (headingRef1.current) {
         observer.unobserve(headingRef1.current);
-        // observer.unobserve(headingRef.current);
       }
     };
   }, []);
 
   const heading = "Classes & Workshops".split(" ");
-  const heading2 = "Choose a subscription".split(" ");
-
-  const events = [
-    {
-      id: 1,
-      image: imageData.HomeYoga,
-      type: "Time Flexibility",
-      link: "#",
-      detailLink: "#",
-      date: "14 Feb",
-      title: "Home Yoga Classes",
-      duration: "50 min / Session",
-      registrationDate: "08-11-2023",
-      price: "$240 / Month",
-    },
-    {
-      id: 2,
-      image: imageData.CommunityYoga,
-      type: "Empower Communities",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Society Yoga Classes",
-      duration: "55 min / Session",
-      registrationDate: "22-11-2023",
-      price: "$300 / Month",
-    },
-    {
-      id: 3,
-      image: imageData.CorporateYoga,
-      type: "Stress Buster",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Corporate Yoga",
-      duration: "60 min / Session",
-      registrationDate: "20-11-2023",
-      price: "$330 / Month",
-    },
-    {
-      id: 4,
-      image: imageData.HospitalYoga,
-      type: "Therapeutic",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Hospital Yoga Classes",
-      duration: "45 min / Session",
-      registrationDate: "14-11-2023",
-      price: "$200 / Month",
-    },
-    {
-      id: 5,
-      image: imageData.H_R_yoa,
-      type: "Blissful Experience",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Hotel & Resorts Yoga classes",
-      duration: "55 min / Session",
-      registrationDate: "11-11-2023",
-      price: "$370 / Month",
-    },
-    {
-      id: 6,
-      image: imageData.Women_Yoga,
-      type: "Women Empowerment",
-      link: "event-style-1.html",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Women's Care Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 7,
-      image: imageData.F_C_Yoga,
-      type: "Deepened Connections",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Family /Couple Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 8,
-      image: imageData.EmpYoga,
-      type: "Corporate Wellbeing System",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Office Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 9,
-      image: imageData.school_yoga,
-      type: "Empowering Young Mindset",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Office Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 10,
-      image: imageData.AbroadYoga,
-      type: "Yoga Around The World",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Abroad Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 11,
-      image: imageData.TourstYoga,
-      type: "Holistic Exploration",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Tourist Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-    {
-      id: 11,
-      image: imageData.Occupation_Yoga,
-      type: "Word related Occasion",
-      link: "#",
-      detailLink: "event-single-detail.html",
-      date: "14 Feb",
-      title: "Occupational event Yoga Classes",
-      duration: "30 min / Session",
-      registrationDate: "01-11-2023",
-      price: "$245 / Month",
-    },
-  ];
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-        navigate("/contact");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/contact");
   };
 
   return (
@@ -253,19 +112,21 @@ export default function Online_Offline() {
               </h2>
             </div>
             <div className="row">
-              {events.map((event) => (
+              {eventsToDisplay.eventData.map((event) => (
                 <div className="col-md-4" key={event.id}>
                   <div className="pbmit-ele-event_listing">
                     <div className="pbmit-event-layout-wrapper">
                       <div
-                        className={`event_listing event-type-${event.type
-                          .toLowerCase()
-                          .replace(" ", "-")}`}
+                        className={`event_listing event-type-${
+                          event.type
+                        }
+                          `}
                       >
                         <div
-                          className={`pbmit-event-action-url event-style-color ${event.type
-                            .toLowerCase()
-                            .replace(" ", "-")}`}
+                          className={`pbmit-event-action-url event-style-color ${
+                            event.type
+                          }
+                            `}
                         >
                           <div className="pbmit-event-banner">
                             <div
@@ -273,7 +134,7 @@ export default function Online_Offline() {
                               style={{ backgroundImage: `url(${event.image})` }}
                             >
                               <div className="pbmit-event-type">
-                                <a href={event.link}>
+                                <a href={`/service/${ff}${event.slug}`}>
                                   <span
                                     className={`pbmit-event-type-text event-type ${event.type
                                       .toLowerCase()
@@ -284,14 +145,17 @@ export default function Online_Offline() {
                                 </a>
                               </div>
                             </div>
-                            <a className="pbmit-button" href={event.detailLink}>
+                            <a className="pbmit-button" href={"/serviceDetail"}>
                               <span className="pbmit-button-icon-wrapper">
                                 <span className="pbmit-button-icon">
                                   <i className="pbmit-base-icon-black-arrow-1" />
                                 </span>
                               </span>
                             </a>
-                            <a className="pbmit-link" href={event.detailLink} />
+                            <a
+                              className="pbmit-link"
+                              href={`/service/${ff}${event.slug}`}
+                            />
                           </div>
                           <div className="pbmit-event-infomation">
                             <div className="pbmit-event-date">
@@ -309,7 +173,11 @@ export default function Online_Offline() {
                             <div className="pbmit-event-details">
                               <div className="pbmit-event-title">
                                 <h3 className="pbmit-heading-text">
-                                  <a href={event.detailLink}>{event.title}</a>
+                                  <a
+                                    href={`/service/${ff}${event.slug}`}
+                                  >
+                                    {event.title}
+                                  </a>
                                 </h3>
                               </div>
                               <div className="pbmit-event-meta d-flex align-items-center">
@@ -337,13 +205,12 @@ export default function Online_Offline() {
                                   </span>
                                 </div>
                               </div>
-                              {/* <EnquiryModal show={show} onHide={handleClose} /> */}
                             </div>
                           </div>
                         </div>
                         <div className="pbmit-event-arrow-link">
                           <a
-                            href={event.detailLink}
+                            href={`/service/${ff}${event.slug}`}
                             className={`event-style-color ${event.type
                               .toLowerCase()
                               .replace(" ", "-")}`}

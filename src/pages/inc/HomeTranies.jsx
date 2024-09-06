@@ -84,7 +84,7 @@ export default function HomeTranies() {
             <div className="pbmit-featured-img-wrapper">
               <div className="pbmit-featured-wrapper">
                 <img
-                  src="https://img.freepik.com/free-photo/side-view-young-woman-practicing-yoga-park_23-2148066886.jpg?t=st=1724734038~exp=1724737638~hmac=01e03efea18f58fb06d5eb0e8123147c9b34eab1292cdbcf22f853b14022d5af&w=996"
+                  src="https://img.freepik.com/free-photo/front-view-man-meditating-outdoors_23-2148988371.jpg?t=st=1725514513~exp=1725518113~hmac=e9312fd1e1f17184f41605c522516f8c44437923c1ae5395bc4af2aea4ad6987&w=360"
                   className="img-fluid"
                   alt=""
                 />

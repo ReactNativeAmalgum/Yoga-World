@@ -1,10 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Reveal, Rotate, Slide } from "react-awesome-reveal";
+import { Reveal, Slide } from "react-awesome-reveal";
 import { motion } from "framer-motion";
-import '../App.css'
+import "../App.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { eevent } from "../components/Trainer";
+import bookimg from '../images/Hospital_yoga.jpeg'
+
 export default function ServiceDetail() {
+  const location = useLocation();
   const [isInView, setIsInView] = useState(false);
   const headingRef = useRef(null);
+  const [details, setDetails] = useState(null);
+  const [nav, setNav] = useState([]);
+  const navigate = useNavigate()
+
+  // Extract ID and slug from the URL
+  const [, , id, slug] = location.pathname.split("/");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,9 +33,39 @@ export default function ServiceDetail() {
       }
     };
   }, []);
+
+  // Fetch event details based on ID and slug
+  useEffect(() => {
+    const fetchDetails = () => {
+      const trainer = eevent.find(trainer => trainer.id === id);
+      if (trainer) {
+        console.log("trianer", trainer)
+        const navItems = trainer.eventData.map(r => ({ title: r.title, slug: r.slug }));
+        setNav(navItems);
+        console.log(navItems)
+        console.log(nav)
+        const event = trainer.eventData.find(data => data.slug === "/" + slug);
+        if (event) {
+          setDetails(event);
+          console.log(event)
+        } else {
+          console.error('Event not found');
+        }
+      } else {
+        console.error('Trainer not found');
+      }
+    };
+
+    fetchDetails();
+  }, [id, slug]);
+
   const heading = "Our yoga is the fountain of the youth".split(" ");
   const heading2 = "Different types of yoga method".split(" ");
-
+  const handleNavigation = (id, slug) => {
+    const path = `/service/${id}${slug}`;
+    console.log("Navigating to:", path); // Debugging output
+    navigate(path);
+  };
   return (
     <>
       <div className="pbmit-title-bar-wrapper">
@@ -34,43 +75,20 @@ export default function ServiceDetail() {
               <div className="pbmit-tbar">
                 <div className="pbmit-tbar-inner container">
                   <Slide direction="left" duration={3000} delay={500}>
-                    <h1 className="pbmit-tbar-title"> Ardha Chakrasana</h1>
+                    <h1 className="pbmit-tbar-title">{details?.title || 'Default Title'}</h1>
                   </Slide>
                 </div>
               </div>
               <div className="pbmit-breadcrumb">
                 <Slide direction="left" duration={3000} delay={1000}>
                   <div className="pbmit-breadcrumb-inner">
-                    <span>
-                      <a title="" href="#" className="home">
-                        <span>Yoge</span>
-                      </a>
-                    </span>
-                    <span className="sep">
-                      <i className="pbmit-base-icon-angle-double-right" />
-                    </span>
-                    <span>
-                      <a title="" href="#" className="home">
-                        <span>Services</span>
-                      </a>
-                    </span>
-                    <span className="sep">
-                      <i className="pbmit-base-icon-angle-double-right" />
-                    </span>
-                    <span>
-                      <a title="" href="#" className="home">
-                        <span>DJ Yoga Trainer</span>
-                      </a>
-                    </span>
-                    <span className="sep">
-                      <i className="pbmit-base-icon-angle-double-right" />
-                    </span>
-                    <span>
-                      <span className="post-root post post-post current-item">
-                        {" "}
-                        Ardha Chakrasana
-                      </span>
-                    </span>
+                    <span><a href="#" className="home">Yoge</a></span>
+                    <span className="sep"><i className="pbmit-base-icon-angle-double-right" /></span>
+                    <span><a href="#" className="home">Services</a></span>
+                    <span className="sep"><i className="pbmit-base-icon-angle-double-right" /></span>
+                    <span><a href="#" className="home">DJ Yoga Trainer</a></span>
+                    <span className="sep"><i className="pbmit-base-icon-angle-double-right" /></span>
+                    <span><span className="post-root post post-post current-item">Ardha Chakrasana</span></span>
                   </div>
                 </Slide>
               </div>
@@ -82,14 +100,14 @@ export default function ServiceDetail() {
       <div className="page-content">
         {/* Service Details */}
         <section className="site_content service_details">
-          <div className="container serviceDetail-container ">
+          <div className="container serviceDetail-container">
             <div className="servicedetail-row row">
               <div className="col-lg-9 service-right-col">
                 <div className="pbmit-service-feature-image">
                   <img
-                    src="images/services/service-detail-01.jpg"
+                    src={details?.image || "images/services/service-detail-01.jpg"}
                     className="img-fluid w-100"
-                    alt=""
+                    alt="Service"
                   />
                 </div>
                 <div className="pbmit-entry-content">
@@ -100,49 +118,25 @@ export default function ServiceDetail() {
                         style={{ perspective: 400 }}
                         ref={headingRef}
                       >
-                        {heading.map((el, i) => (
+                        {heading.map((word, index) => (
                           <motion.span
-                            key={i}
+                            key={index}
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: i * 0.3 }}
+                            transition={{ duration: 0.5, delay: index * 0.3 }}
                           >
-                            {el}{" "}
+                            {word}{" "}
                           </motion.span>
                         ))}
                       </h3>
                     </div>
                     <p className="pbmit-firstletter">
-                      We It’s time to roll out your yoga mat and discovers
-                      combinations of physically and mentally exercises be While
-                      most people associate yoga with stretching and
-                      flexibility, some{" "}
-                      <u>
-                        <a className="pbmit-global-color" href="#">
-                          considered strength-building
-                        </a>
-                      </u>{" "}
-                      types of yoga classes can also be. It just depends on the
-                      class level, approach, and teacher. This makes yoga asana
-                      a multimodal form of exercise
+                      {details?.descp}
+                      <u><a className="pbmit-global-color" href="#">considered strength-building</a></u>
                     </p>
                     <p>
-                      The scientific research into yoga’s benefits is still
-                      somewhat preliminary, but much of the evidence so far
-                      supports what practitioners seem to have known for
-                      millennia: Yoga is incredibly beneficial to our overall
-                      well-being.{" "}
-                      <u>
-                        <a className="pbmit-global-color" href="#">
-                          Flexibility is an important
-                        </a>
-                      </u>{" "}
-                      component of physical health. Yoga offers many styles to
-                      choose from, varying in intensity from high to moderate to
-                      mild. Even the lowest and intensity styles have been found
-                      to increase flexibilitySo, it makes sense that the second
-                      most cited reason people selected as to why they do yoga
-                      was to relieve stress.
+                      {details?.descp2}
+                      <u><a className="pbmit-global-color" href="#">Flexibility is an important</a></u>
                     </p>
                     <div className="pbmit-heading pt-3 animation-style2">
                       <h3
@@ -150,193 +144,130 @@ export default function ServiceDetail() {
                         style={{ perspective: 400 }}
                         ref={headingRef}
                       >
-                        {heading2.map((el, i) => (
+                        {heading2.map((word, index) => (
                           <motion.span
-                            key={i}
+                            key={index}
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: i * 0.3 }}
+                            transition={{ duration: 0.5, delay: index * 0.3 }}
                           >
-                            {el}{" "}
+                            {word}{" "}
                           </motion.span>
                         ))}
                       </h3>
                     </div>
-                    <p>
-                      In some cases, a financial consultant may have more
-                      financial plan experience than the typical financial
-                      advisor. Financial consultants usually provide investment
-                      services as well, though. our clients are often surprised
-                      by the possibilities we present to them; by thinking
-                      outside the box we present exciting new ventures:
-                    </p>
+                    <p>{details?.descp3}</p>
                   </div>
+                  {/* Additional Info */}
                   <div className="ihbox_style_box">
                     <div className="row">
+                      {/* Box 1 */}
                       <div className="col-md-6 col-xl-4">
                         <div className="pbmit-ihbox-style-10">
-                          <div
-                            style={{ backgroundColor: "white" }}
-                            className="pbmit-ihbox-box"
-                          >
+                          <div className="pbmit-ihbox-box" style={{ backgroundColor: "white" }}>
                             <div className="pbmit-content-wrapper">
-                              <div className="pbmit-heading-desc">
-                                yoga trainer
-                              </div>
-                              <h2 className="pbmit-element-title">
-                                5+ years <br />
-                                Experience
-                              </h2>
+                              <div className="pbmit-heading-desc">Yoga Trainer</div>
+                              <h2 className="pbmit-element-title">5+ years <br />Experience</h2>
                             </div>
                             <div className="pbmit-ihbox-icon">
-                              <div className="pbmit-ihbox-icon-wrapper">
-                                <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
-                                  <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-18" />
-                                </div>
+                              <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
+                                <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-18" />
                               </div>
                             </div>
                           </div>
-                          <div style={{backgroundColor:'white'}} className="pbmit-ihbox-box-number">01</div>
+                          <div className="pbmit-ihbox-box-number" style={{ backgroundColor: "white" }}>01</div>
                         </div>
                       </div>
+                      {/* Box 2 */}
                       <div className="col-md-6 col-xl-4">
                         <div className="pbmit-ihbox-style-10">
-                          <div
-                            style={{ backgroundColor: "white" }}
-                            className="pbmit-ihbox-box"
-                          >
+                          <div className="pbmit-ihbox-box" style={{ backgroundColor: "white" }}>
                             <div className="pbmit-content-wrapper">
-                              <div className="pbmit-heading-desc">
-                                yoga trainer
-                              </div>
-                              <h2 className="pbmit-element-title">
-                                Modern yoga <br /> Trainer
-                              </h2>
+                              <div className="pbmit-heading-desc">Yoga Trainer</div>
+                              <h2 className="pbmit-element-title">Modern Yoga <br /> Trainer</h2>
                             </div>
                             <div className="pbmit-ihbox-icon">
-                              <div className="pbmit-ihbox-icon-wrapper">
-                                <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
-                                  <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose" />
-                                </div>
+                              <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
+                                <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose" />
                               </div>
                             </div>
                           </div>
-                          <div style={{backgroundColor:'white'}} className="pbmit-ihbox-box-number">02</div>
+                          <div className="pbmit-ihbox-box-number" style={{ backgroundColor: "white" }}>02</div>
                         </div>
                       </div>
+                      {/* Box 3 */}
                       <div className="col-md-6 col-xl-4">
-                        <div  className="pbmit-ihbox-style-10">
-                          <div style={{backgroundColor:'white',}} className="pbmit-ihbox-box">
+                        <div className="pbmit-ihbox-style-10">
+                          <div className="pbmit-ihbox-box" style={{ backgroundColor: "white" }}>
                             <div className="pbmit-content-wrapper">
-                              <div className="pbmit-heading-desc">
-                                yoga trainer
-                              </div>
-                              <h2 className="pbmit-element-title">
-                                World class <br /> gurus
-                              </h2>
+                              <div className="pbmit-heading-desc">Yoga Trainer</div>
+                              <h2 className="pbmit-element-title">World Class <br /> Gurus</h2>
                             </div>
                             <div className="pbmit-ihbox-icon">
-                              <div className="pbmit-ihbox-icon-wrapper">
-                                <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
-                                  <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-8" />
-                                </div>
+                              <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
+                                <i className="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-8" />
                               </div>
                             </div>
                           </div>
-                          <div style={{backgroundColor:'white', width:100, height:100, borderRadius:'50%'}} className="pbmit-ihbox-box-number">03</div>
+                          <div className="pbmit-ihbox-box-number" style={{ backgroundColor: "white", width: 100, height: 100, borderRadius: "50%" }}>03</div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  {/* Benefits Section */}
                   <div className="list-group_box">
                     <div className="row">
                       <div className="col-md-12 col-xl-6">
                         <div className="pbmit-animation-style7 active">
                           <img
-                            src="	https://yoge-demo.pbminfotech.com/html-demo/images/services/service-detail-02.jpg"
+                            src="https://yoge-demo.pbminfotech.com/html-demo/images/services/service-detail-02.jpg"
                             className="img-fluid"
-                            alt=""
+                            alt="Benefits"
                           />
                         </div>
                       </div>
                       <div className="col-md-12 col-xl-6">
                         <div className="service-list-group">
                           <div className="pbmit-heading animation-style2">
-                            <Slide
-                              direction="right"
-                              duration={2000}
-                              delay={500}
-                            >
-                              <h3
-                                className="pbmit-title mb-3"
-                                style={{ perspective: 400 }}
-                              >
-                                Benifits of Yoga session
+                            <Slide direction="right" duration={2000} delay={500}>
+                              <h3 className="pbmit-title mb-3" style={{ perspective: 400 }}>
+                                Benefits of Yoga Session
                               </h3>
                             </Slide>
                           </div>
                           <p>
-                            When your immunity is compromised, to you’re more
-                            susceptible to illness. However, as discussed
-                            earlier, yoga is considered a best scientifically
-                            backed alternative treatment for stress.
+                            When your immunity is compromised, you're more susceptible to illness. Yoga is considered a scientifically backed alternative treatment for stress.
                           </p>
                           <ul className="list-group list-group-borderless">
                             <li className="list-group-item">
                               <span className="pbmit-icon-list-icon">
-                                <i
-                                  aria-hidden="true"
-                                  className="pbmit-base-icon-check"
-                                />
+                                <i aria-hidden="true" className="pbmit-base-icon-check" />
                               </span>
-                              <span className="pbmit-icon-list-text">
-                                Yoga improves strength, balance and flexibility.
-                              </span>
+                              <span className="pbmit-icon-list-text">Yoga improves strength, balance and flexibility.</span>
                             </li>
                             <li className="list-group-item">
                               <span className="pbmit-icon-list-icon">
-                                <i
-                                  aria-hidden="true"
-                                  className="pbmit-base-icon-check"
-                                />
+                                <i aria-hidden="true" className="pbmit-base-icon-check" />
                               </span>
-                              <span className="pbmit-icon-list-text">
-                                Yoga connects you with a supportive community.
-                              </span>
+                              <span className="pbmit-icon-list-text">Yoga connects you with a supportive community.</span>
                             </li>
                             <li className="list-group-item">
                               <span className="pbmit-icon-list-icon">
-                                <i
-                                  aria-hidden="true"
-                                  className="pbmit-base-icon-check"
-                                />
+                                <i aria-hidden="true" className="pbmit-base-icon-check" />
                               </span>
-                              <span className="pbmit-icon-list-text">
-                                Yoga can mean more energy and brighter moods.
-                              </span>
+                              <span className="pbmit-icon-list-text">Yoga can mean more energy and brighter moods.</span>
                             </li>
                             <li className="list-group-item">
                               <span className="pbmit-icon-list-icon">
-                                <i
-                                  aria-hidden="true"
-                                  className="pbmit-base-icon-check"
-                                />
+                                <i aria-hidden="true" className="pbmit-base-icon-check" />
                               </span>
-                              <span className="pbmit-icon-list-text">
-                                Yoga may improve cardiovascular functioning.
-                              </span>
+                              <span className="pbmit-icon-list-text">Yoga may improve cardiovascular functioning.</span>
                             </li>
                             <li className="list-group-item">
                               <span className="pbmit-icon-list-icon">
-                                <i
-                                  aria-hidden="true"
-                                  className="pbmit-base-icon-check"
-                                />
+                                <i aria-hidden="true" className="pbmit-base-icon-check" />
                               </span>
-                              <span className="pbmit-icon-list-text">
-                                Yoga can promote better posture and body
-                                awareness
-                              </span>
+                              <span className="pbmit-icon-list-text">Yoga can promote better posture and body awareness.</span>
                             </li>
                           </ul>
                         </div>
@@ -344,113 +275,19 @@ export default function ServiceDetail() {
                     </div>
                   </div>
                 </div>
-                {/* <div class="pbmit-service-related">
-								<h3>Related Service</h3>
-								<article class="pbmit-service-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbminfotech-box-content">
-											<div class="pbmit-box-content-wrap">
-												<div class="pbmit-box-content-inner">
-													<div class="pbmit-contant-box">
-														<div class="pbmit-serv-cat">
-															<a href="service-details.html" rel="tag">DJ Yoga Trainer</a>
-														</div>
-														<h3 class="pbmit-service-title">
-															<a href="service-details.html">Viparita Virabhadrasana</a>
-														</h3>
-													</div>
-													<div class="pbmit-service-icon">
-														<i class="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-1"></i>			
-													</div>
-												</div>
-											</div>
-											<a class="pbmit-service-btn" href="service-details.html" title="Viparita Virabhadrasana">
-												<span class="pbmit-button-icon-wrapper">
-													<span class="pbmit-button-icon">
-														<i class="pbmit-base-icon-black-arrow-1"></i>
-													</span>
-												</span>
-											</a>
-										</div>
-										<a class="pbmit-link" href="service-details.html"></a>
-									</div>
-								</article>
-								<article class="pbmit-service-style-1">
-									<div class="pbminfotech-post-item">
-										<div class="pbminfotech-box-content">
-											<div class="pbmit-box-content-wrap">
-												<div class="pbmit-box-content-inner">
-													<div class="pbmit-contant-box">
-														<div class="pbmit-serv-cat">
-															<a href="service-details.html" rel="tag">DJ Yoga Trainer</a>
-														</div>
-														<h3 class="pbmit-service-title">
-															<a href="service-details.html">Ashtanga Namaskara</a>
-														</h3>
-													</div>
-													<div class="pbmit-service-icon">
-														<i class="pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-8"></i>			
-													</div>
-												</div>
-											</div>
-											<a class="pbmit-service-btn" href="service-details.html" title="Ashtanga Namaskara">
-												<span class="pbmit-button-icon-wrapper">
-													<span class="pbmit-button-icon">
-														<i class="pbmit-base-icon-black-arrow-1"></i>
-													</span>
-												</span>
-											</a>
-										</div>
-										<a class="pbmit-link" href="service-details.html"></a>
-									</div>
-								</article>
-							</div> */}
               </div>
+              {/* Sidebar */}
               <div className="col-lg-3 service-left-col sidebar">
                 <aside className="service-sidebar">
                   <aside className="widget post-list">
                     <h2 className="widget-title">Our Service</h2>
                     <div className="all-post-list">
                       <ul style={{ paddingLeft: 0 }}>
-                        <li className="post-active">
-                          <a href="service-details.html"> Ardha Chakrasana </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html"> Baddha Konasana </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html">
-                            {" "}
-                            Ashtanga Namaskara{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html"> Urdhva Hastasana </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html"> Ardha Uttanasana </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html">
-                            {" "}
-                            Viparita Virabhadrasana{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html">
-                            {" "}
-                            Utthita Trikonasana{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html">
-                            {" "}
-                            Utthita Parvakonasana{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="service-details.html"> Sukhasana yoga </a>
-                        </li>
+                        {nav.map((item, index) => (
+                          <li key={index} className="post-active">
+                            <Link to={`/service/${id}${item.slug}`}>{item.title}</Link>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </aside>
@@ -458,16 +295,14 @@ export default function ServiceDetail() {
                     <div className="textwidget">
                       <div className="pbmit-service-ads">
                         <div className="pbmit-logo-img">
-                          <img src="images/widget-img.png" alt="" />
+                          <img style={{borderRadius:10}} src={bookimg} alt="Advert" />
                         </div>
-                        <h4 className="pbmit-ads-title">
-                          Book your yoga session
-                        </h4>
+                        <h4 className="pbmit-ads-title">Book your yoga session</h4>
                         <div className="pbmit-ads-desc">
                           <i className="pbmit-base-icon-phone-call-1" />
                           +(123) 1234-567-8901
                         </div>
-                        <a className="pbmit-btn" href="#">
+                        <a className="pbmit-btn" href="">
                           <span className="pbmit-btn-content-wrapper">
                             <span className="pbmit-button-icon">
                               <svg
@@ -500,23 +335,20 @@ export default function ServiceDetail() {
                                 />
                               </svg>
                             </span>
-                            <span className="pbmit-button-text">
-                              Register now
-                            </span>
+                            <span className="pbmit-button-text">Register now</span>
                           </span>
                         </a>
                       </div>
                     </div>
                   </aside>
                   <aside className="widget">
-                    <h2 className="widget-title">Company profile</h2>
+                    <h2 className="widget-title">Company Profile</h2>
                     <div className="textwidget">
                       <div className="download">
                         <div className="item-download">
                           <a href="#" target="_blank" rel="noopener noreferrer">
                             <span className="pbmit-download-content">
-                              <i className="pbminfotech-base-icons pbmit-base-icon-document" />{" "}
-                              Download Pdf File
+                              <i className="pbminfotech-base-icons pbmit-base-icon-document" /> Download PDF File
                             </span>
                             <span className="pbmit-download-item">
                               <i className="pbminfotech-base-icons pbmit-righticon pbmit-base-icon-download" />
@@ -526,8 +358,7 @@ export default function ServiceDetail() {
                         <div className="item-download">
                           <a href="#" target="_blank" rel="noopener noreferrer">
                             <span className="pbmit-download-content">
-                              <i className="pbminfotech-base-icons pbmit-base-icon-document" />{" "}
-                              Download Word File
+                              <i className="pbminfotech-base-icons pbmit-base-icon-document" /> Download Word File
                             </span>
                             <span className="pbmit-download-item">
                               <i className="pbminfotech-base-icons pbmit-righticon pbmit-base-icon-download" />

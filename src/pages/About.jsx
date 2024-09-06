@@ -5,7 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./About.css";
 import { Reveal, Rotate, Slide } from "react-awesome-reveal";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
+import { Link } from "react-router-dom";
+import { trainerDetail } from "../components/Trainer";
 
 export default function About() {
   return (
@@ -57,14 +59,9 @@ export default function About() {
                       <div className="pbmit-fld-wrap">
                         <h4 className="pbmit-fid-inner">
                           <span className="pbmit-fid-before" />
-                          <span
-                            className="pbmit-number-rotate numinate completed"
-                           
-                          >
-                           <CountUp end={235}
-                           duration={10}/>
+                          <span className="pbmit-number-rotate numinate completed">
+                            <CountUp end={235} duration={10} />
                           </span>
-
                         </h4>
                         <div className="pbmit-fid-sub">
                           <div className="pbmit-heading-desc">
@@ -102,14 +99,9 @@ export default function About() {
                 <div className="pbmit-heading-subheading animation-style2">
                   <h4 className="pbmit-subtitle">About Us</h4>
                   <h2 className="pbmit-title" style={{ perspective: 400 }}>
-                    <Slide
-                      direction="right"
-                      duration={2000}
-                      delay={1000}
-                    >
+                    <Slide direction="right" duration={2000} delay={1000}>
                       Start you healthy life today with us
                     </Slide>
-
                   </h2>
                   <div className="pbmit-heading-desc">
                     There are many variations of passages of Lorem Ipsum
@@ -164,7 +156,7 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-                <a className="pbmit-btn pbmit-btn-global" href="classes.html">
+                {/* <a className="pbmit-btn pbmit-btn-global" href="classes.html">
                   <span className="pbmit-btn-content-wrapper">
                     <span className="pbmit-button-icon">
                       <svg
@@ -199,9 +191,52 @@ export default function About() {
                     </span>
                     <span className="pbmit-button-text">know more</span>
                   </span>
-                </a>
+                </a> */}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-md">
+        <div className="container">
+          <div className="row">
+            {trainerDetail.map((el, i) => (
+              <div className="col-md-6 col-xl-4" key={el.id}>
+                <div className="pbmit-ihbox-style-10">
+                  <div
+                    className="pbmit-ihbox-box"
+                    style={{ backgroundColor: "white" }}
+                  >
+                    <div className="pbmit-content-wrapper">
+                      <div className="pbmit-heading-desc">yoga trainer</div>
+                      <h2 className="pbmit-element-title">
+                        <Link
+                          style={{ color: "#448c74" }}
+                          to={`/about/traine/${el.id}`}
+                        >
+                          {el.name}
+                        </Link>
+                        <br /> Trainer
+                      </h2>
+                    </div>
+                    <div className="pbmit-ihbox-icon">
+                      <div className="pbmit-ihbox-icon-wrapper">
+                        <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
+                          <i
+                            className={`pbmit-yoge-icon pbmit-yoge-icon-yoga-pose-${
+                              i + 1
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="pbmit-ihbox-box-number">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

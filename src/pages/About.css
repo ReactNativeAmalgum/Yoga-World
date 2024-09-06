@@ -38,3 +38,23 @@
   .about-custom-row{
     padding:10px !important;
   }
+  .pbmit-ihbox-style-10{
+    position: relative;
+  }
+
+  /* src/ClipPathComponent.css */
+.pbmit-ihbox-box-number {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the div a circle */
+  background-color: blue; /* Circle color */
+  color: white; /* Text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Optional, for text boldness */
+  position: absolute; /* Allows precise positioning */
+  bottom: 10px; /* Distance from the bottom edge */
+  right: 10px; /* Distance from the right edge */
+}

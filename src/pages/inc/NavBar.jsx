@@ -1,13 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../index.css";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { Dropdown, Menu, Space } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 export default function NavBar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const [openSubMenu, setOpenSubMenu] = useState(null); // To handle which submenu is open
-  const [rightArrow , setRightArrow]  = useState(false)
   const menuRef = useRef(null);
 
   // Function to toggle the menu state
@@ -15,16 +12,10 @@ export default function NavBar() {
     setOpenMenu((prevState) => !prevState);
   };
 
-  // Function to toggle a specific submenu
-  const toggleSubMenu = (index) => {
-    setOpenSubMenu((prevState) => (prevState === index ? null : index));
-  };
-
   // Function to handle clicks outside the menu
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setOpenMenu(false); // Close the menu if the click is outside
-      setOpenSubMenu(null); // Optionally close the submenu
     }
   };
 
@@ -37,11 +28,18 @@ export default function NavBar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const handleArrow = ()=> {
-    alert()
-    console.log(rightArrow)
-    setRightArrow(true)
-  }
+
+  // Define menu items for the Dropdown
+  const menuItems = (
+    <Menu>
+      <Menu.Item key="1">
+        <a href="/service/1">Classes</a>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <a href="/service/2">Doctor Consultations</a>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
@@ -51,7 +49,7 @@ export default function NavBar() {
             <div className="pbmit-header-content d-flex justify-content-between align-items-center">
               <div className="site-branding">
                 <h1 className="site-title">
-                  <a href="index.html">
+                  <a href="/">
                     <img
                       className="logo-img"
                       src="https://cdn-ilbdkbh.nitrocdn.com/GGBSRezAcKtdtDGlymCMPjksrwxVOkHU/assets/images/optimized/rev-da2fefc/arogyayoghome.com/wp-content/uploads/2024/01/Arogya-yoghome-logo.png"
@@ -73,9 +71,8 @@ export default function NavBar() {
                     </button>
                   </div>
                   <div
-                    className={`collapse navbar-collapse ${
-                      openMenu ? "show" : ""
-                    }`}
+                    className={`collapse navbar-collapse ${openMenu ? "show" : ""
+                      }`}
                     id="pbmit-menu"
                   >
                     <div className="pbmit-menu-wrap">
@@ -104,40 +101,24 @@ export default function NavBar() {
                           <a href="/">Home</a>
                         </li>
 
-                        <li className="dropdown ">
-                          <a
-                            href="#"
-                            onClick={()=>handleArrow}
+                        <li className="dropdown">
+                          <Dropdown
+                            overlay={menuItems}
+                            trigger={['click']} // Opens on click
                           >
-                            Services
-                          </a>
-                          <span className="righticon" onClick={()=>handleArrow}>
-                            <i className={`pbmit-base-icon-angle-right `} />
-                          </span>
-                          <ul
-                            className={`sub-menu ${
-                              rightArrow ? "show-sub-menu" : ""
-                            }`}
-                          >
-                            <li>
-                              <a href="/service/offline_online">Classes</a>
-                            </li>
-                            <li>
-                              <a href="/service/doctor">Doctor Consultations</a>
-                            </li>
-                          </ul>
+                            <a onClick={(e) => e.preventDefault()}>
+                              <Space>
+                                Services
+                                <DownOutlined />
+                              </Space>
+                            </a>
+                          </Dropdown>
                         </li>
 
                         <li className="dropdown">
                           <a href="/about">About Us</a>
                         </li>
 
-                        <li className="dropdown">
-                          <a href="/servicedetail">Classes Detail</a>
-                        </li>
-                        <li className="dropdown">
-                          <a href="/traine">Trainers</a>
-                        </li>
                         <li>
                           <a href="/contact">Contact Us</a>
                         </li>
@@ -159,48 +140,6 @@ export default function NavBar() {
                     </a>
                   </div>
                 </div>
-                <div className="pbmit-header-search-btn">
-                  <a href="#" title="Search">
-                    <i className="pbmit-base-icon-search-1" />
-                  </a>
-                </div>
-                {/* <div className="pbmit-button-box-second">
-                  <a
-                    className="pbmit-btn pbmit-btn-global"
-                    href="contact-us.html"
-                  >
-                    <span className="pbmit-btn-content-wrapper">
-                      <span className="pbmit-button-text">
-                        Make An Appointment
-                      </span>
-                      <span className="pbmit-button-icon">
-                        <i className="pbmit-base-icon-black-arrow-1" />
-                      </span>
-                    </span>
-                  </a>
-                  <div className="pbmit-sticky-corner pbmit-top-left-corner">
-                    <svg
-                      width={30}
-                      height={30}
-                      viewBox="0 0 30 30"
-                      fill=""
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red" />
-                    </svg>
-                  </div>
-                  <div className="pbmit-sticky-corner pbmit-bottom-right-corner">
-                    <svg
-                      width={30}
-                      height={30}
-                      viewBox="0 0 30 30"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red" />
-                    </svg>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

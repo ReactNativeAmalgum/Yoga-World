@@ -13,11 +13,12 @@ import {
 } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Footer.css";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <>
       <section className="bottom-bar-cont">
@@ -25,7 +26,7 @@ export default function Footer() {
         <div className="container">
           <div className="footer-row">
             <div className="footer-col-6">
-              <h3>Abouts</h3>
+              <h3 style={{ paddingTop: 5 }}>Abouts</h3>
               <p>
                 Welcome to Yoga Home, where we understand the challenges of
                 modern lifestyles and their impact on physical and emotional
@@ -37,11 +38,26 @@ export default function Footer() {
             </div>
             <div className="footer-nav-cont  col-2">
               <h3>General</h3>
-              <p className="footer-nav-cont">About Us</p>
-              <p>Rooms</p>
-              <p>Services</p>
-              <p>Experience</p>
-              <p>FAQ's</p>
+              <p>
+                <Link className="footer-nav-cont-p" to="/">
+                  Home
+                </Link>
+              </p>
+              <p>
+                <Link className="footer-nav-cont-p" to="/services">
+                  Services
+                </Link>
+              </p>
+              <p>
+                <Link className="footer-nav-cont-p" to="/about">
+                  About Us
+                </Link>
+              </p>
+              <p>
+                <Link className="footer-nav-cont-p" to="/contact">
+                  Contact Us
+                </Link>
+              </p>
             </div>
             <div className="footer-nav-cont col-2">
               <h3>Connect</h3>
@@ -75,10 +91,7 @@ export default function Footer() {
       </section>
       <section>
         <div className="copywright">
-          <p>
-            2024 ©️ Yrogya Yoghome | All rights reserved |
-           #SKDM
-          </p>
+          <p>2024 ©️ Yrogya Yoghome | All rights reserved | #SKDM</p>
         </div>
       </section>
     </>

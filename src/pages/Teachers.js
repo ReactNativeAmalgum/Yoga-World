@@ -4,6 +4,8 @@ import { FaFilePdf } from "react-icons/fa";
 import ProgressCircle from "../components/ProgressCircle";
 import { Reveal, Rotate, Slide } from "react-awesome-reveal";
 import { motion } from "framer-motion";
+import { useParams } from "react-router-dom";
+import { trainerDetail } from "../components/Trainer";
 
 export default function Teachers() {
   const [isInView, setIsInView] = useState(false);
@@ -26,6 +28,12 @@ export default function Teachers() {
   }, []);
   const heading = "Personal Information".split(" ");
 
+  const { id } = useParams();
+  const trainers = trainerDetail.find((trainer) => trainer.id === Number(id));
+  
+  if(!trainers){
+    console.log('Trainers not found!')
+  }
   return (
     <>
       <div class="pbmit-title-bar-wrapper">
@@ -73,7 +81,7 @@ export default function Teachers() {
             <div className="trainer-cont">
               <div className="pbmit-featured-wrapper">
                 <img
-                  src="https://cdn-ilbdkbh.nitrocdn.com/GGBSRezAcKtdtDGlymCMPjksrwxVOkHU/assets/images/optimized/rev-da2fefc/arogyayoghome.com/wp-content/uploads/2024/05/Trainer-2.jpeg"
+                  src={trainers.img}
                   className="img-fluid w-100"
                   alt=""
                 />
@@ -88,7 +96,7 @@ export default function Teachers() {
                     YOGA TRAINER
                   </p>
                 </div>
-                <h6 className="pbmit-team-title">Jayprakash Dhakad</h6>
+                <h6 className="pbmit-team-title">{trainers.name}</h6>
                 <div className="underline mx-auto"></div>
                 <div className="teacher-contact-cont">
                   <h6>PHONE NUMBER</h6>
@@ -127,22 +135,12 @@ export default function Teachers() {
                 ))}
                   </h4>
                   <span className="teacher-p-info">
-                    <span className="special-word">W</span>This column takes up
-                    9/12 of the width on extra-large screens. This column takes
-                    up 9/12 of the width on extra-large screens. This column
-                    takes up 9/12 of the width on extra-large screens. This
-                    column takes up 9/12 of the width on extra-large screens.
-                    This column takes up 9/12 of the width on extra-large
-                    screens.
+                    <span className="special-word">W</span>{trainers.para1}
                   </span>
                   <br />
                   <br />
                   <p>
-                    This column takes up 9/12 of the width on extra-large
-                    screens. This column takes up 9/12 of the width on
-                    extra-large screens. This column takes up 9/12 of the width
-                    on extra-large screens. This column takes up 9/12 of the
-                    width on extra-large screens.
+                    {trainers.para2}
                   </p>
                   <div className="certificate-cont">
                     <div class="container">
@@ -151,7 +149,7 @@ export default function Teachers() {
                           <h6>Specially:</h6>
                         </div>
                         <div class="col-md-8 custom-col-right-inner">
-                          <p>Conclusion, self practice and self study</p>
+                          <p>{trainers.specially}</p>
                         </div>
                       </div>
                       <div class="row no-gap exp-cer-spe-column">
@@ -159,7 +157,7 @@ export default function Teachers() {
                           <h6>Certification:</h6>
                         </div>
                         <div class="col-md-8 custom-col-right-inner">
-                          <p>Conclusion, self practice and self study</p>
+                          <p>{trainers.certification}</p>
                         </div>
                       </div>
                       <div class="row no-gap exp-cer-spe-column">
@@ -167,7 +165,7 @@ export default function Teachers() {
                           <h6>Experience:</h6>
                         </div>
                         <div class="col-md-8 custom-col-right-inner">
-                          <p>5+, self practice and self study</p>
+                          <p>{trainers.Experience}</p>
                         </div>
                       </div>
                     </div>
@@ -209,36 +207,24 @@ export default function Teachers() {
                   </div>
                 </div>
               </div> */}
-                <div class="progress-container">
-                  <ProgressCircle
-                    class="progress-circle"
-                    value={85}
-                    fill="#448c74"
-                    emptyFill="#e9f0ec"
-                    size={150}
-                    thickness={5}
-                    label="Caring Your Flex Body"
-                  />
-                  <ProgressCircle
-                    class="progress-circle"
-                    value={70}
-                    fill="#448c74"
-                    emptyFill="#e9f0ec"
-                    size={150}
-                    thickness={5}
-                    label="Skills for life transitions"
-                  />
-                  <ProgressCircle
-                    class="progress-circle"
-                    className="special-circle"
-                    value={90}
-                    fill="#448c74"
-                    emptyFill="#e9f0ec"
-                    size={150}
-                    thickness={5}
-                    label="Access to your inner wisdom"
-                  />
-                </div>
+              <div className="progress-container">
+                      {[
+                        { value: trainers.flex, label: "Caring Your Flex Body" },
+                        { value: trainers.skill, label: "Skills for life transitions" },
+                        { value: trainers.access, label: "Access to your inner wisdom" },
+                      ].map((circle, index) => (
+                        <ProgressCircle
+                          key={index}
+                          className={`progress-circle ${index === 2 ? "special-circle" : ""}`}
+                          value={circle.value}
+                          fill="#448c74"
+                          emptyFill="#e9f0ec"
+                          size={150}
+                          thickness={5}
+                          label={circle.label}
+                        />
+                      ))}
+                    </div>
               </div>
             </div>
           </div>

@@ -10,10 +10,19 @@ import Events from "./pages/Events";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./inc/Footer";
 import Online_Offline from "./inc/Online_Offline";
-import Doctor from "./inc/Doctor";
 import ServiceDetail from "./pages/ServiceDetail";
 import HomeReview from "./pages/inc/HomeReview";
+import { eevent, events } from "./components/Trainer";
+import Doctor from "./inc/Doctor";
+
 export default function App() {
+  const eventsId1 = eevent.flatMap((category) =>
+    category.eventData.filter((event) => event.id === 1)
+  );
+
+  const eventsId2 = eevent.flatMap((category) =>
+    category.eventData.filter((event) => event.id === 2)
+  );
   return (
     <Router>
       <div>
@@ -23,14 +32,30 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Services />} />
-          <Route path="/service/offline_online" element={<Online_Offline />} />
-          <Route path="/service/doctor" element={<Doctor />} />
-          <Route path="/serviceDetail" element={<ServiceDetail />} />
 
+          {eevent.map((v, i) => (
+            <Route key={v.id} path={`/service/${v.id}`} element={<Online_Offline />} />
+          ))}
+
+          {eevent.map((v) =>
+            v.eventData.map((c) => (
+              <Route
+                key={`${v.id}-${c.slug}`}
+                path={`/service/${v.id}${c.slug}`}
+                element={<ServiceDetail />}
+              />
+            ))
+          )}
+
+          <Route path="/service/doctor/:slug" element={<Doctor />} />
+          {/* <Route
+            path="/service/doctor/serviceDetail/"
+            element={<ServiceDetail />}
+          /> */}
           <Route path="/traine" element={<Teachers />} />
+          <Route path="/about/traine/:id" element={<Teachers />} />
           <Route path="/events" element={<Events />} />
           <Route path="/review" element={<HomeReview />} />
-
         </Routes>
         <Footer />
       </div>
