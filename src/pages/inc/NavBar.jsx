@@ -32,11 +32,15 @@ export default function NavBar() {
   // Define menu items for the Dropdown
   const menuItems = (
     <Menu>
+
       <Menu.Item key="1">
         <a href="/service/1">Classes</a>
       </Menu.Item>
       <Menu.Item key="2">
         <a href="/service/2">Doctor Consultations</a>
+      </Menu.Item>
+      <Menu.Item key="3">
+        <a href="/service/3">Types of Yoga</a>
       </Menu.Item>
     </Menu>
   );
@@ -104,7 +108,7 @@ export default function NavBar() {
                         <li className="dropdown">
                           <Dropdown
                             overlay={menuItems}
-                            trigger={['click']} 
+                            trigger={['click']}
                           >
                             <a onClick={(e) => e.preventDefault()}>
                               <Space>

@@ -8,17 +8,22 @@ import HomeTween from './inc/HomeTween'
 import HomeTranies from './inc/HomeTranies'
 import HomeSignup from './inc/HomeSignup'
 import HomeReview from './inc/HomeReview'
+import HomeGallery from './inc/HomeGallery'
+import HomeAbout from './inc/HomeAbout'
 
 export default function Home() {
   return (
     <>
       <CarouselBanner />
       <MoreMember />
+      <HomeAbout />
       <HomeService />
       <HomeMarkq />
       <HomeClassWork />
       <HomeTween />
       <HomeTranies />
+   
+      <HomeGallery />
       <HomeSignup />
       <HomeReview />
     </>

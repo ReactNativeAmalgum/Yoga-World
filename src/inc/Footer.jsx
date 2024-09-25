@@ -13,12 +13,12 @@ import {
 } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 
 import "./Footer.css";
 
 export default function Footer() {
-  const navigate = useNavigate();
+
   return (
     <>
       <section className="bottom-bar-cont">

@@ -1,0 +1,20 @@
+.about-section-cont{
+    margin-top:50px
+}
+.Homeabout-cont {
+    clip-path: inset(0% 4.775% round 28.65px);
+    margin: 10px;
+    margin-top: 50px;
+    border-radius: 30px;
+    transition: clip-path 1s ease; /* Smooth animation over 1 second */
+  }
+  
+  .Homeabout-cont:hover {
+    clip-path: inset(0% 0% round 0px); /* Full width transformation on hover */
+  }
+  
+  .homeabout-progress-circle{
+    width: 20px !important;
+    height: 20px !important;
+  }
+

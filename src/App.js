@@ -14,6 +14,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import HomeReview from "./pages/inc/HomeReview";
 import { eevent, events } from "./components/Trainer";
 import Doctor from "./inc/Doctor";
+import Yoga_type from "./inc/Yoga_type";
 
 export default function App() {
   const eventsId1 = eevent.flatMap((category) =>
@@ -46,7 +47,13 @@ export default function App() {
               />
             ))
           )}
+          {eevent.map((v, i) => (
+            <Route key={v.id} path={`/service/${v.id}`} element={<Online_Offline />} />
+          ))}
 
+          {eevent.map((v, i) => (
+            <Route key={v.id} path={`/service/${v.id}`} element={<Yoga_type />} />
+          ))}
           <Route path="/service/doctor/:slug" element={<Doctor />} />
           {/* <Route
             path="/service/doctor/serviceDetail/"
