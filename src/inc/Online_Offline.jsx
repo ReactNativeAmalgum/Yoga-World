@@ -180,7 +180,7 @@ export default function Online_Offline() {
                                   </a>
                                 </h3>
                               </div>
-                              <div className="pbmit-event-meta d-flex align-items-center">
+                              {/* <div className="pbmit-event-meta d-flex align-items-center">
                                 <div className="pbmit-event-meta-line pbmit-event-time d-flex">
                                   <i className="pbmit-base-icon-time" />
                                   <div className="pbmit-event-meta-time">
@@ -193,7 +193,7 @@ export default function Online_Offline() {
                                     {event.registrationDate}
                                   </span>
                                 </div>
-                              </div>
+                              </div> */}
                               <div className="pbmit-event-price">
                                 <div
                                   onClick={handleShow}

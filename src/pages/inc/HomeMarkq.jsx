@@ -25,60 +25,19 @@ export default function HomeMarkq() {
           <div className="marquee" id="marquee">
             <article className="pbmit-marquee-effect-style-1">
               <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Ashtanga vinyasa yoga">
-                  Ashtanga vinyasa yoga
+                <h2 className="pbmit-element-title" data-text="Arogya Yoghome">
+                  Arogya Yoghome
                 </h2>
               </div>
             </article>
             <article className="pbmit-marquee-effect-style-1">
               <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Iyengar Yoga">
-                  Iyengar Yoga
+                <h2 className="pbmit-element-title" data-text="Yoga Threapy Yoga">
+                  Yoga Threapy Yoga
                 </h2>
               </div>
             </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Hot yoga">
-                  Hot yoga
-                </h2>
-              </div>
-            </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Kundalini yoga">
-                  Kundalini yoga
-                </h2>
-              </div>
-            </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Ashtanga vinyasa yoga">
-                  Ashtanga vinyasa yoga
-                </h2>
-              </div>
-            </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Iyengar Yoga">
-                  Iyengar Yoga
-                </h2>
-              </div>
-            </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Hot yoga">
-                  Hot yoga
-                </h2>
-              </div>
-            </article>
-            <article className="pbmit-marquee-effect-style-1">
-              <div className="pbmit-tag-wrapper">
-                <h2 className="pbmit-element-title" data-text="Kundalini yoga">
-                  Kundalini yoga
-                </h2>
-              </div>
-            </article>
+
           </div>
         </div>
       </div>

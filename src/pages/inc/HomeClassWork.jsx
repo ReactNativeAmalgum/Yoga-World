@@ -13,15 +13,16 @@ import groupYoga from "../../images/group_yoga_slider.jpg";
 import corporate_yoga from "../../images/Corporate_Yoga.jpeg";
 import women from "../../images/Women_yoga.jpeg";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function HomeClassWork() {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/contact");
     window.scrollTo(0,0);
+    navigate("/contact");
+
   };
 
   const [isInView, setIsInView] = useState(false);
@@ -219,7 +220,7 @@ export default function HomeClassWork() {
                               <a href={slide.link}>{slide.title}</a>
                             </h3>
                           </div>
-                          <div className="pbmit-event-meta d-flex align-items-center">
+                          {/* <div className="pbmit-event-meta d-flex align-items-center">
                             <div className="pbmit-event-meta-line pbmit-event-time d-flex">
                               <i className="pbmit-base-icon-time" />
                               <div className="pbmit-event-meta-time">
@@ -232,17 +233,19 @@ export default function HomeClassWork() {
                                 {slide.registrationDate}
                               </span>
                             </div>
-                          </div>
+                          </div> */}
                           <div
-                            onClick={handleClick}
+                            // onClick={ handleClick}
                             style={{ borderWidth: 1, borderColor: "white" }}
                             className="pbmit-event-price"
                           >
+                          <Link to={'/contact'} onClick={window.scrollTo(0,0)}>
                             <div className="pbmit-event-meta-price">
                               <span style={{ color: "white" }}>
                                 Enquiry Now
                               </span>
                             </div>
+                            </Link>
                           </div>
                         </div>
                       </div>

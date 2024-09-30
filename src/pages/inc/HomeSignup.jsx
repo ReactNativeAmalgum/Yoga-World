@@ -32,7 +32,7 @@ export default function HomeSignup() {
               </div>
             </div>
           </div>
-          <div className="col-md-6 homesign-custom-col">
+          {/* <div className="col-md-6 homesign-custom-col">
             <div className="ihbox-style-5_bg">
               <div className="pbmit-ihbox-style-5">
                 <div className="pbmit-ihbox-box d-flex align-items-center">
@@ -94,7 +94,7 @@ export default function HomeSignup() {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

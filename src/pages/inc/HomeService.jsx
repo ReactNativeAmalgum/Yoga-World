@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import { Autoplay } from "swiper/modules";
 
 // Slide data
 const slidesData = [
@@ -92,15 +93,21 @@ export default function HomeService() {
         <div className="home-service-swiper-cont container">
           <Swiper
             slidesPerView={1}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+            }}
             navigation
             pagination={{ clickable: true }}
             loop={true}
+            speed={1000}
             breakpoints={{
               640: { slidesPerView: 1, spaceBetween: 30 },
               768: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 2, spaceBetween: 30 },
               1440: { slidesPerView: 3, spaceBetween: 30 },
             }}
+            modules={[Autoplay]}
           >
             {slidesData.map((slide) => (
               <SwiperSlide
@@ -121,7 +128,7 @@ export default function HomeService() {
                     />
                   </div>
                   <div className="separate-circle">
-                    <Link style={{color:'black'}} to={slide.link}>
+                    <Link style={{ color: 'black' }} to={slide.link}>
                       <i className="pbmit-base-icon-black-arrow-1" />
                     </Link>
                   </div>

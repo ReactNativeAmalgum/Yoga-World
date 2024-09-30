@@ -22,7 +22,6 @@ export default function Home() {
       <HomeClassWork />
       <HomeTween />
       <HomeTranies />
-   
       <HomeGallery />
       <HomeSignup />
       <HomeReview />

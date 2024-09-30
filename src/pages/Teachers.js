@@ -93,17 +93,17 @@ export default function Teachers() {
                     style={{ color: "white" }}
                     className="teacher-card-content"
                   >
-                    YOGA TRAINER
+                    YOGA TRAINER / YOGA THREAPIST
                   </p>
                 </div>
                 <h6 className="pbmit-team-title">{trainers.name}</h6>
                 <div className="underline mx-auto"></div>
-                <div className="teacher-contact-cont">
+                {/* <div className="teacher-contact-cont">
                   <h6>PHONE NUMBER</h6>
                   <div className="teacher-personal-info-cont">
                     <span>+91 392939384</span>
                   </div>
-                </div>
+                </div> */}
                 <div className="teacher-contact-cont">
                   <h6>CERTIFICATE </h6>
                   <div className="teacher-personal-info-cont ">
